@@ -25,6 +25,25 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L104) some compiler's extra flags because of safety
 * automatically [adds unit tests](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L240) (Boost), if source `test/test_<TARGET_NAME>.cpp` was found
 
+# How to:
+1. clone that repositoy to your local machine
+2. add [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
+3. add some external libraries [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L225). example of attaching some external libraries:
+```
+...
+#------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------
+# ATTACH EXTERNAL LIBRARIES BELOW...
+
+find_package(OpenCV REQUIRED)
+target_link_libraries(${OUTPUT_NAME} PUBLIC opencv::opencv)
+
+target_link_libraries(${OUTPUT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/myOwnSDK/lib/x64/libMySDK.so")
+target_include_directories(${OUTPUT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/myOwnSDK/include")
+...
+```
+4. add source of uint tests by the path `test/test_<PROJECT_NAME>.cpp` or add/change you testing configuration [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L236)
+
 # Tested on:
 * Linux (GCC,Clang)
 * Windows (Clang,MinGW,MSVC)
