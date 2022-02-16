@@ -21,6 +21,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Features:
+* auto apply root folder's name as name of a project/library
 * auto scan/add into project's tree all of needed sources and includes of the project and child libs
 * auto adding of some of libraries: Boost, Qt5, Qt6
 * easy and flexible configuration process of sources tree
