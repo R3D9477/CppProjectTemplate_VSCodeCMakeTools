@@ -9,13 +9,13 @@ Universal simple skeleton of project's tree, based on CMake build system.
 *   |- test
 *   |- lib
 *      |- [ SOMELIB ]
-*         |-` [CMakeLists.txt](lib/somelib/CMakeLists.txt)
+*         |- [CMakeLists.txt](lib/somelib/CMakeLists.txt)
 *         |- include
 *         |- src
 *         |- test
 *         |- thirdparty
 *         |- [ THIRDLIB ]
-*            |-` [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+*            |- [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
 *            |- include
 *            |- src
 *            |- test
