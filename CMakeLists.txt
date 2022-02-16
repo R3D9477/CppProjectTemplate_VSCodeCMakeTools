@@ -21,7 +21,7 @@ set(SOURCE_EXTENSIONS *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tc
 function(get_sources_from_dir DEST_SRCs_VAR DEST_INCs_VAR SRC_DIR)
   foreach(SRC_EXT ${SOURCE_EXTENSIONS})
     file(GLOB DIR_SRCs "${SRC_DIR}/${SRC_EXT}")
-    if(NOT ${DIR_SRCs} STREQUAL "")
+    if(NOT "${DIR_SRCs}" STREQUAL "")
       get_filename_component(DIR_SRCs "${DIR_SRCs}" ABSOLUTE)
       if(NOT "${DIR_SRCs}" IN_LIST ${DEST_SRCs_VAR})
         list(APPEND ${DEST_SRCs_VAR} ${DIR_SRCs})
