@@ -21,10 +21,15 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Features:
-* auto apply name of directory as name of a project/library
-* auto scan/add into project's tree all of needed sources and includes of the project and child libs
-* auto adding of some of libraries: Boost, Qt5, Qt6
-* easy and flexible configuration process of sources tree
+* automatically [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L6) name of directory as name of a project/library
+* automatically applies scans and adds needed sources and includes into the project's tree (all sources are separated by targets)
+* automatically adds some of libraries: [Boost](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L198), [Qt5](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L40), [Qt6](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L40)
+* easy and flexible [configuration process](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) of sources tree (just add needed folder to list)
+* [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L104) some compiler's extra flags because of safety
+
+# Tested on:
+* Linux (GCC,Clang)
+* Windows (CLang,MinGW,MSVC)
 
 # Links:
 * based on https://gist.github.com/R3D9477/308b6e709241956e72491bc59defbc12
