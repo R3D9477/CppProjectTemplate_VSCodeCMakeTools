@@ -2,12 +2,8 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
-```
-[ PROJECT ]
-```
-```
-  |- ``` [CMakeLists.txt](CMakeLists.txt)
-
+`[ PROJECT ]`
+`|- `[CMakeLists.txt](CMakeLists.txt)
 ```
   |- include
   |- src
@@ -15,19 +11,20 @@ Universal simple skeleton of project's tree, based on CMake build system.
   |- lib
     |- [ SOMELIB ]
 ```
+`    |- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
 ```
-    |- ```[CMakeLists.txt](lib/somelib/CMakeLists.txt)
+      |- include
+      |- src
+      |- test
+      |- thirdparty
+        |- [ THIRDLIB ]
 ```
-            |- include`
-            |- src`
-            |- test`
-            |- thirdparty`
-                |- [ THIRDLIB ]
+`        |- `[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
 ```
-`                    |- `[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
-`                    |- include`
-`                    |- src`
-`                    |- test`
+        |- include
+        |- src
+        |- test
+```
 
 # Features:
 * auto scan/add into project's tree all of needed sources and includes of the project and child libs
