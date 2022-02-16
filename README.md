@@ -13,7 +13,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
    |- lib
       |- [ SOMELIB ]
 ```
-`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/CMakeLists.txt)
+`ㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/CMakeLists.txt)
 ```
          |- include
          |- src
@@ -21,7 +21,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
          |- thirdparty
          |- [ THIRDLIB ]
 ```
-`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
 ```
             |- include
             |- src
