@@ -2,10 +2,10 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
-`[ PROJECT ]`
-`    |- `[CMakeLists.txt](CMakeLists.txt)
-`    |- include`
-`    |- src`
+```[ PROJECT ]```
+```    |- ```[CMakeLists.txt](CMakeLists.txt)
+```    |- include```
+```    |- src```
 `    |- test`
 `    |- lib`
 `        |- [ SOMELIB ]`
