@@ -30,5 +30,4 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * Windows (CLang,MinGW,MSVC)
 
 # Links:
-* based on https://gist.github.com/R3D9477/308b6e709241956e72491bc59defbc12
 * used in https://github.com/R3D9477/EmptyQmlMuiApp
