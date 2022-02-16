@@ -2,23 +2,23 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
-* ㅤ[ PROJECT ]
-* ㅤㅤㅤ|- [CMakeLists.txt](CMakeLists.txt)
-* ㅤㅤㅤ|- include
-* ㅤㅤㅤ|- src
-* ㅤㅤㅤ|- test
-* ㅤㅤㅤ|- lib
-* ㅤㅤㅤㅤㅤㅤ|- [ SOMELIB ]
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/CMakeLists.txt)
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [ THIRDLIB ]
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
-* ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+  ㅤ[ PROJECT ]
+  ㅤㅤㅤ|- [CMakeLists.txt](CMakeLists.txt)
+  ㅤㅤㅤ|- include
+  ㅤㅤㅤ|- src
+  ㅤㅤㅤ|- test
+  ㅤㅤㅤ|- lib
+  ㅤㅤㅤㅤㅤㅤ|- [ SOMELIB ]
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/CMakeLists.txt)
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [ THIRDLIB ]
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Features:
 * auto scan/add into project's tree all of needed sources and includes of the project and child libs
