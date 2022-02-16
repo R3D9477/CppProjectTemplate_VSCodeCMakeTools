@@ -2,20 +2,20 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
-[ PROJECT ]
-<br/>ㅤㅤㅤ|- [CMakeLists.txt](CMakeLists.txt)
+**[ PROJECT ]**
+<br/>ㅤㅤㅤ|- *[CMakeLists.txt](CMakeLists.txt)*
 <br/>ㅤㅤㅤ|- include
 <br/>ㅤㅤㅤ|- src
 <br/>ㅤㅤㅤ|- test
 <br/>ㅤㅤㅤ|- lib
-<br/>ㅤㅤㅤㅤㅤㅤ|- [ SOMELIB ]
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/CMakeLists.txt)
+<br/>ㅤㅤㅤㅤㅤㅤ|- **[ somelib ]**
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/CMakeLists.txt)*
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [ THIRDLIB ]
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- **[ thirdlib ]**
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)*
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
