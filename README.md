@@ -8,13 +8,13 @@ Universal simple skeleton of project's tree, based on CMake build system.
 `ㅤㅤㅤ|- `[CMakeLists.txt](CMakeLists.txt)
 
 ```
-    |- include
-    |- src
-    |- test
-    |- lib
-        |- [ SOMELIB ]
+ㅤㅤㅤ|- include
+ㅤㅤㅤ|- src
+ㅤㅤㅤ|- test
+ㅤㅤㅤ|- lib
+ㅤㅤㅤㅤㅤㅤ|- [ SOMELIB ]
 ```
-`           |- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
+`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
 ```
             |- include`
             |- src`
