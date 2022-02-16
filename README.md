@@ -30,4 +30,5 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * Windows (CLang,MinGW,MSVC)
 
 # Links:
-* used in https://github.com/R3D9477/EmptyQmlMuiApp
+* used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
+* used in demo ["Simple Custom Qml Item Qt6 Cmake"](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake)
