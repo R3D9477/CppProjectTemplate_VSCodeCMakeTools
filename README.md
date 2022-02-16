@@ -5,16 +5,18 @@ Universal simple skeleton of project's tree, based on CMake build system.
 ```
 [ PROJECT ]
 ```
-`ㅤㅤㅤ|- `[CMakeLists.txt](CMakeLists.txt)
+```
+  |- ```[CMakeLists.txt](CMakeLists.txt)
 
 ```
-ㅤㅤㅤ|- include
-ㅤㅤㅤ|- src
-ㅤㅤㅤ|- test
-ㅤㅤㅤ|- lib
-ㅤㅤㅤㅤㅤㅤ|- [ SOMELIB ]
+  |- include
+  |- src
+  |- test
+  |- lib
+    |- [ SOMELIB ]
 ```
-`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
+```
+    |- ```[CMakeLists.txt](lib/somelib/CMakeLists.txt)
 ```
             |- include`
             |- src`
