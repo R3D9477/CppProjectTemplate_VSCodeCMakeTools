@@ -6,15 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 get_filename_component(OUTPUT_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 project(${OUTPUT_NAME} VERSION 0.1 LANGUAGES CXX)
 
-# - DEFINE THE LIST OF THE SOURCES OF CURRENT TARGET BELOW IN VARIABLE SCAN_SOURCES_FOLDER
+# - DEFINE THE LIST OF THE SOURCES (CURRENT TARGET) BELOW IN VARIABLE SCAN_SOURCES_FOLDER
 # - ATTACH EXTERNAL LIBRARIES AT THE BOTTOM THAT CONFIG
 list(APPEND SCAN_SOURCES_FOLDER ".")
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
 # Scan project's sources folders.
-
-#set(PROJECT_NAME ${OUTPUT_NAME})
 
 set(SOURCE_EXTENSIONS *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tcc *.tpp *.ipp *.qrc)
 
