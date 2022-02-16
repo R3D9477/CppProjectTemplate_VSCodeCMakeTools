@@ -21,7 +21,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
          |- thirdparty
          |- [ THIRDLIB ]
 ```
-`ㅤㅤㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|-` [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
 ```
             |- include
             |- src
