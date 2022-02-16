@@ -2,7 +2,9 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
-`[ PROJECT ]`
+```
+[ PROJECT ]
+```
 `ㅤㅤ|- `[CMakeLists.txt](CMakeLists.txt)
 ```
   |- include
