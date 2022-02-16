@@ -19,22 +19,26 @@ set(SOURCE_EXTENSIONS *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tc
 function(get_sources_from_dir DEST_SRCs_VAR DEST_INCs_VAR SRC_DIR)
   foreach(SRC_EXT ${SOURCE_EXTENSIONS})
     file(GLOB DIR_SRCs "${SRC_DIR}/${SRC_EXT}")
-    get_filename_component(DIR_SRCs "${DIR_SRCs}" ABSOLUTE)
-    if (NOT "${DIR_SRCs}" IN_LIST ${DEST_SRCs_VAR})
-      list(APPEND ${DEST_SRCs_VAR} ${DIR_SRCs})
+    if(NOT ${DIR_SRCs} STREQUAL "")
+      get_filename_component(DIR_SRCs "${DIR_SRCs}" ABSOLUTE)
+      if(NOT "${DIR_SRCs}" IN_LIST ${DEST_SRCs_VAR})
+        list(APPEND ${DEST_SRCs_VAR} ${DIR_SRCs})
+        set(${DEST_SRCs_VAR} ${${DEST_SRCs_VAR}} PARENT_SCOPE)
+      endif()
     endif()
     get_filename_component(SRC_DIR "${SRC_DIR}" ABSOLUTE)
-    if (NOT "${SRC_DIR}" IN_LIST ${DEST_INCs_VAR})
+    if(NOT "${SRC_DIR}" IN_LIST ${DEST_INCs_VAR})
       list(APPEND ${DEST_INCs_VAR} ${SRC_DIR})
+      set(${DEST_INCs_VAR} ${${DEST_INCs_VAR}} PARENT_SCOPE)
     endif()
   endforeach()
-  set(${DEST_SRCs_VAR} ${${DEST_SRCs_VAR}} PARENT_SCOPE)
-  set(${DEST_INCs_VAR} ${${DEST_INCs_VAR}} PARENT_SCOPE)
 endfunction()
 
 foreach(SRC_FOLDER ${SCAN_SOURCES_FOLDER})
-  get_sources_from_dir(PROJECT_SOURCES PROJECT_INCLUDES ${SRC_FOLDER})
+  get_sources_from_dir(${OUTPUT_NAME}_SOURCES ${OUTPUT_NAME}_INCLUDES ${SRC_FOLDER})
 endforeach()
+
+message("INCLUDE >>> ${${OUTPUT_NAME}_INCLUDES}")
 
 #------------------------------------------------------------------------------------------------------
 # Add Qt application (if possible).
@@ -56,7 +60,8 @@ if(QT_FOUND)
   if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     set(MODULE_NAME "${OUTPUT_NAME}")
     set(OUTPUT_NAME "app${OUTPUT_NAME}")
-    qt_add_executable(${OUTPUT_NAME} ${PROJECT_SOURCES})
+    qt_add_executable(${OUTPUT_NAME} ${${MODULE_NAME}_SOURCES})
+    target_include_directories(${OUTPUT_NAME} PUBLIC ${${MODULE_NAME}_INCLUDES})
     file(GLOB_RECURSE MODULE_QMLs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.qml)
     qt_add_qml_module(${OUTPUT_NAME} URI ${MODULE_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
     # Define target properties for Android with Qt 6 as:
@@ -65,16 +70,14 @@ if(QT_FOUND)
     # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
   else()
     if(ANDROID)
-      add_library(${OUTPUT_NAME} SHARED ${PROJECT_SOURCES})
+      add_library(${OUTPUT_NAME} SHARED ${${OUTPUT_NAME}_SOURCES})
       # Define properties for Android with Qt 5 after find_package() calls as:
       #  set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-      add_executable(${OUTPUT_NAME} ${PROJECT_SOURCES})
+      add_executable(${OUTPUT_NAME} ${${OUTPUT_NAME}_SOURCES})
     endif()
-  endif()
 
-  target_compile_definitions(${OUTPUT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-  target_link_libraries(${OUTPUT_NAME} PUBLIC Qt::Core Qt::Quick Qt::Widgets)
+  endif()
 
   set_target_properties(${OUTPUT_NAME} PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER "com.${OUTPUT_NAME}"
@@ -82,16 +85,23 @@ if(QT_FOUND)
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
   )
 
+  function(target_add_Qt TARGET_NAME)
+    target_compile_definitions(${TARGET_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+    target_link_libraries(${TARGET_NAME} PUBLIC Qt::Core Qt::Quick Qt::Widgets)
+  endfunction()
+
+  target_add_Qt(${OUTPUT_NAME})
+
 #------------------------------------------------------------------------------------------------------
 # Add common application (if Qt is not exists).
 
 else()
-  add_executable(${OUTPUT_NAME} ${PROJECT_SOURCES})
+  add_executable(${OUTPUT_NAME} ${${OUTPUT_NAME}_SOURCES})
 endif()
 
 #------------------------------------------------------------------------------------------------------
 
-target_include_directories(${OUTPUT_NAME} PRIVATE ${PROJECT_INCLUDES})
+target_include_directories(${OUTPUT_NAME} PUBLIC ${${OUTPUT_NAME}_INCLUDES})
 
 #------------------------------------------------------------------------------------------------------
 # Compiler's safety flags.
@@ -217,12 +227,8 @@ target_add_boost(${OUTPUT_NAME})
 #------------------------------------------------------------------------------------------------------
 # ATTACH EXTERNAL LIBRARIES BELOW...
 
-#...
-#...
-#...
-
 add_subdirectory("lib/somelib")
-target_link_libraries(${OUTPUT_NAME} PUBLIC lib_somelib)
+target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib")
 
 #...
 #...
@@ -231,6 +237,14 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC lib_somelib)
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS BELOW...
+
+if(EXISTS "test/test_${OUTPUT_NAME}.cpp")
+  add_executable(test_${OUTPUT_NAME} "test/test_${OUTPUT_NAME}.cpp")
+  target_include_directories(test_${OUTPUT_NAME} PUBLIC ${${OUTPUT_NAME}_INCLUDES})
+  target_link_libraries(test_${OUTPUT_NAME} PRIVATE Boost::unit_test_framework)
+  target_link_libraries(test_${OUTPUT_NAME} PRIVATE lib_${OUTPUT_NAME})
+  add_test(test_${OUTPUT_NAME} test_${OUTPUT_NAME})
+endif()
 
 #...
 #...
