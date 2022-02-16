@@ -14,6 +14,8 @@ list(APPEND SCAN_SOURCES_FOLDER ".")
 #------------------------------------------------------------------------------------------------------
 # Scan project's sources folders.
 
+#set(PROJECT_NAME ${OUTPUT_NAME})
+
 set(SOURCE_EXTENSIONS *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tcc *.tpp *.ipp *.qrc)
 
 function(get_sources_from_dir DEST_SRCs_VAR DEST_INCs_VAR SRC_DIR)
@@ -35,10 +37,8 @@ function(get_sources_from_dir DEST_SRCs_VAR DEST_INCs_VAR SRC_DIR)
 endfunction()
 
 foreach(SRC_FOLDER ${SCAN_SOURCES_FOLDER})
-  get_sources_from_dir(${OUTPUT_NAME}_SOURCES ${OUTPUT_NAME}_INCLUDES ${SRC_FOLDER})
+  get_sources_from_dir(${PROJECT_NAME}_SOURCES ${PROJECT_NAME}_INCLUDES ${SRC_FOLDER})
 endforeach()
-
-message("INCLUDE >>> ${${OUTPUT_NAME}_INCLUDES}")
 
 #------------------------------------------------------------------------------------------------------
 # Add Qt application (if possible).
@@ -58,23 +58,22 @@ if(QT_FOUND)
   set(CMAKE_AUTORCC ON)
 
   if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    set(MODULE_NAME "${OUTPUT_NAME}")
     set(OUTPUT_NAME "app${OUTPUT_NAME}")
-    qt_add_executable(${OUTPUT_NAME} ${${MODULE_NAME}_SOURCES})
-    target_include_directories(${OUTPUT_NAME} PUBLIC ${${MODULE_NAME}_INCLUDES})
+    qt_add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
+    target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
     file(GLOB_RECURSE MODULE_QMLs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.qml)
-    qt_add_qml_module(${OUTPUT_NAME} URI ${MODULE_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
+    qt_add_qml_module(${OUTPUT_NAME} URI ${PROJECT_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
     # Define target properties for Android with Qt 6 as:
     #  set_property(TARGET ${OUTPUT_NAME} APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
     #         ${CMAKE_CURRENT_SOURCE_DIR}/android)
     # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
   else()
     if(ANDROID)
-      add_library(${OUTPUT_NAME} SHARED ${${OUTPUT_NAME}_SOURCES})
+      add_library(${OUTPUT_NAME} SHARED ${${PROJECT_NAME}_SOURCES})
       # Define properties for Android with Qt 5 after find_package() calls as:
       #  set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-      add_executable(${OUTPUT_NAME} ${${OUTPUT_NAME}_SOURCES})
+      add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
     endif()
 
   endif()
@@ -96,12 +95,12 @@ if(QT_FOUND)
 # Add common application (if Qt is not exists).
 
 else()
-  add_executable(${OUTPUT_NAME} ${${OUTPUT_NAME}_SOURCES})
+  add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
 endif()
 
 #------------------------------------------------------------------------------------------------------
 
-target_include_directories(${OUTPUT_NAME} PUBLIC ${${OUTPUT_NAME}_INCLUDES})
+target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 
 #------------------------------------------------------------------------------------------------------
 # Compiler's safety flags.
@@ -238,12 +237,12 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib")
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS BELOW...
 
-if(EXISTS "test/test_${OUTPUT_NAME}.cpp")
-  add_executable(test_${OUTPUT_NAME} "test/test_${OUTPUT_NAME}.cpp")
-  target_include_directories(test_${OUTPUT_NAME} PUBLIC ${${OUTPUT_NAME}_INCLUDES})
-  target_link_libraries(test_${OUTPUT_NAME} PRIVATE Boost::unit_test_framework)
-  target_link_libraries(test_${OUTPUT_NAME} PRIVATE lib_${OUTPUT_NAME})
-  add_test(test_${OUTPUT_NAME} test_${OUTPUT_NAME})
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/test_${PROJECT_NAME}.cpp")
+  find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+  add_executable(test_${PROJECT_NAME} "test/test_${PROJECT_NAME}.cpp")
+  target_include_directories(test_${PROJECT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
+  target_link_libraries(test_${PROJECT_NAME} PRIVATE Boost::unit_test_framework)
+  add_test(test_${PROJECT_NAME} test_${PROJECT_NAME})
 endif()
 
 #...

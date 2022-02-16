@@ -29,17 +29,13 @@ target_link_libraries(${LIB_NAME} PUBLIC "thirdlib")
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS BELOW...
 
-if(EXISTS "test/test_${LIB_NAME}.cpp")
-
-    add_executable(test_${LIB_NAME} "test/test_${LIB_NAME}.cpp")
-
-    target_include_directories(test_${LIB_NAME} PUBLIC ${${LIB_NAME}_INCLUDES})
-
-    target_link_libraries(test_${LIB_NAME} PRIVATE Boost::unit_test_framework)
-    target_link_libraries(test_${LIB_NAME} PRIVATE ${LIB_NAME})
-
-    add_test(test_${LIB_NAME} test_${LIB_NAME})
-
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/test_${LIB_NAME}.cpp")
+  find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+  add_executable(test_${LIB_NAME} "test/test_${LIB_NAME}.cpp")
+  target_include_directories(test_${LIB_NAME} PUBLIC ${${LIB_NAME}_INCLUDES})
+  target_link_libraries(test_${LIB_NAME} PRIVATE Boost::unit_test_framework)
+  target_link_libraries(test_${LIB_NAME} PRIVATE ${LIB_NAME})
+  add_test(test_${LIB_NAME} test_${LIB_NAME})
 endif()
 
 #...
