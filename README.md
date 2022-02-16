@@ -27,7 +27,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 
 # Tested on:
 * Linux (GCC,Clang)
-* Windows (CLang,MinGW,MSVC)
+* Windows (Clang,MinGW,MSVC)
 
 # Links:
 * used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
