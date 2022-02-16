@@ -14,11 +14,11 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- **[ thirdlib ]**
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)*
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- **[ thirdlib ]**
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)*
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Features:
 * auto scan/add into project's tree all of needed sources and includes of the project and child libs
