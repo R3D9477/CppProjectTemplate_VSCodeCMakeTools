@@ -3,7 +3,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 
 # Stucture:
 `[ PROJECT ]`
-`|- `[CMakeLists.txt](CMakeLists.txt)
+`ㅤㅤ|- `[CMakeLists.txt](CMakeLists.txt)
 ```
   |- include
   |- src
@@ -11,7 +11,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
   |- lib
     |- [ SOMELIB ]
 ```
-`    |- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
+`ㅤㅤㅤㅤ|- `[CMakeLists.txt](lib/somelib/CMakeLists.txt)
 ```
       |- include
       |- src
@@ -19,7 +19,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
       |- thirdparty
         |- [ THIRDLIB ]
 ```
-`        |- `[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
+`ㅤㅤㅤㅤㅤㅤ|- `[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
 ```
         |- include
         |- src
