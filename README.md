@@ -4,19 +4,19 @@ Universal simple skeleton of project's tree, based on CMake build system.
 # Stucture:
 ```
 [ PROJECT ]
-    |- CMakeLists.txt
+    |- [CMakeLists.txt](CMakeLists.txt)
     |- include
     |- src
     |- test
     |- lib
         |- [ SOMELIB ]
-            |- CMakeLists.txt
+            |- [CMakeLists.txt](lib/somelib/CMakeLists.txt)
             |- include
             |- src
             |- test
             |- thirdparty
                 |- [ THIRDLIB ]
-                    |- CMakeLists.txt
+                    |- [CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)
                     |- include
                     |- src
                     |- test
