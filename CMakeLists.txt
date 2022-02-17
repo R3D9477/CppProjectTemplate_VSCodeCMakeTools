@@ -58,9 +58,10 @@ if(QT_FOUND)
   if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     set(OUTPUT_NAME "app${OUTPUT_NAME}")
     qt_add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
-    target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
     file(GLOB_RECURSE MODULE_QMLs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.qml)
-    qt_add_qml_module(${OUTPUT_NAME} URI ${PROJECT_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
+    if(NOT "${MODULE_QMLs}" STREQUAL "")
+      qt_add_qml_module(${OUTPUT_NAME} URI ${PROJECT_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
+    endif()
     # Define target properties for Android with Qt 6 as:
     #  set_property(TARGET ${OUTPUT_NAME} APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
     #         ${CMAKE_CURRENT_SOURCE_DIR}/android)
