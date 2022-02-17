@@ -237,6 +237,7 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib")
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/test_${PROJECT_NAME}.cpp")
   find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+  enable_testing()
   add_executable(test_${PROJECT_NAME} "test/test_${PROJECT_NAME}.cpp")
   target_include_directories(test_${PROJECT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
   target_link_libraries(test_${PROJECT_NAME} PRIVATE Boost::unit_test_framework)
