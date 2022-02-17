@@ -52,6 +52,7 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC Qt::Sql)
 * **function** `target_add_boost( TARGET_NAME )` - adds boost library to your target (if it possible). example of usage you can find [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L221)
 * **function** `target_add_Qt( TARGET_NAME )` - adds Qt to your target (if it possible). example of usage you can find [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L90)
 * **variable** `SAFETY_FLAGS` - contains the [list of the compiler's flags](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L104) to make your code more safe. example of usage you can find [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L193)
+* **variable** `OUTPUT_NAME` - the name of the current target (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`. example of usage you can find [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L228)
 
 # Tested on:
 * Linux (GCC,Clang)
