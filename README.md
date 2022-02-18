@@ -46,7 +46,16 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC Qt::SerialPort)
 target_link_libraries(${OUTPUT_NAME} PUBLIC Qt::Sql)
 ...
 ```
-4. add source of uint tests into folder `test` or add/change you testing configuration [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L269)
+4. add source of uint tests into folder `test` or add/change you testing configuration [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L269). example of adding folder which contains set of unit tests for target:
+```
+...
+#------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------
+# ADD TESTS BELOW...
+
+target_add_tests_from_folder(${OUTPUT_NAME} "test")
+...
+```
 
 # Extra variables
 you can use some of variables in your own configuration:
