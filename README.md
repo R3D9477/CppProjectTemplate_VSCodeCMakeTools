@@ -39,7 +39,7 @@ find_package(OpenCV REQUIRED)
 target_link_libraries(${OUTPUT_NAME} PUBLIC opencv::opencv)
 
 target_link_libraries(${OUTPUT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/myOwnSDK/lib/x64/libMySDK.so")
-target_include_directories(${OUTPUT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/myOwnSDK/include")
+include_directories(SYSTEM "${CMAKE_SOURCE_DIR}/myOwnSDK/include")
 
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS SerialPort Sql REQUIRED)
 target_link_libraries(${OUTPUT_NAME} PUBLIC Qt::SerialPort)
