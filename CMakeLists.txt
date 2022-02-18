@@ -140,14 +140,17 @@ target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 #  https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc
 #  https://interrupt.memfault.com/blog/best-and-worst-gcc-clang-compiler-flags#-weverything-clang-only
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GCC")
+set(IS_CLANG (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+set(IS_GCC   (CMAKE_CXX_COMPILER_ID MATCHES "GCC" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"))
+set(IS_MSVC  (CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
+
+if(${IS_CLANG} OR ${IS_GCC})
   list(APPEND SAFETY_FLAGS
     -Wall
     -Wextra
     -Wshadow
     -Winit-self
     -Wuninitialized
-    #-Wmaybe-uninitialized  # bad flag makes possible operations with uninitialized variables
     -Wundef
     -Wswitch-enum
     -Wdouble-promotion
@@ -163,7 +166,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GCC
     -Wno-unused-result
     -Wno-unused-function
     -Wno-unused-parameter
-    -Wno-ignored-pragmas
   )
   list(APPEND SAFETY_FLAGS
     -fno-lto
@@ -173,25 +175,30 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GCC
   if(QT_FOUND)
     list(APPEND SAFETY_FLAGS
       -Wno-padded
-      -Wno-redundant-parens
-      -Wno-extra-semi-stmt
     )
-    if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    if(NOT ${IS_GCC})
       list(APPEND SAFETY_FLAGS
-        -Wno-missing-prototypes
-        -Wno-missing-variable-declarations
+        -Wno-redundant-parens
+        -Wno-extra-semi-stmt
       )
+      if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+        list(APPEND SAFETY_FLAGS
+          -Wno-missing-prototypes
+          -Wno-missing-variable-declarations
+        )
+      endif()
     endif()
   endif()
 endif()
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if(${IS_CLANG})
   list(APPEND SAFETY_FLAGS
     -Weverything
     -Wno-c++98-compat
     -Wno-exit-time-destructors
     -Wno-global-constructors
+    -Wno-ignored-pragmas
   )
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GCC")
+elseif(${IS_GCC})
   list(APPEND SAFETY_FLAGS
     -Wformat-overflow
     -Wformat-truncation
@@ -199,7 +206,7 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GCC")
     -Wl,-z,now
     -Wl,-z,relro
     -fstack-clash-protection
-    -fmudflap
+    #-fmudflap
   )
 endif()
 if(NOT WIN32)
@@ -207,19 +214,17 @@ if(NOT WIN32)
     -finstrument-functions
     -fstack-protector-all
     -fstack-protector-strong
+    -fno-short-enums
+    -fno-fast-math
+    -fno-common
+    -fexceptions
+    -fverbose-asm
+    -fasynchronous-unwind-tables
+    -pipe
   )
-  if(CMAKE_CXX_COMPILER_ID STREQUAL "GCC") # flags don't work in clang-cl
-    list(APPEND SAFETY_FLAGS
-      -fno-short-enums
-      -fno-fast-math
-      -fno-common
-      -fexceptions
-      -fverbose-asm
-      -fasynchronous-unwind-tables
-      -pipe
-    )
-  endif()
 endif()
+
+message("SAFETY_FLAGS: ${SAFETY_FLAGS}")
 
 target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
 
