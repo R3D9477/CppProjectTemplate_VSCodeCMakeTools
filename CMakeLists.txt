@@ -47,7 +47,7 @@ endforeach()
 
 set(SOURCE_MASK_TEST *.c *.cc *.cpp *.cxx *.c++)
 
-function(add_tests_from_folder TARGET_NAME FOLDER_PATH)
+function(target_add_tests_from_folder TARGET_NAME FOLDER_PATH)
   find_package(Boost REQUIRED COMPONENTS unit_test_framework)
   enable_testing()
   foreach(SRC_MASK_TEST ${SOURCE_MASK_TEST})
@@ -267,7 +267,7 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib")
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS BELOW...
 
-add_tests_from_folder(${OUTPUT_NAME} "test")
+target_add_tests_from_folder(${OUTPUT_NAME} "test")
 
 #...
 #...
