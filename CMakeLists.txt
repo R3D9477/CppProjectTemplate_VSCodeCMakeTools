@@ -14,12 +14,12 @@ list(APPEND SCAN_SOURCES_FOLDER ".")
 #------------------------------------------------------------------------------------------------------
 # Scan project's sources folders.
 
-set(SOURCE_EXTENSIONS *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tcc *.tpp *.ipp *.qrc)
+set(SOURCE_MASK *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tcc *.tpp *.ipp *.qrc)
 
 function(get_sources_from_dir DEST_SRCs_VAR DEST_INCs_VAR SRC_DIR)
   unset(DIR_SRCs_FOUND)
-  foreach(SRC_EXT ${SOURCE_EXTENSIONS})
-    file(GLOB DIR_SRCs "${SRC_DIR}/${SRC_EXT}")
+  foreach(SRC_MASK ${SOURCE_MASK})
+    file(GLOB DIR_SRCs "${SRC_DIR}/${SRC_MASK}")
     if(NOT "${DIR_SRCs}" STREQUAL "")
       set(DIR_SRCs_FOUND true)
       get_filename_component(DIR_SRCs "${DIR_SRCs}" ABSOLUTE)
@@ -42,6 +42,32 @@ foreach(SRC_FOLDER ${SCAN_SOURCES_FOLDER})
   get_sources_from_dir(${PROJECT_NAME}_SOURCES ${PROJECT_NAME}_INCLUDES ${SRC_FOLDER})
 endforeach()
 
+#------------------------------------------------------------------------------------------------------
+# Scan project's unit tests sources folder.
+
+set(SOURCE_MASK_TEST *.c *.cc *.cpp *.cxx *.c++)
+
+function(add_tests_from_folder TARGET_NAME FOLDER_PATH)
+  find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+  enable_testing()
+  foreach(SRC_MASK_TEST ${SOURCE_MASK_TEST})
+    file(GLOB TEST_SRCs "${FOLDER_PATH}/${SRC_MASK_TEST}")
+    foreach(TEST_SRC ${TEST_SRCs})
+      get_filename_component(TEST_NAME ${TEST_SRC} NAME_WE)
+      set(TEST_TARGET_NAME ${TEST_NAME})
+      add_executable(${TEST_TARGET_NAME} "${TEST_SRC}")
+      target_include_directories(${TEST_TARGET_NAME} PUBLIC ${${TARGET_NAME}_INCLUDES})
+      target_link_libraries(${TEST_TARGET_NAME} PUBLIC Boost::unit_test_framework)
+      get_target_property(target_type ${TARGET_NAME} TYPE)
+      if (NOT target_type STREQUAL "EXECUTABLE")
+        target_link_libraries(${TEST_TARGET_NAME} PUBLIC ${TARGET_NAME})
+      endif ()
+      add_test(${TEST_TARGET_NAME} ${TEST_TARGET_NAME})
+    endforeach()
+  endforeach()
+endfunction()
+
+#------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
 # Add Qt application (if possible).
 
@@ -157,7 +183,8 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GCC
     endif()
   endif()
 endif()
-
+find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+  enable_testing()
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   list(APPEND SAFETY_FLAGS
     -Weverything
@@ -240,14 +267,7 @@ target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib")
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS BELOW...
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/test_${PROJECT_NAME}.cpp")
-  find_package(Boost REQUIRED COMPONENTS unit_test_framework)
-  enable_testing()
-  add_executable(test_${PROJECT_NAME} "test/test_${PROJECT_NAME}.cpp")
-  target_include_directories(test_${PROJECT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
-  target_link_libraries(test_${PROJECT_NAME} PRIVATE Boost::unit_test_framework)
-  add_test(test_${PROJECT_NAME} test_${PROJECT_NAME})
-endif()
+add_tests_from_folder(${OUTPUT_NAME} "test")
 
 #...
 #...
