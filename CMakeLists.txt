@@ -45,11 +45,11 @@ endforeach()
 #------------------------------------------------------------------------------------------------------
 # Scan project's unit tests sources folder.
 
+enable_testing()
+
 set(SOURCE_MASK_TEST *.c *.cc *.cpp *.cxx *.c++)
 
 function(target_add_tests_from_folder TARGET_NAME FOLDER_PATH)
-  find_package(Boost REQUIRED COMPONENTS unit_test_framework)
-  enable_testing()
   foreach(SRC_MASK_TEST ${SOURCE_MASK_TEST})
     file(GLOB TEST_SRCs "${FOLDER_PATH}/${SRC_MASK_TEST}")
     foreach(TEST_SRC ${TEST_SRCs})
@@ -57,6 +57,7 @@ function(target_add_tests_from_folder TARGET_NAME FOLDER_PATH)
       set(TEST_TARGET_NAME ${TEST_NAME})
       add_executable(${TEST_TARGET_NAME} "${TEST_SRC}")
       target_include_directories(${TEST_TARGET_NAME} PUBLIC ${${TARGET_NAME}_INCLUDES})
+      find_package(Boost REQUIRED COMPONENTS unit_test_framework)
       target_link_libraries(${TEST_TARGET_NAME} PUBLIC Boost::unit_test_framework)
       get_target_property(target_type ${TARGET_NAME} TYPE)
       if (NOT target_type STREQUAL "EXECUTABLE")
@@ -183,8 +184,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GCC
     endif()
   endif()
 endif()
-find_package(Boost REQUIRED COMPONENTS unit_test_framework)
-  enable_testing()
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   list(APPEND SAFETY_FLAGS
     -Weverything
