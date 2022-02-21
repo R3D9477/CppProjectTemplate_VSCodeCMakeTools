@@ -5,6 +5,7 @@
 #  https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc
 
 list(APPEND SAFETY_FLAGS
+  -O2
   -Wall
   -Wextra
   -Wshadow
@@ -27,12 +28,6 @@ list(APPEND SAFETY_FLAGS
   -Wno-unused-parameter
 )
 
-list(APPEND SAFETY_FLAGS
-  -fno-lto
-  -march=native
-  -D_FORTIFY_SOURCE=2
-)
-
 if(QT_FOUND)
   list(APPEND SAFETY_FLAGS
     -Wno-padded
@@ -45,20 +40,25 @@ list(APPEND SAFETY_FLAGS
   -Wl,-z,defs
   -Wl,-z,now
   -Wl,-z,relro
-  -fstack-clash-protection
 )
 
 if(NOT WIN32)
   list(APPEND SAFETY_FLAGS
-    -O2
+    -fstack-clash-protection
     -fstack-protector-all
     -fstack-protector-strong
     -fno-short-enums
     -fno-fast-math
     -fno-common
+    -fno-lto
     -fexceptions
     -fverbose-asm
     -fasynchronous-unwind-tables
-    -pipe
   )
 endif()
+
+list(APPEND SAFETY_FLAGS
+  -pipe
+  -march=native
+  -D_FORTIFY_SOURCE=2
+)
