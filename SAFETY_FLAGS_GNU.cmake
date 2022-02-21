@@ -1,4 +1,4 @@
-# Compiler's safety flags GNU compiler.
+# Safety flags for GCC.
 # Based on:
 #  https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 #  https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html

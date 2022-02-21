@@ -1,4 +1,4 @@
-# Compiler's safety flags for MSVC compiler.
+# Safety flags for MSVC.
 
 list(APPEND SAFETY_FLAGS
 
