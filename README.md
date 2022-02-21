@@ -4,9 +4,6 @@ Universal simple skeleton of project's tree, based on CMake build system.
 # Stucture
 **[ PROJECT ]**
 <br/>ㅤㅤㅤ|- *[CMakeLists.txt](CMakeLists.txt)*
-<br/>ㅤㅤㅤ|- *[SAFETY_FLAGS_CLANG.cmake](SAFETY_FLAGS_CLANG.cmake)*
-<br/>ㅤㅤㅤ|- *[SAFETY_FLAGS_GNU.cmake](SAFETY_FLAGS_GNU.cmake)*
-<br/>ㅤㅤㅤ|- *[SAFETY_FLAGS_MSVC.cmake](SAFETY_FLAGS_MSVC.cmake)*
 <br/>ㅤㅤㅤ|- test
 <br/>ㅤㅤㅤ|- lib
 <br/>ㅤㅤㅤㅤㅤㅤ|- **[ somelib ]**
