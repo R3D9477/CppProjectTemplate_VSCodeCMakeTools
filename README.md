@@ -22,7 +22,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * automatically [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L6) name of directory as name of a project/library
 * automatically [finds and adds](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L9) needed sources and includes into the project's tree **(non-recursive globbing)**; easy and flexible configuration process of source tree for current target: just [add](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) needed folder [to list](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11)
 * automatically adds some of libraries (if possible): [Boost](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L257), [Qt5](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L122), [Qt6](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L122)
-* [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L136) some compiler's extra flags because of safety (at the moment GCC/Clang only)
+* [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L136) some compiler's extra flags because of safety
 * automatically [finds and adds Boost unit tests](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L274) *(**don't use** the dot symbol '.' in the name of test's source file!)*
 
 # How to

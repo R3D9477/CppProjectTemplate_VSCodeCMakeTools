@@ -134,102 +134,20 @@ target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 
 #------------------------------------------------------------------------------------------------------
 # Compiler's safety flags.
-# Based on:
-#  https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
-#  https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html
-#  https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc
-#  https://interrupt.memfault.com/blog/best-and-worst-gcc-clang-compiler-flags#-weverything-clang-only
 
-set(IS_CLANG (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
-set(IS_GCC   (CMAKE_CXX_COMPILER_ID MATCHES "GCC" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"))
-set(IS_MSVC  (CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
-
-if(${IS_CLANG} OR ${IS_GCC})
-  list(APPEND SAFETY_FLAGS
-    -Wall
-    -Wextra
-    -Wshadow
-    -Winit-self
-    -Wuninitialized
-    -Wundef
-    -Wswitch-enum
-    -Wdouble-promotion
-    -Wformat=2
-    -Wformat-security
-    -Wconversion
-    -Wsign-conversion
-    -Wold-style-cast
-    -Wunreachable-code
-    -Werror
-    -Wpedantic
-    -Wno-unused-value
-    -Wno-unused-result
-    -Wno-unused-function
-    -Wno-unused-parameter
-  )
-  list(APPEND SAFETY_FLAGS
-    -fno-lto
-    -march=native
-    -D_FORTIFY_SOURCE=2
-  )
-  if(QT_FOUND)
-    list(APPEND SAFETY_FLAGS
-      -Wno-padded
-    )
-    if(NOT ${IS_GCC})
-      list(APPEND SAFETY_FLAGS
-        -Wno-redundant-parens
-        -Wno-extra-semi-stmt
-      )
-      if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-        list(APPEND SAFETY_FLAGS
-          -Wno-missing-prototypes
-          -Wno-missing-variable-declarations
-        )
-      endif()
-    endif()
-  endif()
-endif()
-if(${IS_CLANG})
-  list(APPEND SAFETY_FLAGS
-    -Weverything
-    -Wno-c++98-compat
-    -Wno-exit-time-destructors
-    -Wno-global-constructors
-    -Wno-ignored-pragmas
-  )
-elseif(${IS_GCC})
-  list(APPEND SAFETY_FLAGS
-    -Wformat-overflow
-    -Wformat-truncation
-    -Wl,-z,defs
-    -Wl,-z,now
-    -Wl,-z,relro
-    -fstack-clash-protection
-    #-fmudflap
-  )
-endif()
-if(NOT WIN32)
-  list(APPEND SAFETY_FLAGS
-    -O2 #-finstrument-functions
-    -fstack-protector-all
-    -fstack-protector-strong
-    -fno-short-enums
-    -fno-fast-math
-    -fno-common
-    -fexceptions
-    -fverbose-asm
-    -fasynchronous-unwind-tables
-    -pipe
-  )
+string(TOUPPER ${CMAKE_CXX_COMPILER_ID} SFF_POSTFIX)
+set(SAFETY_FLAGS_FILE "${PROJECT_SOURCE_DIR}/SAFETY_FLAGS_${SFF_POSTFIX}.cmake")
+if(EXISTS "${SAFETY_FLAGS_FILE}")
+  include("${SAFETY_FLAGS_FILE}")
 endif()
 
+message("SAFETY_FLAGS_FILE: ${SAFETY_FLAGS_FILE}")
 message("SAFETY_FLAGS: ${SAFETY_FLAGS}")
 
 target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
 
 #------------------------------------------------------------------------------------------------------
-# Add VCRuntime libs if needed
+# Add VCRuntime libs if needed.
 
 if(MSVC)
   set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP true)
