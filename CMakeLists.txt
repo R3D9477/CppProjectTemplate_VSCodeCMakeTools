@@ -211,7 +211,7 @@ elseif(${IS_GCC})
 endif()
 if(NOT WIN32)
   list(APPEND SAFETY_FLAGS
-    -finstrument-functions
+    -O2 #-finstrument-functions
     -fstack-protector-all
     -fstack-protector-strong
     -fno-short-enums
