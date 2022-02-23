@@ -62,3 +62,7 @@ list(APPEND SAFETY_FLAGS
   -march=native
   -D_FORTIFY_SOURCE=2
 )
+
+list(APPEND SAFETY_FLAGS
+  -Wno-float-conversion
+)

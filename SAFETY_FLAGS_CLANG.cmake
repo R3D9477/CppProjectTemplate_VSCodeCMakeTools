@@ -37,3 +37,7 @@ list(APPEND SAFETY_FLAGS
   -fdata-sections
 )
 
+list(APPEND SAFETY_FLAGS
+  -Wno-implicit-float-conversion
+  -Wno-double-promotion
+)
