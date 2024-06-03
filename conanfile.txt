@@ -1,7 +1,10 @@
 [requires]
+gtest/1.14.0
 boost/1.78.0
 
+[options]
+*:shared=True
+
 [generators]
-cmake
-cmake_find_package
-markdown
+CMakeToolchain
+CMakeDeps

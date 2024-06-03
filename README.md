@@ -25,6 +25,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L136) some compiler's extra flags because of safety. each compiler has a different set of flags: [GCC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_GNU.cmake#L1), [Clang](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_MSVC.cmake#L1)
 * automatically [finds and adds Boost unit tests](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L192) *(**don't use** the dot symbol '.' in the name of test's source file!)*
 * for MSVC automatically [copies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L152) MS Visual C++ runtime libs to target building directory
+* uses Conan
 
 # How to
 1. clone that repositoy to your local machine
@@ -78,6 +79,3 @@ you can use some of functions in your own configuration:
 # Links
 * used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
 * used in demo ["Simple Custom Qml Item Qt6 Cmake"](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake)
-
-# Why?
-Why that template? Why globbing? Because most of IDEs don't support managing of project's files. So, in most of cases (in case of mine) it is pain and wasting of my working time to build and support (after refactoring, etc.) project's tree manually and define each source/include file in the project's file and maintain it at all the developing time. I prefer to keep project's filesystem cleany. And I prefer to use (except very rare cases) one known and standard structure of project's builing script (with easy way for customization) / known and standard tree of file system in each project, etc. I just prefer to use some standard template and know how it works, and don't think about that common things at all every time in each individual project (as it possible).
