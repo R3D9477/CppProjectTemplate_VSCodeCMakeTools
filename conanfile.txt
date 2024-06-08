@@ -1,10 +1,10 @@
 [requires]
+boost/1.85.0
 gtest/1.14.0
-boost/1.78.0
-
-[options]
-*:shared=True
 
 [generators]
-CMakeToolchain
 CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout

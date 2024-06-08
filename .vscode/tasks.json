@@ -1,83 +1,97 @@
 {
     "tasks": [
         {
-            "label": "CMake: Rebuild Debug",
-            "dependsOn": [ "CMake: Clean Debug", "CMake: Build Debug" ],
+            "label": "Project: CMake Rebuild Debug",
+            "dependsOn": [ "Project: CMake Clean Debug", "Project: CMake Build Debug" ],
         },
         {
-            "label": "CMake: Rebuild Release",
-            "dependsOn": [ "CMake: Clean Release", "CMake: Build Release" ],
-        },
-        {
-            "label": "CMake: Build Debug",
+            "label": "Project: CMake Clean Debug",
             "command": "cmake",
-            "args": [ "--build", ".", "--config", "Debug" ],
-            "options": { "cwd": "${workspaceFolder}/build/debug" },
-            "dependsOn": [ "CMake: Prepare Debug" ],
+            "args": [
+                "--build", "${workspaceFolder}/build/debug",
+                "--target", "clean"
+            ],
         },
         {
-            "label": "CMake: Build Release",
+            "label": "Project: CMake Build Debug",
             "command": "cmake",
-            "args": [ "--build", ".", "--config", "Release" ],
-            "options": { "cwd": "${workspaceFolder}/build/release" },
-            "dependsOn": [ "CMake: Prepare Release" ],
+            "args": [
+                "--build", "build/debug",
+                "--config", "Debug"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": [ "Project: CMake Prepare Debug" ],
         },
         {
-            "label": "CMake: Prepare Debug",
+            "label": "Project: CMake Prepare Debug",
             "command": "cmake",
-            "args": [ "-S", ".", "-B", "${workspaceFolder}/build/debug", "-DCMAKE_BUILD_TYPE=debug" ],
-            "dependsOn": [ "Create Build Dir: Debug", "Conan: Install Debug" ],
+            "args": [ 
+                "-S", ".", 
+                "-B", "build/debug",
+                "-DCMAKE_TOOLCHAIN_FILE=build/debug/build/Debug/generators/conan_toolchain.cmake",
+                "-DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": [ "Project: Create Build Dir Debug", "Project: Conan Install Debug" ],
         },
         {
-            "label": "CMake: Prepare Release",
-            "command": "cmake",
-            "args": [ "-S", ".", "-B", "${workspaceFolder}/build/release", "-DCMAKE_BUILD_TYPE=releae" ],
-            "dependsOn": [ "Create Build Dir: Release", "Conan: Install Release" ],
-        },
-        {
-            "label": "CMake: Clean Debug",
-            "command": "cmake",
-            "args": [ "--build", ".", "--target", "clean" ],
-            "options": { "cwd": "${workspaceFolder}/build/debug" },
-        },
-        {
-            "label": "CMake: Clean Release",
-            "command": "cmake",
-            "args": [ "--build", ".", "--target", "clean" ],
-            "options": { "cwd": "${workspaceFolder}/build/release" },
-        },
-        {
-            "label": "Conan: Install Debug",
+            "label": "Project: Conan Install Debug",
             "command": "conan",
-            "args": [ "install", "conanfile.txt", "--build=missing" ],
-            "options": { "cwd": "${workspaceFolder}/build/debug" },
-            "dependsOn": [ "Conan: Prepare Debug" ],
+            "args": [ "install", "build/debug/conanfile.txt", "--build=missing", "--settings", "build_type=Debug" ],
+            "dependsOn": [ "Project: Conan Prepare Debug" ],
         },
         {
-            "label": "Conan: Install Release",
-            "command": "conan",
-            "args": [ "install", "conanfile.txt", "--build=missing" ],
-            "options": { "cwd": "${workspaceFolder}/build/release" },
-            "dependsOn": [ "Conan: Prepare Release" ],
+            "label": "Project: Conan Prepare Debug",
+            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/debug/" ], },
+            "dependsOn": [ "Project: Create Build Dir Debug" ],
         },
         {
-            "label": "Conan: Prepare Debug",
-            "command": "cp",
-            "args": [ "conanfile.txt", "${workspaceFolder}/build/debug/" ],
-            "dependsOn": [ "Create Build Dir: Debug" ],
-        },
-        {
-            "label": "Conan: Prepare Release",
-            "command": "cp",
-            "args": [ "conanfile.txt", "${workspaceFolder}/build/release/" ],
-            "dependsOn": [ "Create Build Dir: Release" ],
-        },
-        {
-            "label": "Create Build Dir: Debug",
+            "label": "Project: Create Build Dir Debug",
             "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/debug" ], },
         },
         {
-            "label": "Create Build Dir: Release",
+            "label": "Project: CMake Rebuild Release",
+            "dependsOn": [ "Project: CMake Clean Release", "Project: CMake Build Release" ],
+        },
+        {
+            "label": "Project: CMake Clean Release",
+            "command": "cmake",
+            "args": [ "--build", "${workspaceFolder}/build/release", "--target", "clean" ],
+        },
+        {
+            "label": "Project: CMake Build Release",
+            "command": "cmake",
+            "args": [
+                "--build", "${workspaceFolder}/build/release",
+                "--config", "Release"
+            ],
+            "options": { "cwd": "${workspaceFolder}/build/release" },
+            "dependsOn": [ "Project: CMake Prepare Release" ],
+        },
+        {
+            "label": "Project: CMake Prepare Release",
+            "command": "cmake",
+            "args": [ 
+                "-S", ".", 
+                "-B", "${workspaceFolder}/build/release",
+                "-DCMAKE_TOOLCHAIN_FILE=build/release/build/Release/generators/conan_toolchain.cmake",
+                "-DCMAKE_BUILD_TYPE=Release"
+            ],
+            "dependsOn": [ "Project: Create Build Dir Release", "Project: Conan Install Release" ],
+        },
+        {
+            "label": "Project: Conan Install Release",
+            "command": "conan",
+            "args": [ "install", "build/release/conanfile.txt", "--build=missing", "--settings", "build_type=Release" ],
+            "dependsOn": [ "Project: Conan Prepare Release" ],
+        },
+        {
+            "label": "Project: Conan Prepare Release",
+            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/release/" ], },
+            "dependsOn": [ "Project: Create Build Dir Release" ],
+        },
+        {
+            "label": "Project: Create Build Dir Release",
             "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/release" ], },
         },
     ],

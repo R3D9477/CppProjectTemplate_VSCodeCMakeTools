@@ -2,14 +2,15 @@
 {
   "recommendations": [
     "xaver.clang-format",
-    "llvm-vs-code-extensions.vscode-clangd",
     "matepek.vscode-catch2-test-adapter",
     "eamodio.gitlens",
     "jeff-hykin.better-cpp-syntax",
-    "ms-vscode.cpptools-themes",
     "bierner.github-markdown-preview",
     "vadimcn.vscode-lldb",
     "twxs.cmake",
-    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-themes",
+    "matepek.vscode-catch2-test-adapter",
+    "llvm-vs-code-extensions.vscode-clangd",
   ]
 } 

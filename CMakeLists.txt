@@ -9,7 +9,6 @@ project(${OUTPUT_NAME} VERSION 0.1 LANGUAGES CXX)
 # - DEFINE THE LIST OF THE SOURCES (CURRENT TARGET) BELOW IN VARIABLE SCAN_SOURCES_FOLDER
 # - ATTACH EXTERNAL LIBRARIES AT THE BOTTOM OF THAT FILE
 list(APPEND SCAN_SOURCES_FOLDER ".")
-list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
@@ -47,11 +46,13 @@ endforeach()
 # Scan project's unit tests sources folder.
 
 file(READ "conanfile.txt" CONAN_PACKAGES)
+set(GTEST_REQUIRED FALSE)
+set(BOOST_REQUIRED FALSE)
 if("${CONAN_PACKAGES}" MATCHES "gtest")
-  set(GTEST_REQUIRED 1)
+  set(GTEST_REQUIRED TRUE)
 endif()
 if("${CONAN_PACKAGES}" MATCHES "boost")
-  set(BOOST_REQUIRED 1)
+  set(BOOST_REQUIRED TRUE)
 endif()
 
 enable_testing()
@@ -59,6 +60,7 @@ enable_testing()
 set(SOURCE_MASK_TEST *.c *.cc *.cpp *.cxx *.c++)
 
 function(target_add_tests_from_folder TARGET_NAME FOLDER_PATH)
+  set(CMAKE_CXX_FLAGS "--coverage")
   foreach(SRC_MASK_TEST ${SOURCE_MASK_TEST})
     file(GLOB TEST_SRCs "${FOLDER_PATH}/${SRC_MASK_TEST}")
     foreach(TEST_SRC ${TEST_SRCs})
@@ -66,11 +68,11 @@ function(target_add_tests_from_folder TARGET_NAME FOLDER_PATH)
       set(TEST_TARGET_NAME ${TEST_NAME})
       add_executable(${TEST_TARGET_NAME} "${TEST_SRC}")
       target_include_directories(${TEST_TARGET_NAME} PUBLIC ${${TARGET_NAME}_INCLUDES})
-      if(${GTEST_REQUIRED} EQUAL 1)
+      if(${GTEST_REQUIRED})
         find_package(GTest REQUIRED)
         target_link_libraries(${TEST_TARGET_NAME} PUBLIC gtest::gtest)
       endif()
-      if(${BOOST_REQUIRED} EQUAL 1)
+      if(${BOOST_REQUIRED})
         find_package(Boost REQUIRED COMPONENTS unit_test_framework)
         target_link_libraries(${TEST_TARGET_NAME} PUBLIC Boost::unit_test_framework)
       endif()
@@ -101,7 +103,7 @@ endif()
 message("SAFETY_FLAGS_FILE: ${SAFETY_FLAGS_FILE}")
 message("SAFETY_FLAGS: ${SAFETY_FLAGS}")
 
-target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
+#target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
 
 #------------------------------------------------------------------------------------------------------
 # Add VCRuntime libs if needed.
@@ -117,9 +119,10 @@ endif()
 #  https://cmake.org/cmake/help/latest/module/FindBoost.html#hints
 #  https://doc.qt.io/qtcreator/creator-build-settings-cmake.html
 
-find_package(Boost)
 function(target_add_boost TARGET_NAME)
+  find_package(Boost REQUIRED COMPONENTS ALL CONFIG)
   if(Boost_FOUND)
+    message("Boost version is " ${Boost_VERSION})
     target_link_libraries(${TARGET_NAME} PUBLIC Boost::boost)
     if(WIN32)
       target_link_libraries(${TARGET_NAME} PUBLIC ws2_32)
