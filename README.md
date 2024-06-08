@@ -18,6 +18,14 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
+# Main tasks
+* Project: CMake Build Debug
+* Project: CMake Clean Debug
+* Project: CMake Rebuild Debug
+* Project: CMake Build Release
+* Project: CMake Clean Release
+* Project: CMake Rebuild Release
+
 # Features
 * automatically [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L6) name of directory as name of a project/library
 * automatically [finds and adds](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L9) needed sources and includes into the project's tree **(non-recursive globbing)**; easy and flexible configuration process of source tree for current target: just [add](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) needed folder [to list](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11)
@@ -25,7 +33,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L136) some compiler's extra flags because of safety. each compiler has a different set of flags: [GCC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_GNU.cmake#L1), [Clang](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/SAFETY_FLAGS_MSVC.cmake#L1)
 * automatically [finds and adds Boost unit tests](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L192) *(**don't use** the dot symbol '.' in the name of test's source file!)*
 * for MSVC automatically [copies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L152) MS Visual C++ runtime libs to target building directory
-* uses Conan
+* uses Conan, automatically downloads packages from conanfile.txt before building the project
 
 # How to
 1. clone that repositoy to your local machine
