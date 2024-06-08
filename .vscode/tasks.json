@@ -42,12 +42,12 @@
         },
         {
             "label": "Project: Conan Prepare Debug",
-            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/debug/" ] },
+            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/debug/" ], },
             "dependsOn": [ "Project: Create Build Dir Debug" ],
         },
         {
             "label": "Project: Create Build Dir Debug",
-            "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/debug" ] },
+            "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/debug" ], },
         },
         {
             "label": "Project: CMake Rebuild Release",
@@ -87,12 +87,12 @@
         },
         {
             "label": "Project: Conan Prepare Release",
-            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/release/" ] },
+            "linux": { "command": "cp", "args": [ "conanfile.txt", "${workspaceFolder}/build/release/" ], },
             "dependsOn": [ "Project: Create Build Dir Release" ],
         },
         {
             "label": "Project: Create Build Dir Release",
-            "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/release" ] },
+            "linux": { "command": "mkdir", "args": [ "-p", "${workspaceFolder}/build/release" ], },
         },
     ],
     "version": "2.0.0"

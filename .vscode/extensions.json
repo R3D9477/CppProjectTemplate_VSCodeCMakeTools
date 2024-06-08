@@ -10,6 +10,7 @@
     "twxs.cmake",
     "ms-vscode.cpptools",
     "ms-vscode.cpptools-themes",
+    "ms-vscode.cmake-tools",
     "matepek.vscode-catch2-test-adapter",
     "llvm-vs-code-extensions.vscode-clangd",
   ]
