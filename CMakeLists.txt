@@ -164,7 +164,7 @@ endif()
 message("SAFETY_FLAGS_FILE: ${SAFETY_FLAGS_FILE}")
 message("SAFETY_FLAGS: ${SAFETY_FLAGS}")
 
-#target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
+target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS})
 
 #------------------------------------------------------------------------------------------------------
 # Add VCRuntime libs if needed.
