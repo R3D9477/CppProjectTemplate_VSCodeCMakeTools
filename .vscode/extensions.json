@@ -8,5 +8,8 @@
         "fredericbonnet.cmake-test-adapter",
         "vadimcn.vscode-lldb",
         "twxs.cmake",
+        "sirmspencer.vscode-autohide",
+        "Blackboxapp.blackbox",
+        "krosf.vscode-valgrind",
   ]
 } 

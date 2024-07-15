@@ -1,0 +1,308 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/somelib/libsomelib.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"target_compile_options",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"lib/somelib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-m64 -g -std=gnu++14"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-O2"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Winit-self"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wundef"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wswitch-enum"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wdouble-promotion"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wformat=2"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wformat-security"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wsign-conversion"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wold-style-cast"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wunreachable-code"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wpedantic"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unused-value"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unused-result"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unused-function"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unused-parameter"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-padded"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wformat-overflow"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wformat-truncation"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wl,-z,defs"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wl,-z,now"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wl,-z,relro"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fstack-clash-protection"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fstack-protector-all"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fstack-protector-strong"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fno-short-enums"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fno-fast-math"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fno-common"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fno-lto"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fexceptions"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fverbose-asm"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fasynchronous-unwind-tables"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-pipe"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-march=native"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-D_FORTIFY_SOURCE=2"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-float-conversion"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "thirdlib::@ef6c1d7ab56c73ec0cd4"
+		}
+	],
+	"id" : "somelib::@9a3d0cd6dc467eba84ee",
+	"name" : "somelib",
+	"nameOnDisk" : "libsomelib.a",
+	"paths" : 
+	{
+		"build" : "lib/somelib",
+		"source" : "lib/somelib"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "lib/somelib/include/somelib.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/somelib/src/somelib.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

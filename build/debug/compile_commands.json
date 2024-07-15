@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -O2 -Wall -Wextra -Wshadow -Winit-self -Wuninitialized -Wundef -Wswitch-enum -Wdouble-promotion -Wformat=2 -Wformat-security -Wconversion -Wsign-conversion -Wold-style-cast -Wunreachable-code -Werror -Wpedantic -Wno-unused-value -Wno-unused-result -Wno-unused-function -Wno-unused-parameter -Wno-padded -Wformat-overflow -Wformat-truncation -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -fstack-clash-protection -fstack-protector-all -fstack-protector-strong -fno-short-enums -fno-fast-math -fno-common -fno-lto -fexceptions -fverbose-asm -fasynchronous-unwind-tables -pipe -march=native -D_FORTIFY_SOURCE=2 -Wno-float-conversion -o CMakeFiles/UCMakeSkeleton.dir/main.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/main.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/main.cpp",
+  "output": "CMakeFiles/UCMakeSkeleton.dir/main.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_UCMakeSkeleton.dir/test/test_UCMakeSkeleton.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/test/test_UCMakeSkeleton.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/test/test_UCMakeSkeleton.cpp",
+  "output": "CMakeFiles/test_UCMakeSkeleton.dir/test/test_UCMakeSkeleton.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_UCMakeSkeleton_2.dir/test/test_UCMakeSkeleton_2.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/test/test_UCMakeSkeleton_2.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/test/test_UCMakeSkeleton_2.cpp",
+  "output": "CMakeFiles/test_UCMakeSkeleton_2.dir/test/test_UCMakeSkeleton_2.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -m64 -g -std=gnu++14 -O2 -Wall -Wextra -Wshadow -Winit-self -Wuninitialized -Wundef -Wswitch-enum -Wdouble-promotion -Wformat=2 -Wformat-security -Wconversion -Wsign-conversion -Wold-style-cast -Wunreachable-code -Werror -Wpedantic -Wno-unused-value -Wno-unused-result -Wno-unused-function -Wno-unused-parameter -Wno-padded -Wformat-overflow -Wformat-truncation -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -fstack-clash-protection -fstack-protector-all -fstack-protector-strong -fno-short-enums -fno-fast-math -fno-common -fno-lto -fexceptions -fverbose-asm -fasynchronous-unwind-tables -pipe -march=native -D_FORTIFY_SOURCE=2 -Wno-float-conversion -o CMakeFiles/somelib.dir/src/somelib.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src/somelib.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src/somelib.cpp",
+  "output": "lib/somelib/CMakeFiles/somelib.dir/src/somelib.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_somelib.dir/test/test_somelib.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/test/test_somelib.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/test/test_somelib.cpp",
+  "output": "lib/somelib/CMakeFiles/test_somelib.dir/test/test_somelib.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/src -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_somelib_2.dir/test/test_somelib_2.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/test/test_somelib_2.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/test/test_somelib_2.cpp",
+  "output": "lib/somelib/CMakeFiles/test_somelib_2.dir/test/test_somelib_2.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib/thirdparty/thirdlib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -m64 -g -std=gnu++14 -O2 -Wall -Wextra -Wshadow -Winit-self -Wuninitialized -Wundef -Wswitch-enum -Wdouble-promotion -Wformat=2 -Wformat-security -Wconversion -Wsign-conversion -Wold-style-cast -Wunreachable-code -Werror -Wpedantic -Wno-unused-value -Wno-unused-result -Wno-unused-function -Wno-unused-parameter -Wno-padded -Wformat-overflow -Wformat-truncation -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -fstack-clash-protection -fstack-protector-all -fstack-protector-strong -fno-short-enums -fno-fast-math -fno-common -fno-lto -fexceptions -fverbose-asm -fasynchronous-unwind-tables -pipe -march=native -D_FORTIFY_SOURCE=2 -Wno-float-conversion -o CMakeFiles/thirdlib.dir/src/thirdlib.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src/thirdlib.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src/thirdlib.cpp",
+  "output": "lib/somelib/thirdparty/thirdlib/CMakeFiles/thirdlib.dir/src/thirdlib.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib/thirdparty/thirdlib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_thirdlib.dir/test/test_thirdlib.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/test/test_thirdlib.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/test/test_thirdlib.cpp",
+  "output": "lib/somelib/thirdparty/thirdlib/CMakeFiles/test_thirdlib.dir/test/test_thirdlib.cpp.o"
+},
+{
+  "directory": "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/lib/somelib/thirdparty/thirdlib",
+  "command": "/usr/bin/c++  -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/include -I/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/src -isystem /home/luxoft/.conan2/p/b/gtestd2347f9cedea8/p/include -isystem /home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/include -m64 -g -std=gnu++14 -o CMakeFiles/test_thirdlib_2.dir/test/test_thirdlib_2.cpp.o -c /home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/test/test_thirdlib_2.cpp",
+  "file": "/home/luxoft/Projects/r3d/UCMakeSkeleton/lib/somelib/thirdparty/thirdlib/test/test_thirdlib_2.cpp",
+  "output": "lib/somelib/thirdparty/thirdlib/CMakeFiles/test_thirdlib_2.dir/test/test_thirdlib_2.cpp.o"
+}
+]

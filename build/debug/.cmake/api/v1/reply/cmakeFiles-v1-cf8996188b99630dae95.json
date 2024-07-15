@@ -1,0 +1,867 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/CMakeFiles/3.29.3/CMakeSystem.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/conan_toolchain.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Platform/Linux.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake"
+		},
+		{
+			"path" : "CMakeLists.txt_SafetyFlags_GNU.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2ConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Targets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/luxoft/.conan2/p/b/bzip2ec8511aba025a/p/lib/cmake/conan-official-bzip2-variables.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config-version.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktraceTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"path" : "CMakeLists.txt_Libs.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2ConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Targets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/luxoft/.conan2/p/b/bzip2ec8511aba025a/p/lib/cmake/conan-official-bzip2-variables.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config-version.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktraceTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"path" : "lib/somelib/CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2ConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Targets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/luxoft/.conan2/p/b/bzip2ec8511aba025a/p/lib/cmake/conan-official-bzip2-variables.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config-version.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktraceTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"path" : "lib/somelib/thirdparty/thirdlib/CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIBTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/ZLIB-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2ConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2Targets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BZip2-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/luxoft/.conan2/p/b/bzip2ec8511aba025a/p/lib/cmake/conan-official-bzip2-variables.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config-version.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktraceTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/libbacktrace-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTestTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/GTest-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfigVersion.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostConfig.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/BoostTargets.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-debug-x86_64-data.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/debug/build/Debug/generators/Boost-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug",
+		"source" : "/home/luxoft/Projects/r3d/UCMakeSkeleton"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

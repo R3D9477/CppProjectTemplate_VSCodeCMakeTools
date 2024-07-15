@@ -19,6 +19,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Main tasks
+* Project: Show Valgrind Report
 * Project: CMake Build Debug
 * Project: CMake Clean Debug
 * Project: CMake Rebuild Debug

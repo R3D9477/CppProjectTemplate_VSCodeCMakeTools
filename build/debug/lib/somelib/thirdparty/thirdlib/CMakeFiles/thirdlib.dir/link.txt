@@ -1,0 +1,2 @@
+/usr/bin/ar qc libthirdlib.a CMakeFiles/thirdlib.dir/src/thirdlib.cpp.o
+/usr/bin/ranlib libthirdlib.a

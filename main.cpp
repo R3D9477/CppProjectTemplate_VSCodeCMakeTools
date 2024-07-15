@@ -1,9 +1,14 @@
-//#include "somelib.hpp"
+#include "somelib.hpp"
 
-int main() {
-  //...
-  //...
-  //...
+#include <iostream>
 
-  return 0;
+int main()
+{
+    std::cout << "Hi." << std::endl;
+
+    //...
+    //...
+    //...
+
+    return 0;
 }

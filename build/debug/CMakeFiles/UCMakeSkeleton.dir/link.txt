@@ -1,0 +1,1 @@
+/usr/bin/c++ -m64 -g -m64 CMakeFiles/UCMakeSkeleton.dir/main.cpp.o -o UCMakeSkeleton   -L/home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/lib  -Wl,-rpath,/home/luxoft/.conan2/p/b/boost3ef06cf9c4116/p/lib -lpthread lib/somelib/libsomelib.a lib/somelib/thirdparty/thirdlib/libthirdlib.a

@@ -12,6 +12,6 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Project: CMake Build Debug",
-        }
+        },
     ]
 }
