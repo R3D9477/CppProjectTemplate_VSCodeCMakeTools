@@ -1,4 +1,11 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.configureOnOpen": false,
+    "taskExplorer.enableSideBar": true,
+    "taskExplorer.showFavoritesButton": true,
+    "taskExplorer.expanded": {
+        "lastTasks": true,
+        "favorites": true,
+        "userTasks": true
+    },
 }

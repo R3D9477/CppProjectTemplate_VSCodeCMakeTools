@@ -11,5 +11,6 @@
         "sirmspencer.vscode-autohide",
         "Blackboxapp.blackbox",
         "krosf.vscode-valgrind",
+        "spmeesseman.vscode-taskexplorer",
   ]
 } 

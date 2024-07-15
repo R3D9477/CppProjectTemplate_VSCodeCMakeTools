@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/build/debug/${workspaceFolderBasename}",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Project: CMake Build Debug",
+            "preLaunchTask": "C++ Project: CMake Build Debug",
         },
     ]
 }

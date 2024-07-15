@@ -1,13 +1,17 @@
 {
     "tasks": [
         {
-            "label": "Project: Show Valgrind Report",
+            "label": "C++ Project: Show Valgrind Report",
             "command": "code",
-            "args": [ "-r", "${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind" ],
-            "dependsOn": "Project: Make Valgrind Report",
+            "args": [
+                "-r",
+                "${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind"
+            ],
+            "dependsOn": "C++ Project: Make Valgrind Report",
+            "problemMatcher": []
         },
         {
-            "label": "Project: Make Valgrind Report",
+            "label": "C++ Project: Make Valgrind Report",
             "type": "shell",
             "command": "valgrind",
             "promptOnClose": false,
@@ -22,17 +26,17 @@
                 "--log-file=${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind",
                 "${workspaceFolder}/build/debug/${workspaceFolderBasename}"
             ],
-            "dependsOn": "Project: CMake Build Debug"
+            "dependsOn": "C++ Project: CMake Build Debug"
         },
         {
-            "label": "Project: CMake Rebuild Debug",
+            "label": "C++ Project: CMake Rebuild Debug",
             "dependsOn": [
-                "Project: CMake Clean Debug",
-                "Project: CMake Build Debug"
+                "C++ Project: CMake Clean Debug",
+                "C++ Project: CMake Build Debug"
             ]
         },
         {
-            "label": "Project: CMake Clean Debug",
+            "label": "C++ Project: CMake Clean Debug",
             "command": "cmake",
             "args": [
                 "--build",
@@ -42,7 +46,7 @@
             ]
         },
         {
-            "label": "Project: CMake Build Debug",
+            "label": "C++ Project: CMake Build Debug",
             "command": "cmake",
             "args": [
                 "--build",
@@ -54,11 +58,11 @@
                 "cwd": "${workspaceFolder}"
             },
             "dependsOn": [
-                "Project: CMake Prepare Debug"
+                "C++ Project: CMake Prepare Debug"
             ]
         },
         {
-            "label": "Project: CMake Prepare Debug",
+            "label": "C++ Project: CMake Prepare Debug",
             "command": "cmake",
             "args": [
                 "-S",
@@ -72,12 +76,12 @@
                 "cwd": "${workspaceFolder}"
             },
             "dependsOn": [
-                "Project: Create Build Dir Debug",
-                "Project: Conan Install Debug"
+                "C++ Project: Create Build Dir Debug",
+                "C++ Project: Conan Install Debug"
             ]
         },
         {
-            "label": "Project: Conan Install Debug",
+            "label": "C++ Project: Conan Install Debug",
             "command": "conan",
             "args": [
                 "install",
@@ -87,11 +91,11 @@
                 "build_type=Debug"
             ],
             "dependsOn": [
-                "Project: Conan Prepare Debug"
+                "C++ Project: Conan Prepare Debug"
             ]
         },
         {
-            "label": "Project: Conan Prepare Debug",
+            "label": "C++ Project: Conan Prepare Debug",
             "linux": {
                 "command": "cp",
                 "args": [
@@ -100,11 +104,11 @@
                 ]
             },
             "dependsOn": [
-                "Project: Create Build Dir Debug"
+                "C++ Project: Create Build Dir Debug"
             ]
         },
         {
-            "label": "Project: Create Build Dir Debug",
+            "label": "C++ Project: Create Build Dir Debug",
             "linux": {
                 "command": "mkdir",
                 "args": [
@@ -114,14 +118,14 @@
             }
         },
         {
-            "label": "Project: CMake Rebuild Release",
+            "label": "C++ Project: CMake Rebuild Release",
             "dependsOn": [
-                "Project: CMake Clean Release",
-                "Project: CMake Build Release"
+                "C++ Project: CMake Clean Release",
+                "C++ Project: CMake Build Release"
             ]
         },
         {
-            "label": "Project: CMake Clean Release",
+            "label": "C++ Project: CMake Clean Release",
             "command": "cmake",
             "args": [
                 "--build",
@@ -131,7 +135,7 @@
             ]
         },
         {
-            "label": "Project: CMake Build Release",
+            "label": "C++ Project: CMake Build Release",
             "command": "cmake",
             "args": [
                 "--build",
@@ -143,11 +147,12 @@
                 "cwd": "${workspaceFolder}/build/release"
             },
             "dependsOn": [
-                "Project: CMake Prepare Release"
-            ]
+                "C++ Project: CMake Prepare Release"
+            ],
+            "problemMatcher": []
         },
         {
-            "label": "Project: CMake Prepare Release",
+            "label": "C++ Project: CMake Prepare Release",
             "command": "cmake",
             "args": [
                 "-S",
@@ -158,12 +163,12 @@
                 "-DCMAKE_BUILD_TYPE=Release"
             ],
             "dependsOn": [
-                "Project: Create Build Dir Release",
-                "Project: Conan Install Release"
+                "C++ Project: Create Build Dir Release",
+                "C++ Project: Conan Install Release"
             ]
         },
         {
-            "label": "Project: Conan Install Release",
+            "label": "C++ Project: Conan Install Release",
             "command": "conan",
             "args": [
                 "install",
@@ -173,11 +178,11 @@
                 "build_type=Release"
             ],
             "dependsOn": [
-                "Project: Conan Prepare Release"
+                "C++ Project: Conan Prepare Release"
             ]
         },
         {
-            "label": "Project: Conan Prepare Release",
+            "label": "C++ Project: Conan Prepare Release",
             "linux": {
                 "command": "cp",
                 "args": [
@@ -186,11 +191,11 @@
                 ]
             },
             "dependsOn": [
-                "Project: Create Build Dir Release"
+                "C++ Project: Create Build Dir Release"
             ]
         },
         {
-            "label": "Project: Create Build Dir Release",
+            "label": "C++ Project: Create Build Dir Release",
             "linux": {
                 "command": "mkdir",
                 "args": [

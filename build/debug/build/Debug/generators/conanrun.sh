@@ -1,1 +1,0 @@
-. "/home/luxoft/Projects/r3d/UCMakeSkeleton/build/debug/build/Debug/generators/conanrunenv-debug-x86_64.sh"
