@@ -8,4 +8,7 @@
         "favorites": true,
         "userTasks": true
     },
+    "graphviz-interactive-preview.openAutomatically": true,
+    "graphviz-interactive-preview.preserveFocus": true,
+    ""
 }

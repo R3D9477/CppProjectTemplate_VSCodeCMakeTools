@@ -19,13 +19,14 @@ Universal simple skeleton of project's tree, based on CMake build system.
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 # Main tasks
-* Project: Show Valgrind Report
-* Project: CMake Build Debug
-* Project: CMake Clean Debug
-* Project: CMake Rebuild Debug
-* Project: CMake Build Release
-* Project: CMake Clean Release
-* Project: CMake Rebuild Release
+* C++ Project: CMake Build Debug
+* C++ Project: CMake Rebuild Debug
+* C++ Project: CMake Build Release
+* C++ Project: CMake Rebuild Release
+* C++ Project: CMake Clean All
+* C++ Project: Valgrind Show Memcheck Report
+* C++ Project: Valgrind Show Callgrind Report
+* C++ Project: Valgrind Show Cachegrind Report
 
 # Features
 * automatically [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L6) name of directory as name of a project/library
