@@ -156,7 +156,7 @@ target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 # Compiler's safety flags.
 
 string(TOUPPER ${CMAKE_CXX_COMPILER_ID} SFF_POSTFIX)
-set(SAFETY_FLAGS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_SafetyFlags_${SFF_POSTFIX}.cmake")
+set(SAFETY_FLAGS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_z_SafetyFlags_${SFF_POSTFIX}.cmake")
 if(EXISTS "${SAFETY_FLAGS_FILE}")
   include("${SAFETY_FLAGS_FILE}")
 endif()
@@ -199,7 +199,7 @@ target_add_boost(${OUTPUT_NAME})
 #------------------------------------------------------------------------------------------------------
 # ATTACH EXTERNAL LIBRARIES
 
-set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_Libs.cmake")
+set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_a_Libs.cmake")
 if(EXISTS "${EXT_LIBS_FILE}")
   include("${EXT_LIBS_FILE}")
 endif()
@@ -208,4 +208,7 @@ endif()
 #------------------------------------------------------------------------------------------------------
 # ADD TESTS
 
-target_add_tests_from_folder(${OUTPUT_NAME} "test")
+set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_b_Tests.cmake")
+if(EXISTS "${EXT_LIBS_FILE}")
+  include("${EXT_LIBS_FILE}")
+endif()
