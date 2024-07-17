@@ -25,6 +25,9 @@
             "targets": [
                 "all"
             ],
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
             "dependsOn": "Conan: Install",
             "problemMatcher": [],
         },
