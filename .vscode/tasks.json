@@ -1,395 +1,258 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "label": "C++ Project: Valgrind Show Memcheck Report",
-            "type": "process",
-            "isBackground": true,
-            "command": "code",
-            "args": [
-                "-r",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind"
+            "label": "CMake: Build",
+            "type": "cmake",
+            "command": "build",
+            "targets": [
+                "all"
             ],
-            "dependsOn": "C++ Project: Valgrind Make Memcheck Report",
+            "dependsOn": "CMake: Configure",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": ["absolute"]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "CMake: Configure",
+            "type": "cmake",
+            "command": "configure",
+            "targets": [
+                "all"
+            ],
+            "dependsOn": "Conan: Install",
+            "problemMatcher": [],
+        },
+        {
+            "label": "CMake: Clean",
+            "type": "cmake",
+            "command": "clean",
+            "targets": [
+                "all"
+            ],
+            "dependsOn": [
+                "Valgrind: Clean Memcheck",
+                "Valgrind: Clean Callgrind",
+                "Valgrind: Clean Cachegrind",
+            ],
+            "problemMatcher": [],
+        },
+        {
+            "label": "Conan: Install",
+            "hide": false,
+            "command": "conan",
+            "args": [
+                "install",
+                "build/${command:cmake.buildType}/conanfile.txt",
+                "--build=missing",
+                "--settings",
+                "build_type=${command:cmake.buildType}"
+            ],
+            "dependsOn": "Conan: Setup",
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Show Callgrind Report",
-            "type": "process",
-            "isBackground": true,
-            "command": "code",
-            "args": [
-                "-r",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind.dot"
-            ],
-            "dependsOn": "C++ Project: Valgrind Convert Callgrind Report To Chart",
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Valgrind Show Cachegrind Report",
-            "type": "process",
-            "isBackground": true,
-            "command": "code",
-            "args": [
-                "-r",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}.cachegrind.valgrind"
-            ],
-            "dependsOn": "C++ Project: Valgrind Generate Cachegrind Report",
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Valgrind Generate Cachegrind Report",
+            "label": "Conan: Setup",
             "hide": true,
             "linux": {
-                "type": "process",
-                "isBackground": true,
+                "command": "cp",
+                "args": [
+                    "conanfile.txt",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/"
+                ]
+            },
+            "dependsOn": "Create Build Directory",
+            "problemMatcher": []
+        },
+        {
+            "label": "Create Build Directory",
+            "hide": true,
+            "linux": {
+                "command": "mkdir",
+                "args": [
+                    "-p",
+                    "${workspaceFolder}/build/${command:cmake.buildType}"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Show Memcheck Report",
+            "command": "code",
+            "args": [
+                "-r",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
+            ],
+            "dependsOn": "Valgrind: Make Memcheck Report",
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Show Callgrind Report",
+            "command": "${command:workbench.action.closeActiveEditor}",
+            "dependsOn": "Valgrind: Wait for Callgrind Report File",
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Wait for Callgrind Report File",
+            "hide": true,
+            "linux": {
+                "command": "sleep",
+                "args": [
+                    "0.1s"
+                ],
+            },
+            "dependsOn": "Valgrind: Open Callgrind Report File",
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Open Callgrind Report File",
+            "hide": true,
+            "command": "code",
+            "args": [
+                "-r",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot"
+            ],
+            "dependsOn": "Valgrind: Convert Callgrind Report To Chart",
+            "problemMatcher": []
+        },
+
+        {
+            "label": "Valgrind: Show Cachegrind Report",
+            "command": "code",
+            "args": [
+                "-r",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
+            ],
+            "dependsOn": "Valgrind: Generate Cachegrind Report",
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Generate Cachegrind Report",
+            "hide": true,
+            "linux": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "cg_annotate ${workspaceFolder}/build/debug/${workspaceFolderBasename}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${workspaceFolder}/build/debug/${workspaceFolderBasename}.cachegrind.valgrind"
-                ],
+                    "cg_annotate ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
+                ]
             },
-            "dependsOn": "C++ Project: Valgrind Make Cachegrind Report",
+            "dependsOn": "Valgrind: Make Cachegrind Report",
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Convert Callgrind Report To Chart",
+            "label": "Valgrind: Convert Callgrind Report To Chart",
             "hide": true,
-            "type": "process",
-            "isBackground": true,
             "command": "gprof2dot",
             "args": [
                 "--format=callgrind",
-                "--output=${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind.dot",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind"
+                "--output=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind"
             ],
-            "dependsOn": "C++ Project: Valgrind Make Callgrind Report",
+            "dependsOn": "Valgrind: Make Callgrind Report",
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Make Memcheck Report",
+            "label": "Valgrind: Make Memcheck Report",
             "hide": true,
-            "type": "process",
-            "isBackground": true,
             "command": "valgrind",
-            "promptOnClose": false,
             "options": {
-                "cwd": "${workspaceFolder}/build/debug"
+                "cwd": "${workspaceFolder}/build/${command:cmake.buildType}"
             },
             "args": [
+                "--tool=memcheck",
                 "--leak-check=full",
                 "--show-leak-kinds=all",
                 "--track-origins=yes",
                 "--verbose",
-                "--log-file=${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}"
+                "--log-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
             "dependsOn": [
-                "C++ Project: Valgrind Clear Memcheck",
+                "Valgrind: Clean Memcheck",
                 "C++ Project: CMake Build Debug"
             ],
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Make Callgrind Report",
+            "label": "Valgrind: Make Callgrind Report",
             "hide": true,
-            "type": "process",
-            "isBackground": true,
             "command": "valgrind",
-            "promptOnClose": false,
             "options": {
-                "cwd": "${workspaceFolder}/build/debug"
+                "cwd": "${workspaceFolder}/build/${command:cmake.buildType}"
             },
             "args": [
                 "--tool=callgrind",
                 "--dump-instr=yes",
                 "--collect-jumps=yes",
-                "--callgrind-out-file=${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}"
+                "--callgrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
             "dependsOn": [
-                "C++ Project: Valgrind Clear Callgrind",
+                "Valgrind: Clean Callgrind",
                 "C++ Project: CMake Build Debug"
             ],
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Make Cachegrind Report",
+            "label": "Valgrind: Make Cachegrind Report",
             "hide": true,
-            "type": "process",
-            "isBackground": true,
             "command": "valgrind",
-            "promptOnClose": false,
             "options": {
-                "cwd": "${workspaceFolder}/build/debug"
+                "cwd": "${workspaceFolder}/build/${command:cmake.buildType}"
             },
             "args": [
                 "--tool=cachegrind",
-                "--cachegrind-out-file=${workspaceFolder}/build/debug/${workspaceFolderBasename}.cachegrind",
-                "${workspaceFolder}/build/debug/${workspaceFolderBasename}"
+                "--cachegrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
             "dependsOn": [
-                "C++ Project: Valgrind Clear Cachegrind",
-                "C++ Project: CMake Build Debug"
+                "Valgrind: Clean Cachegrind",
+                "CMake: Build"
             ],
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Clear Memcheck",
+            "label": "Valgrind: Clean Memcheck",
             "hide": true,
             "linux": {
-                "type": "process",
-                "isBackground": true,
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/debug/${workspaceFolderBasename}.valgrind",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
                 ]
             },
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Clear CallGrind",
+            "label": "Valgrind: Clean CallGrind",
             "hide": true,
             "linux": {
-                "type": "process",
-                "isBackground": true,
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind",
-                    "${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind.dot",
-                    "${workspaceFolder}/build/debug/${workspaceFolderBasename}.callgrind.svg"
+                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.svg"
                 ]
             },
             "problemMatcher": []
         },
         {
-            "label": "C++ Project: Valgrind Clear Cachegrind",
+            "label": "Valgrind: Clean Cachegrind",
             "hide": true,
             "linux": {
-                "type": "process",
-                "isBackground": true,
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/debug/${workspaceFolderBasename}.cachegrind.valgrind",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
                 ]
             },
             "problemMatcher": []
         },
-        {
-            "label": "C++ Project: CMake Clean All",
-            "dependsOn": [
-                "C++ Project: CMake Prepare Debug",
-                "C++ Project: CMake Clean Debug",
-                "C++ Project: Valgrind Clear Memcheck",
-                "C++ Project: Valgrind Clear Callgrind",
-                "C++ Project: Valgrind Clear Cachegrind",
-                "C++ Project: CMake Prepare Release",
-                "C++ Project: CMake Clean Release",
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Rebuild Debug",
-            "dependsOn": [
-                "",
-                "C++ Project: CMake Clean Debug",
-                "C++ Project: CMake Build Debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Clean Debug",
-            "hide": true,
-            "command": "cmake",
-            "args": [
-                "--build",
-                "${workspaceFolder}/build/debug",
-                "--target",
-                "clean"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Build Debug",
-            "command": "cmake",
-            "args": [
-                "--build",
-                "build/debug",
-                "--config",
-                "Debug"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "dependsOn": [
-                "C++ Project: CMake Prepare Debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Prepare Debug",
-            "hide": true,
-            "command": "cmake",
-            "args": [
-                "-S",
-                ".",
-                "-B",
-                "build/debug",
-                "-DCMAKE_TOOLCHAIN_FILE=build/debug/build/Debug/generators/conan_toolchain.cmake",
-                "-DCMAKE_BUILD_TYPE=Debug"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "dependsOn": [
-                "C++ Project: Create Build Dir Debug",
-                "C++ Project: Conan Install Debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Conan Install Debug",
-            "hide": true,
-            "command": "conan",
-            "args": [
-                "install",
-                "build/debug/conanfile.txt",
-                "--build=missing",
-                "--settings",
-                "build_type=Debug"
-            ],
-            "dependsOn": [
-                "C++ Project: Conan Prepare Debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Conan Prepare Debug",
-            "hide": true,
-            "linux": {
-                "command": "cp",
-                "args": [
-                    "conanfile.txt",
-                    "${workspaceFolder}/build/debug/"
-                ]
-            },
-            "dependsOn": [
-                "C++ Project: Create Build Dir Debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Create Build Dir Debug",
-            "hide": true,
-            "linux": {
-                "command": "mkdir",
-                "args": [
-                    "-p",
-                    "${workspaceFolder}/build/debug"
-                ]
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Rebuild Release",
-            "dependsOn": [
-                "C++ Project: CMake Clean Release",
-                "C++ Project: CMake Build Release"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Clean Release",
-            "hide": true,
-            "command": "cmake",
-            "args": [
-                "--build",
-                "${workspaceFolder}/build/release",
-                "--target",
-                "clean"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Build Release",
-            "command": "cmake",
-            "args": [
-                "--build",
-                "${workspaceFolder}/build/release",
-                "--config",
-                "Release"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/build/release"
-            },
-            "dependsOn": [
-                "C++ Project: CMake Prepare Release"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: CMake Prepare Release",
-            "hide": true,
-            "command": "cmake",
-            "args": [
-                "-S",
-                ".",
-                "-B",
-                "${workspaceFolder}/build/release",
-                "-DCMAKE_TOOLCHAIN_FILE=build/release/build/Release/generators/conan_toolchain.cmake",
-                "-DCMAKE_BUILD_TYPE=Release"
-            ],
-            "dependsOn": [
-                "C++ Project: Create Build Dir Release",
-                "C++ Project: Conan Install Release"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Conan Install Release",
-            "hide": true,
-            "command": "conan",
-            "args": [
-                "install",
-                "build/release/conanfile.txt",
-                "--build=missing",
-                "--settings",
-                "build_type=Release"
-            ],
-            "dependsOn": [
-                "C++ Project: Conan Prepare Release"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Conan Prepare Release",
-            "hide": true,
-            "linux": {
-                "command": "cp",
-                "args": [
-                    "conanfile.txt",
-                    "${workspaceFolder}/build/release/"
-                ]
-            },
-            "dependsOn": [
-                "C++ Project: Create Build Dir Release"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "C++ Project: Create Build Dir Release",
-            "hide": true,
-            "linux": {
-                "command": "mkdir",
-                "args": [
-                    "-p",
-                    "${workspaceFolder}/build/release"
-                ]
-            },
-            "problemMatcher": []
-        }
-    ],
-    "version": "2.0.0"
+    ]
 }

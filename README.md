@@ -2,14 +2,13 @@
 Universal simple skeleton of project's tree, based on CMake build system.
 
 ### Main tasks
-* C++ Project: CMake Build Debug
-* C++ Project: CMake Rebuild Debug
-* C++ Project: CMake Build Release
-* C++ Project: CMake Rebuild Release
-* C++ Project: CMake Clean All
-* C++ Project: Valgrind Show Memcheck Report
-* C++ Project: Valgrind Show Callgrind Report
-* C++ Project: Valgrind Show Cachegrind Report
+* CMake: Configure
+* CMake: Build
+* CMake: Clean
+* Conan: Install
+* Valgrind: Show Memcheck Report
+* Valgrind: Show Callgrind Report
+* Valgrind: Show Cachegrind Report
 
 ### Features
 * automatically [applies](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L6) name of directory as name of a project/library
@@ -54,6 +53,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 5. if needed, you can customize safety flags for your current compiler: [GCC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_GNU.cmake#L1), [Clang](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_MSVC.cmake#L1)
 6. if neeeded, add [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
 7. set a needed kit via command `>CMake: Select a Kit`
+8. set a current variant via command `>CMake: Set Variant` (`Debug`, `Release`, etc.)
 
 ### Extra variables
 you can use some of variables in your own configuration:

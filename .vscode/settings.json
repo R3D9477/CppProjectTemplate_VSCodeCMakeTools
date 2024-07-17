@@ -1,6 +1,10 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.configureOnOpen": false,
+    "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
+    "cmake.configureArgs": [ 
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
+    ],
     "taskExplorer.enableSideBar": true,
     "taskExplorer.showFavoritesButton": true,
     "taskExplorer.expanded": {
@@ -10,5 +14,4 @@
     },
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
-    ""
 }

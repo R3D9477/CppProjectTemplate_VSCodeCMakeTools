@@ -8,10 +8,10 @@
             "type": "lldb",
             "request": "launch",
             "name": "Launch",
-            "program": "${workspaceFolder}/build/debug/${workspaceFolderBasename}",
+            "program": "${command:cmake.launchTargetPath}",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "C++ Project: CMake Build Debug",
+            "preLaunchTask": "CMake: Build",
         },
     ]
 }

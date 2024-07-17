@@ -5,7 +5,6 @@
 #  https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc
 
 list(APPEND SAFETY_FLAGS
-  -O2
   -Wall
   -Wextra
   -Wshadow
