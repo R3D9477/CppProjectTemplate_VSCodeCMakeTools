@@ -53,6 +53,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 4. change required libraries in [conanfile.txt](https://github.com/R3D9477/UCMakeSkeleton/blob/main/conanfile.txt), the package manager will handle it automatically during first build
 5. if needed, you can customize safety flags for your current compiler: [GCC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_GNU.cmake#L1), [Clang](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt_z_SafetyFlags_MSVC.cmake#L1)
 6. if neeeded, add [HERE](https://github.com/R3D9477/UCMakeSkeleton/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
+7. set a needed kit via command `>CMake: Select a Kit`
 
 ### Extra variables
 you can use some of variables in your own configuration:
