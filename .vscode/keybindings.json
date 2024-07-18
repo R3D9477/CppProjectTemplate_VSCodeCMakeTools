@@ -1,0 +1,18 @@
+[
+    {
+        "key": "ctrl+shift+1",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Valgrind: Show Memcheck Report",
+        "when": "config.workspaceKeybindings.ValgrindTasks.enabled"
+    },
+    {
+        "key": "ctrl+shift+2",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Valgrind: Show Cachegrind Report"
+    },
+    {
+        "key": "ctrl+shift+3",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Valgrind: Show Callgrind Report"
+    }
+]

@@ -8,15 +8,30 @@
             "targets": [
                 "all"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": "CMake: Configure",
             "problemMatcher": {
                 "base": "$gcc",
-                "fileLocation": ["absolute"]
+                "fileLocation": [
+                    "absolute"
+                ]
             },
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "label": "CMake: Configure Silent",
+            "hide": true,
+            "runOptions": {
+                "runOn": "folderOpen"
             },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Configure",
+                "VSCode Utility: Toggle Terminal Twice"
+            ]
         },
         {
             "label": "CMake: Configure",
@@ -25,11 +40,17 @@
             "targets": [
                 "all"
             ],
-            "runOptions": {
-                "runOn": "folderOpen"
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
             },
-            "dependsOn": "Conan: Install",
-            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": "Conan: Install"
         },
         {
             "label": "CMake: Clean",
@@ -38,12 +59,13 @@
             "targets": [
                 "all"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
                 "Valgrind: Clean Callgrind",
-                "Valgrind: Clean Cachegrind",
+                "Valgrind: Clean Cachegrind"
             ],
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "Conan: Install",
@@ -56,6 +78,7 @@
                 "--settings",
                 "build_type=${command:cmake.buildType}"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": "Conan: Setup",
             "problemMatcher": []
         },
@@ -69,6 +92,7 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/"
                 ]
             },
+            "dependsOrder": "sequence",
             "dependsOn": "Create Build Directory",
             "problemMatcher": []
         },
@@ -86,30 +110,48 @@
         },
         {
             "label": "Valgrind: Show Memcheck Report",
-            "command": "code",
-            "args": [
-                "-r",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: Focus on First Group",
+                "Valgrind: Open Memcheck Report File",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Toggle Terminal Twice"
             ],
-            "dependsOn": "Valgrind: Make Memcheck Report",
+            "problemMatcher": []
+        },
+        {
+            "label": "Valgrind: Show Cachegrind Report",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: Focus on First Group",
+                "Valgrind: Open Cachegrind Report File",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
             "problemMatcher": []
         },
         {
             "label": "Valgrind: Show Callgrind Report",
             "command": "${command:workbench.action.closeActiveEditor}",
-            "dependsOn": "Valgrind: Wait for Callgrind Report File",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: Focus on First Group",
+                "Valgrind: Open Callgrind Report File",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
             "problemMatcher": []
         },
         {
-            "label": "Valgrind: Wait for Callgrind Report File",
+            "label": "Valgrind: Open Memcheck Report File",
             "hide": true,
-            "linux": {
-                "command": "sleep",
-                "args": [
-                    "0.1s"
-                ],
-            },
-            "dependsOn": "Valgrind: Open Callgrind Report File",
+            "command": "code",
+            "args": [
+                "-r",
+                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": "Valgrind: Make Memcheck Report",
             "problemMatcher": []
         },
         {
@@ -120,22 +162,26 @@
                 "-r",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Convert Callgrind Report To Chart",
             "problemMatcher": []
         },
-
         {
-            "label": "Valgrind: Show Cachegrind Report",
+            "label": "Valgrind: Open Cachegrind Report File",
+            "hide": true,
             "command": "code",
             "args": [
                 "-r",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
             ],
-            "dependsOn": "Valgrind: Generate Cachegrind Report",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Valgrind: Annotate Cachegrind Report",
+            ],
             "problemMatcher": []
         },
         {
-            "label": "Valgrind: Generate Cachegrind Report",
+            "label": "Valgrind: Annotate Cachegrind Report",
             "hide": true,
             "linux": {
                 "command": "bash",
@@ -144,6 +190,7 @@
                     "cg_annotate ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
                 ]
             },
+            "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Cachegrind Report",
             "problemMatcher": []
         },
@@ -156,6 +203,7 @@
                 "--output=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Callgrind Report",
             "problemMatcher": []
         },
@@ -175,9 +223,10 @@
                 "--log-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
-                "C++ Project: CMake Build Debug"
+                "CMake: Build"
             ],
             "problemMatcher": []
         },
@@ -195,9 +244,10 @@
                 "--callgrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Callgrind",
-                "C++ Project: CMake Build Debug"
+                "CMake: Build"
             ],
             "problemMatcher": []
         },
@@ -213,6 +263,7 @@
                 "--cachegrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind",
                 "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
             ],
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Cachegrind",
                 "CMake: Build"
@@ -255,6 +306,36 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
                 ]
             },
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Wait for Report File",
+            "hide": true,
+            "linux": {
+                "command": "sleep",
+                "args": [
+                    "0.15s"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Focus on First Group",
+            "hide": true,
+            "command": "${command:workbench.action.focusFirstEditorGroup}",
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Toggle Terminal Twice",
+            "hide": true,
+            "command": "${command:workbench.action.terminal.toggleTerminal}",
+            "dependsOn": "VSCode Utility: Toggle Terminal",
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Toggle Terminal",
+            "hide": true,
+            "command": "${command:workbench.action.terminal.toggleTerminal}",
             "problemMatcher": []
         },
     ]

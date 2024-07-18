@@ -11,8 +11,8 @@ int main()
     std::cout << "C++ language version: " << cppInfo.GetLanguageVersion() << std::endl;
     std::cout << "C++ compiler version: " << cppInfo.GetCompilerVersion() << std::endl;
 
-    //...
-    //...
+    int *k = new int[1];
+    *k = 1;
     //...
 
     return 0;

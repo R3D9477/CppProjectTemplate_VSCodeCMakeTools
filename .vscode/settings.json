@@ -6,13 +6,8 @@
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
     "cmake.buildBeforeRun": false,
-    "taskExplorer.enableSideBar": true,
-    "taskExplorer.showFavoritesButton": true,
-    "taskExplorer.expanded": {
-        "lastTasks": true,
-        "favorites": true,
-        "userTasks": true
-    },
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
+    "autoHide.autoHideLeftSideBar": false,
+    "workspaceKeybindings.ValgrindTasks.enabled": true,
 }

@@ -4,12 +4,12 @@
         "ms-vscode.cpptools-extension-pack",
         "fredericbonnet.cmake-test-adapter",
         "vadimcn.vscode-lldb",
-        "sirmspencer.vscode-autohide",
-        "Blackboxapp.blackbox",
         "krosf.vscode-valgrind",
-        "spmeesseman.vscode-taskexplorer",
         "tintinweb.graphviz-interactive-preview",
         "Guyutongxue.cpp-reference",
         "SteveBushResearch.BuildOutputColorizer",
+        "SR-team.vscode-autohide-fork",
+        "Blackboxapp.blackbox",
+        "jiapeiyao.tab-group",
   ]
 } 
