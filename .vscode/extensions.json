@@ -1,6 +1,7 @@
 // Suggested extensions
 {
     "recommendations": [
+        "ryuta46.multi-command",
         "ms-vscode.cpptools-extension-pack",
         "fredericbonnet.cmake-test-adapter",
         "vadimcn.vscode-lldb",

@@ -2,36 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CMake: Build",
-            "type": "cmake",
-            "command": "build",
-            "targets": [
-                "all"
-            ],
-            "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure",
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "CMake: Configure Silent",
+            "label": "CMake: Configure Silently on Open",
             "hide": true,
             "runOptions": {
                 "runOn": "folderOpen"
             },
             "dependsOrder": "sequence",
             "dependsOn": [
+                "VSCode Utility: If build Folder Exists",
                 "CMake: Configure",
                 "VSCode Utility: Toggle Terminal Twice"
-            ]
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: Select a Kit and Configure Silently on Open",
+            "hide": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: If build Folder is NOT Exists",
+                "CMake: Select a Kit",
+                "CMake: Configure",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: Select a Kit",
+            "hide": true,
+            "command": "${command:multiCommand.cmake_buildKit}",
+            "problemMatcher": []
         },
         {
             "label": "CMake: Configure",
@@ -53,6 +56,26 @@
             "dependsOn": "Conan: Install"
         },
         {
+            "label": "CMake: Build",
+            "type": "cmake",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": "CMake: Configure",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "CMake: Clean",
             "type": "cmake",
             "command": "clean",
@@ -69,7 +92,6 @@
         },
         {
             "label": "Conan: Install",
-            "hide": false,
             "command": "conan",
             "args": [
                 "install",
@@ -115,7 +137,9 @@
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Memcheck Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice"
+                "VSCode Utility: Toggle Terminal Twice",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Scroll at the Last Line",
             ],
             "problemMatcher": []
         },
@@ -126,7 +150,9 @@
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Cachegrind Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice"
+                "VSCode Utility: Toggle Terminal Twice",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Scroll at the First Line",
             ],
             "problemMatcher": []
         },
@@ -138,7 +164,7 @@
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Callgrind Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice"
+                "VSCode Utility: Toggle Terminal Twice",
             ],
             "problemMatcher": []
         },
@@ -176,7 +202,7 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
-                "Valgrind: Annotate Cachegrind Report",
+                "Valgrind: Annotate Cachegrind Report"
             ],
             "problemMatcher": []
         },
@@ -338,5 +364,43 @@
             "command": "${command:workbench.action.terminal.toggleTerminal}",
             "problemMatcher": []
         },
+        {
+            "label": "VSCode Utility: If build Folder Exists",
+            "hide": true,
+            "type": "shell",
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "if [ -d \"${workspaceFolder}/build\" ] ; then exit 0 ; fi ; exit 1"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: If build Folder is NOT Exists",
+            "hide": true,
+            "type": "shell",
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "if [ -d \"${workspaceFolder}/build\" ] ; then exit 1 ; fi ; exit 0"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Scroll at the First Line",
+            "hide": true,
+            "command": "${command:cursorTop}",
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Scroll at the Last Line",
+            "hide": true,
+            "command": "${command:cursorBottom}",
+            "problemMatcher": []
+        }
     ]
 }
