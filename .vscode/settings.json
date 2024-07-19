@@ -1,11 +1,20 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.runAutomatically": true,
     "cmake.configureOnOpen": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
     "cmake.configureArgs": [ 
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
     "cmake.buildBeforeRun": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
     "autoHide.autoHideLeftSideBar": false,
@@ -17,5 +26,7 @@
                 "cmake.buildKit"
             ],
         }
-    ]
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
 }

@@ -20,6 +20,8 @@ Universal simple skeleton of project's tree, based on CMake build system.
 * uses Conan, automatically downloads packages from conanfile.txt before building the project
 * easy to make and show profiler's report
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
+* enabled auto linting (with `clang-tidy`)
+* enabled auto formatting (with `clang-format`)
 
 ### Common project's stucture
 **[ PROJECT ]**
@@ -40,8 +42,7 @@ Universal simple skeleton of project's tree, based on CMake build system.
 
 ### Install needed stuff first
 * Linux (Ubuntu/Debian):
-  * `sudo apt install clang lldb git`
-  * `sudo apt install code valgrind python3-pip`
+  * `sudo apt install clang clang-tidy clang-format lldb git code valgrind python3-pip`
   * `sudo pip3 install conan gprof2dot`
   * `conan profile detect`
 

@@ -1,0 +1,11 @@
+Checks: 
+  - '-*'
+  - 'bugprone-*'
+  - '-bugprone-narrowing-conversions'
+  - 'cert-*'
+  - '-cert-err58-cpp'
+  - 'clang-analyzer-*'
+  - 'cppcoreguidelines-*'
+  - '-cppcoreguidelines-narrowing-conversions'
+  - 'misra-*' # require https://github.com/rettichschnidi/clang-tidy-misra
+  
