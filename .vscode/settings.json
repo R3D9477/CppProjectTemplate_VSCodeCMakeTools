@@ -3,11 +3,11 @@
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.codeAnalysis.runAutomatically": true,
     "cmake.configureOnOpen": false,
+    "cmake.buildBeforeRun": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
     "cmake.configureArgs": [ 
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
-    "cmake.buildBeforeRun": false,
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools",
     },
@@ -15,18 +15,74 @@
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.do_nothing",
+            "sequence": [ ],
+        },
+        {
+            "command": "multiCommand.cmake_buildKit",
+            "sequence": [ "cmake.selectKit", "cmake.buildKit" ],
+        },
+        {
+            "command": "multiCommand.editor_foldLevel1",
+            "sequence": [ "editor.unfoldAll", "editor.foldLevel1" ],
+        },
+        {
+            "command": "multiCommand.editor_foldLevel2",
+            "sequence": [ "editor.unfoldAll", "editor.foldLevel2" ],
+        },
+        {
+            "command": "multiCommand.editor_foldLevel3",
+            "sequence": [ "editor.unfoldAll", "editor.foldLevel3" ],
+        },
+        {
+            "command": "multiCommand.editor_foldLevel4",
+            "sequence": [ "editor.unfoldAll", "editor.foldLevel4" ],
+        }
+    ],
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
     "autoHide.autoHideLeftSideBar": false,
-    "multiCommand.commands": [
+    "workbench.editor.showTabs":"single",
+    "CustomizeToolbar.buttonConfig": [
         {
-            "command": "multiCommand.cmake_buildKit",
-            "sequence": [
-                "cmake.selectKit",
-                "cmake.buildKit"
-            ],
-        }
+            "name": "Fold Level 4",
+            "icon": "folding-collapsed",
+            "command_vscode": "multiCommand.editor_foldLevel4"
+        },
+        {
+            "name": "Fold Level 3",
+            "icon": "folding-collapsed",
+            "command_vscode": "multiCommand.editor_foldLevel3"
+        },
+        {
+            "name": "Fold Level 2",
+            "icon": "folding-collapsed",
+            "command_vscode": "multiCommand.editor_foldLevel2"
+        },
+        {
+            "name": "Fold Level 1",
+            "icon": "folding-collapsed",
+            "command_vscode": "multiCommand.editor_foldLevel1"
+        },
+        {
+            "name": "Unfold All",
+            "icon": "folding-expanded",
+            "command_vscode": "editor.unfoldAll"
+        },
+        {
+            "name": "Separator",
+            "icon": "kebab-vertical",
+            "command_vscode": "multiCommand.do_nothing",
+        },
     ],
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
+    "taskExplorer.enableSideBar": true,
+    "taskExplorer.expanded": {
+        "lastTasks": false,
+        "favorites": true,
+        "userTasks": true
+    },
 }
