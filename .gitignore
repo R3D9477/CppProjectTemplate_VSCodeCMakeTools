@@ -2,3 +2,5 @@
 .directory
 _*
 build
+__pycache__
+.vscode/liveprocmon/generated/*

@@ -335,6 +335,87 @@
             "problemMatcher": []
         },
         {
+            "label": "LiveProcMon: Start Monitoring",
+            "dependsOn": [
+                "LiveProcMon: Run Generator",
+                "LiveProcMon: Run Server",
+                "LiveProcMon: Open WebPage",
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Stop Monitoring",
+            "dependsOn": [
+                "LiveProcMon: Terminate Generator",
+                "LiveProcMon: Terminate Server",
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Terminate Generator",
+            "hide": true,
+            "command": "${input:terminateLiveProcMonGeneratorTask}",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Terminate Server",
+            "hide": true,
+            "command": "${input:terminateLiveProcMonServerTask}",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Open WebPage",
+            "hide": true,
+            "command": "${input:openLiveProcMonInSimpleBrowser}",
+            "args": [
+                "${config:liveprocmon.port}"
+            ],
+            "dependsOn": [
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Wait for Report File",
+                "VSCode Utility: Split Editor",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Run Generator",
+            "hide": true,
+            "command": "python3",
+            "options": {
+                "cwd": "${workspaceFolder}/.vscode/liveprocmon"
+            },
+            "linux": {
+                "args": [
+                    "${workspaceFolder}/.vscode/liveprocmon/liveprocmon_generator.py",
+                    "${config:liveprocmon.liveProcMonTemplatePath}",
+                    "${command:cmake.launchTargetPath}",
+                    "${config:liveprocmon.buildFolder}",
+                    "${config:liveprocmon.port}",
+                    "${config:liveprocmon.maxPoints}",
+                    "${config:liveprocmon.collectFrequencyMs}",
+                    "${config:liveprocmon.generateFrequency}",
+                    "${config:liveprocmon.updateFrequencyMs}",
+                    "${config:liveprocmon.plotWidthInch}",
+                    "${config:liveprocmon.plotHeightInch}"
+                ],
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Run Server",
+            "hide": true,
+            "command": "python3",
+            "options": {
+                "cwd": "${workspaceFolder}/.vscode/liveprocmon/generated"
+            },
+            "args": [ "-m", "http.server", "${config:liveprocmon.port}" ],
+            "problemMatcher": []
+        },
+        {
             "label": "VSCode Utility: Wait for Report File",
             "hide": true,
             "linux": {
@@ -343,6 +424,12 @@
                     "0.15s"
                 ]
             },
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Split Editor",
+            "hide": true,
+            "command": "${command:workbench.action.splitEditor}",
             "problemMatcher": []
         },
         {
@@ -401,6 +488,26 @@
             "hide": true,
             "command": "${command:cursorBottom}",
             "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "openLiveProcMonInSimpleBrowser",
+            "type": "command",
+            "command": "simpleBrowser.show",
+            "args": [ "http://localhost:10001" ]
+        },
+        {
+            "id": "terminateLiveProcMonGeneratorTask",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "LiveProcMon: Run Generator"
+        },
+        {
+            "id": "terminateLiveProcMonServerTask",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "LiveProcMon: Run Server"
         }
     ]
 }

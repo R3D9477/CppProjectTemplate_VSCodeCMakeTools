@@ -13,9 +13,13 @@ int main()
     std::cout << "C++ compiler version: " << cppInfo.GetCompilerVersion()
               << std::endl;
 
-    //...
-    //...
-    //...
+    while (true)
+    {
+        std::cout << 1;
+
+        // int *p = new int[1];
+        //*p = 1;
+    }
 
     return 0;
 }

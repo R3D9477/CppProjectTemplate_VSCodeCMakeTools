@@ -6,6 +6,8 @@ Universal template of C++ project, based on `VSCode C++ Tools` and `VSCode CMake
 * CMake: Build
 * CMake: Clean
 * Conan: Install
+* LiveProcMon: Start Monitoring
+* LiveProcMon: Stop Monitoring
 * Valgrind: Show Memcheck Report
 * Valgrind: Show Callgrind Report
 * Valgrind: Show Cachegrind Report
@@ -43,7 +45,7 @@ Universal template of C++ project, based on `VSCode C++ Tools` and `VSCode CMake
 ### Install needed stuff first
 * Linux (Ubuntu/Debian):
   * `sudo apt install clang clang-tidy clang-format lldb git code valgrind python3-pip`
-  * `sudo pip3 install conan gprof2dot`
+  * `pip3 install conan gprof2dot matplotlib pillow`
   * `conan profile detect`
 
 ### How to use
