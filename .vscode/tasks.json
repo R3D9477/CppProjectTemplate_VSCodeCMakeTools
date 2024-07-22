@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
 
-// Main tasks
+// Main tasks: Conan
         {
             "label": "Conan: Install",
             "command": "conan",
@@ -17,6 +17,8 @@
             "dependsOn": "Conan: Setup",
             "problemMatcher": []
         },
+
+// Main tasks: CMake
         {
             "label": "CMake: Configure",
             "type": "cmake",
@@ -50,6 +52,8 @@
             ],
             "problemMatcher": []
         },
+
+// Main tasks: Valgrind
         {
             "label": "Valgrind: Show Memcheck Report",
             "dependsOrder": "sequence",
@@ -88,6 +92,8 @@
             ],
             "problemMatcher": []
         },
+
+// Main tasks: LiveProcMon
         {
             "label": "LiveProcMon: Start Monitoring",
             "dependsOn": [
@@ -355,7 +361,7 @@
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Split Editor",
-                "VSCode Utility: Toggle Terminal Twice"
+                "VSCode Utility: Toggle Terminal Once"
             ],
             "dependsOrder": "sequence",
             "problemMatcher": []
@@ -375,7 +381,7 @@
                     "${config:liveprocmon.buildFolder}",
                     "${config:liveprocmon.port}",
                     "${config:liveprocmon.maxPoints}",
-                    "${config:liveprocmon.collectFrequencyMs}",
+                    "${config:liveprocmon.collectDelayMs}",
                     "${config:liveprocmon.generateFrequency}",
                     "${config:liveprocmon.updateFrequencyMs}",
                     "${config:liveprocmon.plotWidthInch}",
@@ -432,8 +438,17 @@
         {
             "label": "VSCode Utility: Toggle Terminal Twice",
             "hide": true,
-            "command": "${command:multiCommand.toggle_terminal_twice}",
-            "dependsOn": "VSCode Utility: Toggle Terminal",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: Toggle Terminal Once",
+                "VSCode Utility: Toggle Terminal Once",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Toggle Terminal Once",
+            "hide": true,
+            "command": "${command:workbench.action.terminal.toggleTerminal}",
             "problemMatcher": []
         },
         {

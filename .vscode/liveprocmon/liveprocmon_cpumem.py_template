@@ -19,29 +19,29 @@ cpu_data = []
 mem_data = []
 
 PID = -1
-
-def wait_for_target_process():
-    
-    command = "pidof '{}'".format(PATH_TO_EXECUTABLE)
-    
+GET_PID_CMD = "pidof '{}'".format(PATH_TO_EXECUTABLE)
+def get_target_process_PID():
     global PID
+    PID = -1
     while PID == -1:
         try:
-            output_buf = subprocess.check_output("pidof '{}'".format(PATH_TO_EXECUTABLE), shell=True, text=True).strip()
+            output_buf = subprocess.check_output(GET_PID_CMD, shell=True, text=True).strip()
             with open(LOG_FILE_NAME, 'a') as log_file:
-                log_file.write(command + " >>> " + output_buf + '\n')
+                log_file.write(GET_PID_CMD + " >>> " + output_buf + '\n')
             PID = int(output_buf)
         except:
             PID = -1
             with open(LOG_FILE_NAME, 'a') as log_file:
-                log_file.write(command + '\n')
+                log_file.write(GET_PID_CMD + '\n')
             time.sleep(1)
+    return PID
 
 def collect_data():
-
+    
     max_cpu_perc = 0.0
     total_mem_b = 0
-    command = "ps -p {} -o %cpu,rss --no-headers".format(PID)
+    timestamp = 0
+    command = "ps -p {} -o %cpu,rss --no-headers".format(get_target_process_PID())
 
     try:
         output_buf = subprocess.check_output(command, shell=True, text=True)
@@ -56,9 +56,11 @@ def collect_data():
         with open(LOG_FILE_NAME, 'a') as log_file:
             log_file.write(command + '\n')
     
+    timestamp = int(time.time())
+
     if len(time_data) > MAX_POINTS_TO_COLLECT:
         time_data.pop(0)
-    time_data.append(int(time.time()))
+    time_data.append(timestamp)
 
     if len(cpu_data) > MAX_POINTS_TO_COLLECT:
         cpu_data.pop(0)
@@ -67,6 +69,8 @@ def collect_data():
     if len(mem_data) > MAX_POINTS_TO_COLLECT:
         mem_data.pop(0)
     mem_data.append(total_mem_b)
+
+    print(" {} at {} [ CPU: {:.1f}% | MEM: {} bytes ]".format(EXECUTABLE_NAME, timestamp, max_cpu_perc, total_mem_b))
 
 def generate_plot_image():
 

@@ -9,7 +9,7 @@ if len(sys.argv) != 11:
     print("    3. 'PATH_TO_BUILD_FOLDER'")
     print("    4. 'PORT'")
     print("    5. 'MAX_POINTS_TO_COLLECT'")
-    print("    6. 'COLLECT_FREQUECY_MS'")
+    print("    6. 'COLLECT_DELAY_MS'")
     print("    7. 'GENERATE_FREQUECY'")
     print("    8. 'UPDATE_FREQUECY_MS'")
     print("    9. 'PLOT_WIDTH_INCH'")
@@ -21,7 +21,7 @@ PATH_TO_EXECUTABLE = sys.argv[2]
 PATH_TO_BUILD_FOLDER = sys.argv[3] 
 PORT = int(sys.argv[4])
 MAX_POINTS_TO_COLLECT = int(sys.argv[5])
-COLLECT_FREQUECY_MS = int(sys.argv[6])
+COLLECT_DELAY_MS = int(sys.argv[6])
 GENERATE_FREQUECY = int(sys.argv[7])
 UPDATE_FREQUECY_MS = int(sys.argv[8])
 PLOT_WIDTH_INCH = float(sys.argv[9])
@@ -42,13 +42,12 @@ os.chdir("generated")
 import time, generated.liveprocmon as liveprocmon
 
 liveprocmon.generate_index_html()
-liveprocmon.wait_for_target_process()
 
-COLLECT_FREQUECY_S = COLLECT_FREQUECY_MS/1000
+COLLECT_DELAY_S = COLLECT_DELAY_MS/1000
 i = 0
 while True:
     liveprocmon.collect_data()
-    time.sleep(COLLECT_FREQUECY_S)
+    time.sleep(COLLECT_DELAY_S)
     i += 1
     if i == GENERATE_FREQUECY:
         i = 0

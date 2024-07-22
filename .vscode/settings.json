@@ -42,13 +42,6 @@
             "command": "multiCommand.editor_foldLevel4",
             "sequence": [ "editor.unfoldAll", "editor.foldLevel4" ],
         },
-        {
-            "command": "multiCommand.toggle_terminal_twice",
-            "sequence": [
-                "workbench.action.terminal.toggleTerminal",
-                "workbench.action.terminal.toggleTerminal"
-            ],
-        },
     ],
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
@@ -91,12 +84,11 @@
         "executablePath": "${command:cmake.launchTargetPath}",
         "buildFolder": "${workspaceFolder}/build_debug",
         "port": 10001,
-        "url": "http://localhost:10001",
         "maxPoints": 3600,
-        "collectFrequencyMs": 100,
+        "collectDelayMs": 100,
         "generateFrequency": 7,
-        "updateFrequencyMs": 1000,
-        "plotWidthInch": 7,
+        "updateFrequencyMs": 900,
+        "plotWidthInch": 7.5,
         "plotHeightInch": 8.5,
     },
     "files.associations": {

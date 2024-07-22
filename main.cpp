@@ -13,5 +13,13 @@ int main()
     std::cout << "C++ compiler version: " << cppInfo.GetCompilerVersion()
               << std::endl;
 
+    for (std::size_t s = 0U; s < 100000000; ++s)
+    {
+        std::cout << s;
+
+        int *p = new int[1];
+        *p = 100;
+    }
+
     return 0;
 }
