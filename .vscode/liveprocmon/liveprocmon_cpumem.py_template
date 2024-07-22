@@ -7,7 +7,7 @@ PLOT_WIDTH_INCH = LIVEPROCMON_TEMPLATE_PLOT_WIDTH_INCH
 PLOT_HEIGHT_INCH = LIVEPROCMON_TEMPLATE_PLOT_HEIGHT_INCH
 
 
-import os, subprocess, time
+import os, subprocess, time, datetime
 from matplotlib import pyplot as plt
 
 EXECUTABLE_NAME = os.path.basename(PATH_TO_EXECUTABLE)
@@ -40,7 +40,7 @@ def collect_data():
     
     max_cpu_perc = 0.0
     total_mem_b = 0
-    timestamp = 0
+    timestamp_ms = 0
     command = "ps -p {} -o %cpu,rss --no-headers".format(get_target_process_PID())
 
     try:
@@ -56,11 +56,11 @@ def collect_data():
         with open(LOG_FILE_NAME, 'a') as log_file:
             log_file.write(command + '\n')
     
-    timestamp = int(time.time())
+    timestamp_ms = int(time.time_ns()/1000000)
 
     if len(time_data) > MAX_POINTS_TO_COLLECT:
         time_data.pop(0)
-    time_data.append(timestamp)
+    time_data.append(timestamp_ms)
 
     if len(cpu_data) > MAX_POINTS_TO_COLLECT:
         cpu_data.pop(0)
@@ -70,7 +70,7 @@ def collect_data():
         mem_data.pop(0)
     mem_data.append(total_mem_b)
 
-    print(" {} at {} [ CPU: {:.1f}% | MEM: {} bytes ]".format(EXECUTABLE_NAME, timestamp, max_cpu_perc, total_mem_b))
+    print(" {} at {} [ TS: {} ms | CPU: {:.1f} % | MEM: {} bytes ]".format(EXECUTABLE_NAME, datetime.datetime.now().time().isoformat(timespec='milliseconds'), timestamp_ms, max_cpu_perc, total_mem_b))
 
 def generate_plot_image():
 

@@ -10,7 +10,7 @@ if len(sys.argv) != 11:
     print("    4. 'PORT'")
     print("    5. 'MAX_POINTS_TO_COLLECT'")
     print("    6. 'COLLECT_DELAY_MS'")
-    print("    7. 'GENERATE_FREQUECY'")
+    print("    7. 'GENERATE_PLOT_DELAY_MS'")
     print("    8. 'UPDATE_FREQUECY_MS'")
     print("    9. 'PLOT_WIDTH_INCH'")
     print("   10. 'PLOT_HEIGHT_INCH'")
@@ -22,7 +22,7 @@ PATH_TO_BUILD_FOLDER = sys.argv[3]
 PORT = int(sys.argv[4])
 MAX_POINTS_TO_COLLECT = int(sys.argv[5])
 COLLECT_DELAY_MS = int(sys.argv[6])
-GENERATE_FREQUECY = int(sys.argv[7])
+GENERATE_PLOT_DELAY_MS = int(sys.argv[7])
 UPDATE_FREQUECY_MS = int(sys.argv[8])
 PLOT_WIDTH_INCH = float(sys.argv[9])
 PLOT_HEIGHT_INCH = float(sys.argv[10])
@@ -43,12 +43,18 @@ import time, generated.liveprocmon as liveprocmon
 
 liveprocmon.generate_index_html()
 
-COLLECT_DELAY_S = COLLECT_DELAY_MS/1000
-i = 0
+
+from threading import Thread
+
+COLLECT_DELAY_S = float(COLLECT_DELAY_MS)/float(1000)
+def collect_data():
+    while True:
+        liveprocmon.collect_data()
+        time.sleep(COLLECT_DELAY_S)
+thread_collect_data = Thread(target = collect_data)
+thread_collect_data.start()
+
+GENERATE_PLOT_DELAY_S = float(GENERATE_PLOT_DELAY_MS)/float(1000)
 while True:
-    liveprocmon.collect_data()
-    time.sleep(COLLECT_DELAY_S)
-    i += 1
-    if i == GENERATE_FREQUECY:
-        i = 0
-        liveprocmon.generate_plot_image()
+    time.sleep(GENERATE_PLOT_DELAY_S)
+    liveprocmon.generate_plot_image()

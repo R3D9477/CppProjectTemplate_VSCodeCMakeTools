@@ -382,7 +382,7 @@
                     "${config:liveprocmon.port}",
                     "${config:liveprocmon.maxPoints}",
                     "${config:liveprocmon.collectDelayMs}",
-                    "${config:liveprocmon.generateFrequency}",
+                    "${config:liveprocmon.generatePlotDelayMs}",
                     "${config:liveprocmon.updateFrequencyMs}",
                     "${config:liveprocmon.plotWidthInch}",
                     "${config:liveprocmon.plotHeightInch}"
