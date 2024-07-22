@@ -1,19 +1,20 @@
 ### CppProjectTemplate_VSCodeCMakeTools
-Universal template of C++ project, based on `VSCode C++ Tools` and `VSCode CMake Tools`
+Universal template of C++ project, was made to rapid start the new C++ project, easy debug and profile it.<br/>
+Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) extension.
 
 ### Main tasks
-* CMake: Configure
-* CMake: Build
-* CMake: Clean
-* Conan: Install
-* LiveProcMon: Start Monitoring
-* LiveProcMon: Stop Monitoring
-* Valgrind: Show Memcheck Report
-* Valgrind: Show Callgrind Report
-* Valgrind: Show Cachegrind Report
+* `Conan: Install` - prepare build direcotry and install all needed packages (declared in file `conanfile.txt`) via Conan
+* `CMake: Configure` - run `cmake.configure` command
+* `CMake: Build` - run `cmake.build` command
+* `CMake: Clean` - run `cmake.clean` command
+* `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
+* `LiveProcMon: Stop Monitoring` - stop monitoring
+* `Valgrind: Show Memcheck Report` - show profiler's report (check for memory leaks)
+* `Valgrind: Show Cachegrind Report` - show profiler's report (check for chache missings)
+* `Valgrind: Show Callgrind Report` - show profiler's report (check for tree of calls and theirs performing times)
 
 ### Features
-* uses `CMake` to manage the project, configure to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+* uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 * uses Conan, automatically downloads packages from `conanfile.txt` before building the project
 * easy to make and show `Valgrind` reports
 * `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
@@ -28,30 +29,30 @@ Universal template of C++ project, based on `VSCode C++ Tools` and `VSCode CMake
 * automatically [finds and adds Boost unit tests](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L192) *(**don't use** the dot symbol '.' in the name of test's source file!)*
 * for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L152) MS Visual C++ runtime libs to target building directory
 
-### Notes:
-* Valgrind reports feature currently available for Linux only
-* LiveProcMon feature currently available for Linux only
-
-### Common project's stucture
-**[ PROJECT ]**
-<br/>ㅤㅤㅤ|- *[CMakeLists.txt](CMakeLists.txt)*
-<br/>ㅤㅤㅤ|- test
-<br/>ㅤㅤㅤ|- lib
-<br/>ㅤㅤㅤㅤㅤㅤ|- **[ somelib ]**
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/CMakeLists.txt)*
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- **[ thirdlib ]**
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)*
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
-<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+### Basic project's stucture
+ㅤㅤㅤㅤ<sub>**[ PROJECT_FOLDER = PROJECT_NAME ]**</sub>
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](CMakeLists.txt)*
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- lib
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- <sub>**[ somelib ]**</sub>
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/CMakeLists.txt)*
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- thirdparty
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- <sub>**[ thirdlib ]**</sub>
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](lib/somelib/thirdparty/thirdlib/CMakeLists.txt)*
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- include
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 ### Install needed stuff first
-* Linux (Ubuntu/Debian):
-  * `sudo apt install clang clang-tidy clang-format lldb git code valgrind python3-pip`
+* Linux (Debian-based):
+  * `sudo apt install clang clang-tidy clang-format lldb git code valgrind python3 python3-pip`
   * `pip3 install conan gprof2dot matplotlib pillow`
   * `conan profile detect`
 
@@ -64,6 +65,9 @@ Universal template of C++ project, based on `VSCode C++ Tools` and `VSCode CMake
 6. if neeeded, add [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
 7. for the first time it will be proposed to choose sertain development kit via standard menu of CMake Tools (the same as `>CMake: Select a Kit`)
 8. press `F5` to build `Debug` version (variant selected by default in CMake Tools) and run debugging process (by default using LLDB, can be changed in `launch.json`)
+9. use tasks 
+* `LiveProcMon: Start Monitoring` to check resources consumption at real-time
+* `Valgrind: Show Memcheck Report`, `Valgrind: Show Callgrind Report` and `Valgrind: Show Cachegrind Report` to get profiler's reports
 
 ### Extra variables
 you can use some of variables in your own configuration:
@@ -94,6 +98,10 @@ you can use some of functions in your own configuration:
 ### Tested on
 * Linux (GCC,Clang)
 * Windows (Clang,MinGW,MSVC)
+
+### Notes:
+* `Valgrind` reports feature currently available for Linux only
+* `LiveProcMon` feature currently available for Linux only
 
 ### Links
 * used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
