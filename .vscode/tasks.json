@@ -1,95 +1,8 @@
 {
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "CMake: Configure Silently on Open",
-            "hide": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: If build Folder Exists",
-                "CMake: Configure",
-                "VSCode Utility: Toggle Terminal Twice"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "CMake: Select a Kit and Configure Silently on Open",
-            "hide": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: If build Folder is NOT Exists",
-                "CMake: Select a Kit",
-                "CMake: Configure",
-                "VSCode Utility: Toggle Terminal Twice"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "CMake: Select a Kit",
-            "hide": true,
-            "command": "${command:multiCommand.cmake_buildKit}",
-            "problemMatcher": []
-        },
-        {
-            "label": "CMake: Configure",
-            "type": "cmake",
-            "command": "configure",
-            "targets": [
-                "all"
-            ],
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            },
-            "group": {
-                "kind": "build"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": "Conan: Install"
-        },
-        {
-            "label": "CMake: Build",
-            "type": "cmake",
-            "command": "build",
-            "targets": [
-                "all"
-            ],
-            "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure",
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "CMake: Clean",
-            "type": "cmake",
-            "command": "clean",
-            "targets": [
-                "all"
-            ],
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "Valgrind: Clean Memcheck",
-                "Valgrind: Clean Callgrind",
-                "Valgrind: Clean Cachegrind"
-            ],
-            "problemMatcher": []
-        },
+
+// Main tasks
         {
             "label": "Conan: Install",
             "command": "conan",
@@ -105,29 +18,36 @@
             "problemMatcher": []
         },
         {
-            "label": "Conan: Setup",
-            "hide": true,
-            "linux": {
-                "command": "cp",
-                "args": [
-                    "conanfile.txt",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/"
-                ]
-            },
+            "label": "CMake: Configure",
+            "type": "cmake",
+            "command": "configure",
+            "targets": [ "all" ],
+            "problemMatcher": [],
+            "group": { "kind": "build" },
             "dependsOrder": "sequence",
-            "dependsOn": "Create Build Directory",
-            "problemMatcher": []
+            "dependsOn": "Conan: Install"
         },
         {
-            "label": "Create Build Directory",
-            "hide": true,
-            "linux": {
-                "command": "mkdir",
-                "args": [
-                    "-p",
-                    "${workspaceFolder}/build/${command:cmake.buildType}"
-                ]
-            },
+            "label": "CMake: Build",
+            "type": "cmake",
+            "command": "build",
+            "targets": [ "all" ],
+            "dependsOrder": "sequence",
+            "dependsOn": "CMake: Configure",
+            "problemMatcher": [],
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "CMake: Clean",
+            "type": "cmake",
+            "command": "clean",
+            "targets": [ "all" ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Valgrind: Clean Memcheck",
+                "Valgrind: Clean Callgrind",
+                "Valgrind: Clean Cachegrind"
+            ],
             "problemMatcher": []
         },
         {
@@ -168,6 +88,82 @@
             ],
             "problemMatcher": []
         },
+        {
+            "label": "LiveProcMon: Start Monitoring",
+            "dependsOn": [
+                "LiveProcMon: Run Generator",
+                "LiveProcMon: Run Server",
+                "LiveProcMon: Open WebPage",
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        },
+        {
+            "label": "LiveProcMon: Stop Monitoring",
+            "dependsOn": [
+                "LiveProcMon: Terminate Generator",
+                "LiveProcMon: Terminate Server",
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        },
+
+// Serviece tasks: autorun
+        {
+            "label": "CMake: Configure Silently on Open",
+            "hide": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: If build Folder Exists",
+                "CMake: Configure",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: Select a Kit and Configure Silently on Open",
+            "hide": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: If build Folder is NOT Exists",
+                "CMake: Select a Kit",
+                "CMake: Configure",
+                "VSCode Utility: Toggle Terminal Twice"
+            ],
+            "problemMatcher": []
+        },
+        
+// Service tasks: CMake
+        {
+            "label": "CMake: Select a Kit",
+            "hide": true,
+            "command": "${command:multiCommand.cmake_buildKit}",
+            "problemMatcher": []
+        }, 
+
+// Service tasks: Conan
+        {
+            "label": "Conan: Setup",
+            "hide": true,
+            "linux": {
+                "command": "cp",
+                "args": [
+                    "conanfile.txt",
+                    "${workspaceFolder}/build/${command:cmake.buildType}/"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": "VSCode Utility: Create Build Directory",
+            "problemMatcher": []
+        },
+        
+// Service tasks: Valgrind
         {
             "label": "Valgrind: Open Memcheck Report File",
             "hide": true,
@@ -334,25 +330,8 @@
             },
             "problemMatcher": []
         },
-        {
-            "label": "LiveProcMon: Start Monitoring",
-            "dependsOn": [
-                "LiveProcMon: Run Generator",
-                "LiveProcMon: Run Server",
-                "LiveProcMon: Open WebPage",
-            ],
-            "dependsOrder": "parallel",
-            "problemMatcher": []
-        },
-        {
-            "label": "LiveProcMon: Stop Monitoring",
-            "dependsOn": [
-                "LiveProcMon: Terminate Generator",
-                "LiveProcMon: Terminate Server",
-            ],
-            "dependsOrder": "parallel",
-            "problemMatcher": []
-        },
+        
+// Service tasks: LiveProcMon
         {
             "label": "LiveProcMon: Terminate Generator",
             "hide": true,
@@ -415,14 +394,26 @@
             "args": [ "-m", "http.server", "${config:liveprocmon.port}" ],
             "problemMatcher": []
         },
+        
+// Service tasks: Utilities
+        {
+            "label": "VSCode Utility: Create Build Directory",
+            "hide": true,
+            "linux": {
+                "command": "mkdir",
+                "args": [
+                    "-p",
+                    "${workspaceFolder}/build/${command:cmake.buildType}"
+                ]
+            },
+            "problemMatcher": []
+        },
         {
             "label": "VSCode Utility: Wait for Report File",
             "hide": true,
             "linux": {
                 "command": "sleep",
-                "args": [
-                    "0.15s"
-                ]
+                "args": [ "0.15s" ]
             },
             "problemMatcher": []
         },
@@ -441,14 +432,8 @@
         {
             "label": "VSCode Utility: Toggle Terminal Twice",
             "hide": true,
-            "command": "${command:workbench.action.terminal.toggleTerminal}",
+            "command": "${command:multiCommand.toggle_terminal_twice}",
             "dependsOn": "VSCode Utility: Toggle Terminal",
-            "problemMatcher": []
-        },
-        {
-            "label": "VSCode Utility: Toggle Terminal",
-            "hide": true,
-            "command": "${command:workbench.action.terminal.toggleTerminal}",
             "problemMatcher": []
         },
         {
