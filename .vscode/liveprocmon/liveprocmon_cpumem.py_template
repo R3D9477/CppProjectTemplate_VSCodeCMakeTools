@@ -7,36 +7,43 @@ PLOT_WIDTH_INCH = LIVEPROCMON_TEMPLATE_PLOT_WIDTH_INCH
 PLOT_HEIGHT_INCH = LIVEPROCMON_TEMPLATE_PLOT_HEIGHT_INCH
 
 
-import os
+import os, subprocess, time
+from matplotlib import pyplot as plt
 
 EXECUTABLE_NAME = os.path.basename(PATH_TO_EXECUTABLE)
 PLOT_FILE_NAME = EXECUTABLE_NAME+'.png'
 LOG_FILE_NAME = EXECUTABLE_NAME+'.log'
 
-if os.path.exists(PLOT_FILE_NAME):
-    os.remove(PLOT_FILE_NAME)
-if os.path.exists(LOG_FILE_NAME):
-    os.remove(LOG_FILE_NAME)
-
-
-from matplotlib import pyplot as plt
-
-import subprocess
-import time
-
 time_data = []
 cpu_data = []
 mem_data = []
 
-PID = int(subprocess.check_output("pidof '{}'".format(PATH_TO_EXECUTABLE), shell=True, text=True).strip())
+PID = -1
+
+def wait_for_target_process():
+    
+    command = "pidof '{}'".format(PATH_TO_EXECUTABLE)
+    
+    global PID
+    while PID == -1:
+        try:
+            output_buf = subprocess.check_output("pidof '{}'".format(PATH_TO_EXECUTABLE), shell=True, text=True).strip()
+            with open(LOG_FILE_NAME, 'a') as log_file:
+                log_file.write(command + " >>> " + output_buf + '\n')
+            PID = int(output_buf)
+        except:
+            PID = -1
+            with open(LOG_FILE_NAME, 'a') as log_file:
+                log_file.write(command + '\n')
+            time.sleep(1)
 
 def collect_data():
 
     max_cpu_perc = 0.0
     total_mem_b = 0
+    command = "ps -p {} -o %cpu,rss --no-headers".format(PID)
 
     try:
-        command = "ps -p {} -o %cpu,rss --no-headers".format(PID)
         output_buf = subprocess.check_output(command, shell=True, text=True)
         with open(LOG_FILE_NAME, 'a') as log_file:
             log_file.write(command + " >>> " + output_buf + '\n')
@@ -46,6 +53,8 @@ def collect_data():
     except:
         max_cpu_perc = 0.0
         total_mem_b = 0
+        with open(LOG_FILE_NAME, 'a') as log_file:
+            log_file.write(command + '\n')
     
     if len(time_data) > MAX_POINTS_TO_COLLECT:
         time_data.pop(0)
@@ -79,6 +88,11 @@ def generate_plot_image():
     plt.close()
 
 def generate_index_html():
+
+    if os.path.exists(PLOT_FILE_NAME):
+        os.remove(PLOT_FILE_NAME)
+    if os.path.exists(LOG_FILE_NAME):
+        os.remove(LOG_FILE_NAME)
 
     with open('index.html', 'w') as index_html:
         index_html.write("<!DOCTYPE html><body>")

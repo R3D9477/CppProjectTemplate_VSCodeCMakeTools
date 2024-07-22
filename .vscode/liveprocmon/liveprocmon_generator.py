@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import sys, os
-import subprocess
+import sys, os, subprocess
 
 if len(sys.argv) != 11:
     print("The sertain arguments should be specified:")
@@ -39,15 +38,13 @@ with open('generated/liveprocmon.py', 'w') as file:
     file.write(liveprocmon_cpumem_filedata)
 
 
-import time
-import generated.liveprocmon as liveprocmon
-
-COLLECT_FREQUECY_S = COLLECT_FREQUECY_MS/1000
-
 os.chdir("generated")
+import time, generated.liveprocmon as liveprocmon
 
 liveprocmon.generate_index_html()
+liveprocmon.wait_for_target_process()
 
+COLLECT_FREQUECY_S = COLLECT_FREQUECY_MS/1000
 i = 0
 while True:
     liveprocmon.collect_data()
