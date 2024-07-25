@@ -51,10 +51,12 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 
 ### Install needed stuff first
-* Linux (Debian-based):
-  * `sudo apt install clang clang-tidy clang-format lldb git code valgrind python3 python3-pip`
-  * `pip3 install conan gprof2dot matplotlib pillow`
-  * `conan profile detect`
+* install gcc (e.g. `apt install gcc gdb`)
+* install clang (e.g. `apt install clang clang-tidy clang-format lldb`)
+* install python (e.g. `apt install python3 python3-venv`, do `python3 -m venv ~/.local --system-site-packages` and add `~/.local/bin` to global `PATH` variable)
+* install cmake (e.g. `pip install cmake`)
+* install conan (e.g. `pip install conan` and do `conan profile detect`)
+* install ploting tools (e.g. `pip install gprof2dot matplotlib pillow`)
 
 ### How to use
 1. clone that repositoy to your local machine

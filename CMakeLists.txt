@@ -92,10 +92,12 @@ endfunction()
 #------------------------------------------------------------------------------------------------------
 # Add Qt application (if possible).
 
+if(NOT IGNORE_Qt)
+
 # Comment the line below if you're using QtCreator, but Qt is no needed
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
 
-if(QT_FOUND AND NOT IGNORE_Qt)
+if(QT_FOUND)
   # Based on default templates of CMakeLists.txt for Qt5 and Qt6
 
   find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick Widgets REQUIRED)
@@ -140,11 +142,15 @@ if(QT_FOUND AND NOT IGNORE_Qt)
   endfunction()
 
   target_add_Qt(${OUTPUT_NAME})
+  set(QT_APP_ADDED TRUE)
+
+endif()
+endif()
 
 #------------------------------------------------------------------------------------------------------
 # Add common application (if Qt is not exists).
 
-else()
+if(NOT QT_APP_ADDED)
   add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
 endif()
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys, os, subprocess
+from pathlib import Path
 
 if len(sys.argv) != 11:
     print("The sertain arguments should be specified:")
@@ -34,11 +35,12 @@ liveprocmon_cpumem_filedata = liveprocmon_cpumem_filedata.replace('LIVEPROCMON_T
 liveprocmon_cpumem_filedata = liveprocmon_cpumem_filedata.replace('LIVEPROCMON_TEMPLATE_UPDATE_FREQUECY_MS', str(UPDATE_FREQUECY_MS))
 liveprocmon_cpumem_filedata = liveprocmon_cpumem_filedata.replace('LIVEPROCMON_TEMPLATE_PLOT_WIDTH_INCH', str(PLOT_WIDTH_INCH))
 liveprocmon_cpumem_filedata = liveprocmon_cpumem_filedata.replace('LIVEPROCMON_TEMPLATE_PLOT_HEIGHT_INCH', str(PLOT_HEIGHT_INCH))
+Path('generated').mkdir(parents=True, exist_ok=True)
 with open('generated/liveprocmon.py', 'w') as file:
     file.write(liveprocmon_cpumem_filedata)
 
 
-os.chdir("generated")
+os.chdir('generated')
 import time, generated.liveprocmon as liveprocmon
 
 liveprocmon.generate_index_html()

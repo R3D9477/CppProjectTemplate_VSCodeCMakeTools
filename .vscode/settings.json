@@ -5,7 +5,7 @@
     "cmake.configureOnOpen": false,
     "cmake.buildBeforeRun": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
-    "cmake.configureArgs": [ 
+    "cmake.configureArgs": [
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
     "[cpp]": {
@@ -20,33 +20,48 @@
     "multiCommand.commands": [
         {
             "command": "multiCommand.do_nothing",
-            "sequence": [ ],
+            "sequence": [],
         },
         {
             "command": "multiCommand.cmake_buildKit",
-            "sequence": [ "cmake.selectKit", "cmake.buildKit" ],
+            "sequence": [
+                "cmake.selectKit",
+                "cmake.buildKit"
+            ],
         },
         {
             "command": "multiCommand.editor_foldLevel1",
-            "sequence": [ "editor.unfoldAll", "editor.foldLevel1" ],
+            "sequence": [
+                "editor.unfoldAll",
+                "editor.foldLevel1"
+            ],
         },
         {
             "command": "multiCommand.editor_foldLevel2",
-            "sequence": [ "editor.unfoldAll", "editor.foldLevel2" ],
+            "sequence": [
+                "editor.unfoldAll",
+                "editor.foldLevel2"
+            ],
         },
         {
             "command": "multiCommand.editor_foldLevel3",
-            "sequence": [ "editor.unfoldAll", "editor.foldLevel3" ],
+            "sequence": [
+                "editor.unfoldAll",
+                "editor.foldLevel3"
+            ],
         },
         {
             "command": "multiCommand.editor_foldLevel4",
-            "sequence": [ "editor.unfoldAll", "editor.foldLevel4" ],
+            "sequence": [
+                "editor.unfoldAll",
+                "editor.foldLevel4"
+            ],
         },
     ],
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
     "autoHide.autoHideLeftSideBar": false,
-    "workbench.editor.showTabs":"single",
+    "workbench.editor.showTabs": "single",
     "CustomizeToolbar.buttonConfig": [
         {
             "name": "Fold Level 4",

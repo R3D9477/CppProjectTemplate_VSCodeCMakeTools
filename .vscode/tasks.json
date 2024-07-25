@@ -1,8 +1,7 @@
 {
     "version": "2.0.0",
     "tasks": [
-
-// Main tasks: Conan
+        // Main tasks: Conan
         {
             "label": "Conan: Install",
             "command": "conan",
@@ -15,17 +14,30 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Conan: Setup",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-
-// Main tasks: CMake
+        // Main tasks: CMake
         {
             "label": "CMake: Configure",
             "type": "cmake",
             "command": "configure",
-            "targets": [ "all" ],
+            "targets": [
+                "all"
+            ],
             "problemMatcher": [],
-            "group": { "kind": "build" },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "group": {
+                "kind": "build"
+            },
             "dependsOrder": "sequence",
             "dependsOn": "Conan: Install"
         },
@@ -33,27 +45,43 @@
             "label": "CMake: Build",
             "type": "cmake",
             "command": "build",
-            "targets": [ "all" ],
+            "targets": [
+                "all"
+            ],
             "dependsOrder": "sequence",
             "dependsOn": "CMake: Configure",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": [],
-            "group": { "kind": "build", "isDefault": true }
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "CMake: Clean",
             "type": "cmake",
             "command": "clean",
-            "targets": [ "all" ],
+            "targets": [
+                "all"
+            ],
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
                 "Valgrind: Clean Callgrind",
                 "Valgrind: Clean Cachegrind"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-
-// Main tasks: Valgrind
+        // Main tasks: Valgrind
         {
             "label": "Valgrind: Show Memcheck Report",
             "dependsOrder": "sequence",
@@ -61,10 +89,14 @@
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Memcheck Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice",
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Scroll at the Last Line",
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -74,10 +106,14 @@
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Cachegrind Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Scroll at the First Line",
+                "VSCode Utility: Scroll at the First Line"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -87,13 +123,16 @@
             "dependsOn": [
                 "VSCode Utility: Focus on First Group",
                 "Valgrind: Open Callgrind Report File",
-                "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Toggle Terminal Twice",
+                "VSCode Utility: Wait for Report File"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-
-// Main tasks: LiveProcMon
+        // Main tasks: LiveProcMon
         {
             "label": "LiveProcMon: Start Monitoring",
             "dependsOn": [
@@ -102,6 +141,11 @@
                 "LiveProcMon: Open WebPage",
             ],
             "dependsOrder": "parallel",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -111,10 +155,14 @@
                 "LiveProcMon: Terminate Server",
             ],
             "dependsOrder": "parallel",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-
-// Serviece tasks: autorun
+        // Serviece tasks: autorun
         {
             "label": "CMake: Configure Silently on Open",
             "hide": true,
@@ -124,9 +172,11 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: If build Folder Exists",
-                "CMake: Configure",
-                "VSCode Utility: Toggle Terminal Twice"
+                "CMake: Configure"
             ],
+            "presentation": {
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -139,21 +189,26 @@
             "dependsOn": [
                 "VSCode Utility: If build Folder is NOT Exists",
                 "CMake: Select a Kit",
-                "CMake: Configure",
-                "VSCode Utility: Toggle Terminal Twice"
+                "CMake: Configure"
             ],
+            "presentation": {
+                "close": true
+            },
             "problemMatcher": []
         },
-        
-// Service tasks: CMake
+        // Service tasks: CMake
         {
             "label": "CMake: Select a Kit",
             "hide": true,
             "command": "${command:multiCommand.cmake_buildKit}",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
-        }, 
-
-// Service tasks: Conan
+        },
+        // Service tasks: Conan
         {
             "label": "Conan: Setup",
             "hide": true,
@@ -166,10 +221,14 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": "VSCode Utility: Create Build Directory",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-        
-// Service tasks: Valgrind
+        // Service tasks: Valgrind
         {
             "label": "Valgrind: Open Memcheck Report File",
             "hide": true,
@@ -180,6 +239,11 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Memcheck Report",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -192,6 +256,11 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Convert Callgrind Report To Chart",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -206,6 +275,11 @@
             "dependsOn": [
                 "Valgrind: Annotate Cachegrind Report"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -220,6 +294,11 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Cachegrind Report",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -233,6 +312,11 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Callgrind Report",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -256,6 +340,11 @@
                 "Valgrind: Clean Memcheck",
                 "CMake: Build"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -277,6 +366,11 @@
                 "Valgrind: Clean Callgrind",
                 "CMake: Build"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -296,6 +390,11 @@
                 "Valgrind: Clean Cachegrind",
                 "CMake: Build"
             ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -307,6 +406,11 @@
                     "-f",
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
                 ]
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
             },
             "problemMatcher": []
         },
@@ -322,6 +426,11 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.svg"
                 ]
             },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -334,10 +443,14 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
                 ]
             },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-        
-// Service tasks: LiveProcMon
+        // Service tasks: LiveProcMon
         {
             "label": "LiveProcMon: Terminate Generator",
             "hide": true,
@@ -348,6 +461,11 @@
             "label": "LiveProcMon: Terminate Server",
             "hide": true,
             "command": "${input:terminateLiveProcMonServerTask}",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -360,10 +478,14 @@
             "dependsOn": [
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Wait for Report File",
-                "VSCode Utility: Split Editor",
-                "VSCode Utility: Toggle Terminal Once"
+                "VSCode Utility: Split Editor"
             ],
             "dependsOrder": "sequence",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -388,6 +510,11 @@
                     "${config:liveprocmon.plotHeightInch}"
                 ],
             },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -397,11 +524,19 @@
             "options": {
                 "cwd": "${workspaceFolder}/.vscode/liveprocmon/generated"
             },
-            "args": [ "-m", "http.server", "${config:liveprocmon.port}" ],
+            "args": [
+                "-m",
+                "http.server",
+                "${config:liveprocmon.port}"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
-        
-// Service tasks: Utilities
+        // Service tasks: Utilities
         {
             "label": "VSCode Utility: Create Build Directory",
             "hide": true,
@@ -412,6 +547,11 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}"
                 ]
             },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -419,7 +559,14 @@
             "hide": true,
             "linux": {
                 "command": "sleep",
-                "args": [ "0.15s" ]
+                "args": [
+                    "0.15s"
+                ]
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
             },
             "problemMatcher": []
         },
@@ -427,28 +574,22 @@
             "label": "VSCode Utility: Split Editor",
             "hide": true,
             "command": "${command:workbench.action.splitEditor}",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
             "label": "VSCode Utility: Focus on First Group",
             "hide": true,
             "command": "${command:workbench.action.focusFirstEditorGroup}",
-            "problemMatcher": []
-        },
-        {
-            "label": "VSCode Utility: Toggle Terminal Twice",
-            "hide": true,
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: Toggle Terminal Once",
-                "VSCode Utility: Toggle Terminal Once",
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "VSCode Utility: Toggle Terminal Once",
-            "hide": true,
-            "command": "${command:workbench.action.terminal.toggleTerminal}",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
@@ -481,12 +622,22 @@
             "label": "VSCode Utility: Scroll at the First Line",
             "hide": true,
             "command": "${command:cursorTop}",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         },
         {
             "label": "VSCode Utility: Scroll at the Last Line",
             "hide": true,
             "command": "${command:cursorBottom}",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            },
             "problemMatcher": []
         }
     ],
@@ -495,7 +646,9 @@
             "id": "openLiveProcMonInSimpleBrowser",
             "type": "command",
             "command": "simpleBrowser.show",
-            "args": [ "http://localhost:10001" ]
+            "args": [
+                "http://localhost:10001"
+            ]
         },
         {
             "id": "terminateLiveProcMonGeneratorTask",
