@@ -1,17 +1,18 @@
 // Suggested extensions
 {
-    "recommendations": [
-        "ms-vscode.cpptools-extension-pack",
-        "ryuta46.multi-command",
-        "vadimcn.vscode-lldb",
-        "fredericbonnet.cmake-test-adapter",
-        "krosf.vscode-valgrind",
-        "tintinweb.graphviz-interactive-preview",
-        "Guyutongxue.cpp-reference",
-        "CFXS.BuildOutputColorizerIAR",
-        "SR-team.vscode-autohide-fork",
-        "Blackboxapp.blackbox",
-        "jiapeiyao.tab-group",
-        "liangruliu.customize-toolbar",
+  "recommendations": [
+    "ms-vscode.cpptools-extension-pack",
+    "xaver.clang-format",
+    "ryuta46.multi-command",
+    "vadimcn.vscode-lldb",
+    "fredericbonnet.cmake-test-adapter",
+    "krosf.vscode-valgrind",
+    "tintinweb.graphviz-interactive-preview",
+    "Guyutongxue.cpp-reference",
+    "CFXS.BuildOutputColorizerIAR",
+    "SR-team.vscode-autohide-fork",
+    "Blackboxapp.blackbox",
+    "jiapeiyao.tab-group",
+    "liangruliu.customize-toolbar",
   ]
-} 
+}

@@ -1,29 +1,9 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // Main tasks: Conan
-        {
-            "label": "Conan: Install",
-            "command": "conan",
-            "args": [
-                "install",
-                "build/${command:cmake.buildType}/conanfile.txt",
-                "--build=missing",
-                "--settings",
-                "build_type=${command:cmake.buildType}"
-            ],
-            "dependsOrder": "sequence",
-            "dependsOn": "Conan: Setup",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
-            "problemMatcher": []
-        },
         // Main tasks: CMake
         {
-            "label": "CMake: Configure",
+            "label": "CMake: Configure with Conan Install",
             "type": "cmake",
             "command": "configure",
             "targets": [
@@ -36,20 +16,42 @@
                 "close": true
             },
             "group": {
-                "kind": "build"
+                "kind": "build",
             },
             "dependsOrder": "sequence",
             "dependsOn": "Conan: Install"
         },
         {
-            "label": "CMake: Build",
+            "label": "CMake: Configure and Rebuild",
+            "type": "cmake",
+            "command": "cleanRebuild",
+            "targets": [
+                "all"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Clean",
+                "CMake: Configure with Conan Install"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+            }
+        },
+        {
+            "label": "CMake: Configure and Build",
             "type": "cmake",
             "command": "build",
             "targets": [
                 "all"
             ],
             "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure",
+            "dependsOn": "CMake: Configure with Conan Install",
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
@@ -172,7 +174,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: If build Folder Exists",
-                "CMake: Configure"
+                "CMake: Configure with Conan Install"
             ],
             "presentation": {
                 "close": true
@@ -189,7 +191,7 @@
             "dependsOn": [
                 "VSCode Utility: If build Folder is NOT Exists",
                 "CMake: Select a Kit",
-                "CMake: Configure"
+                "CMake: Configure with Conan Install"
             ],
             "presentation": {
                 "close": true
@@ -209,6 +211,26 @@
             "problemMatcher": []
         },
         // Service tasks: Conan
+        {
+            "label": "Conan: Install",
+            "hide": true,
+            "command": "conan",
+            "args": [
+                "install",
+                "build/${command:cmake.buildType}/conanfile.txt",
+                "--build=missing",
+                "--settings",
+                "build_type=${command:cmake.buildType}"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": "Conan: Setup",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "problemMatcher": []
+        },
         {
             "label": "Conan: Setup",
             "hide": true,
@@ -338,7 +360,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
-                "CMake: Build"
+                "CMake: Configure and Build"
             ],
             "presentation": {
                 "reveal": "always",
@@ -364,7 +386,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Callgrind",
-                "CMake: Build"
+                "CMake: Configure and Build"
             ],
             "presentation": {
                 "reveal": "always",
@@ -388,7 +410,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Cachegrind",
-                "CMake: Build"
+                "CMake: Configure and Build"
             ],
             "presentation": {
                 "reveal": "always",

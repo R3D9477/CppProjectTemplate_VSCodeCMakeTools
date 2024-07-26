@@ -3,10 +3,10 @@ Universal template of C++ project, was made to rapid start the new C++ project, 
 Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) extension.
 
 ### Main tasks
-* `Conan: Install` - prepare build direcotry and install all needed packages (declared in file `conanfile.txt`) via Conan
-* `CMake: Configure` - run `cmake.configure` command
-* `CMake: Build` - run `cmake.build` command
-* `CMake: Clean` - run `cmake.clean` command
+* `CMake: Clean` - run `cmake.clean` command + remove all Valgrind reports
+* `CMake: Configure and Build` - configure and run `cmake.build` command
+* `CMake: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
+* `CMake: Configure with Conan Install` - install `conanfile.txt` and run `cmake.configure` command
 * `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
 * `LiveProcMon: Stop Monitoring` - stop monitoring
 * `Valgrind: Show Memcheck Report` - show profiler's report (check for memory leaks)
@@ -85,6 +85,7 @@ you can use some of functions in your own configuration:
 
 ### Used extensions
 * [ms-vscode.cpptools-extension-pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) - (**required**) support of C++ intellisense, refactoring, sources colorization, etc.
+* [xaver.clang-format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) - (**required**) code formatter
 * [vadimcn.vscode-lldb](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) - (**required**) support of LLDB debugger
 * [ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command) - (**required**) support of custom commands
 * [tintinweb.graphviz-interactive-preview](https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview) - (**required**) visualize charts, useful for Callgrind report

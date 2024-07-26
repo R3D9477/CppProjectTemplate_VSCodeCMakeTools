@@ -11,7 +11,7 @@
             "program": "${command:cmake.launchTargetPath}",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "CMake: Build",
+            "preLaunchTask": "CMake: Configure and Build",
         },
     ]
 }

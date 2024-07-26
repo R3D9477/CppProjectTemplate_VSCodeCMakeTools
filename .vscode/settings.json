@@ -2,6 +2,8 @@
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.debugShortcut": false,
+    "C_Cpp.codeFolding": "enabled",
     "cmake.configureOnOpen": false,
     "cmake.buildBeforeRun": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
@@ -9,12 +11,16 @@
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
     "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.defaultFoldingRangeProvider": "xaver.clang-format"
     },
-    "editor.formatOnPaste": true,
+    "task.saveBeforeRun": "always",
+    "files.autoSave": "off",
     "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
+    "editor.renderWhitespace": "trailing",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "multiCommand.commands": [
