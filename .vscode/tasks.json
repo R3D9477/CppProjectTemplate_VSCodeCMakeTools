@@ -120,7 +120,7 @@
         },
         {
             "label": "Valgrind: Show Callgrind Report",
-            "command": "${command:workbench.action.closeActiveEditor}",
+            "command": "${command:multiCommand.close_current_editor_tab}",
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: Focus on First Group",

@@ -23,16 +23,31 @@
     "editor.renderWhitespace": "trailing",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "multiCommand.commands": [
         {
             "command": "multiCommand.do_nothing",
             "sequence": [],
         },
         {
+            "command": "multiCommand.return_any_not_empty_result",
+            "sequence": [
+                "cmake.buildKit"
+            ],
+        },
+        {
+            "command": "multiCommand.close_current_editor_tab",
+            "sequence": [
+                "workbench.action.closeActiveEditor",
+                "multiCommand.return_any_not_empty_result"
+            ],
+        },
+        {
             "command": "multiCommand.cmake_buildKit",
             "sequence": [
                 "cmake.selectKit",
-                "cmake.buildKit"
+                "multiCommand.return_any_not_empty_result"
             ],
         },
         {
