@@ -9,7 +9,12 @@
             "targets": [
                 "all"
             ],
-            "problemMatcher": [],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
@@ -38,7 +43,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": [],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
             "group": {
                 "kind": "build",
             }
@@ -57,7 +67,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": [],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -81,7 +96,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Main tasks: Valgrind
         {
@@ -99,7 +119,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Show Cachegrind Report",
@@ -116,7 +141,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Show Callgrind Report",
@@ -132,7 +162,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Main tasks: LiveProcMon
         {
@@ -148,7 +183,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "LiveProcMon: Stop Monitoring",
@@ -162,7 +202,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Serviece tasks: autorun
         {
@@ -179,7 +224,12 @@
             "presentation": {
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "CMake: Select a Kit and Configure Silently on Open",
@@ -196,7 +246,12 @@
             "presentation": {
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Service tasks: CMake
         {
@@ -208,7 +263,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Service tasks: Conan
         {
@@ -229,7 +289,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Conan: Setup",
@@ -248,7 +313,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Service tasks: Valgrind
         {
@@ -266,7 +336,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Open Callgrind Report File",
@@ -283,7 +358,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Open Cachegrind Report File",
@@ -302,7 +382,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Annotate Cachegrind Report",
@@ -321,7 +406,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Convert Callgrind Report To Chart",
@@ -339,7 +429,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Make Memcheck Report",
@@ -367,7 +462,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Make Callgrind Report",
@@ -393,7 +493,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Make Cachegrind Report",
@@ -417,7 +522,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Clean Memcheck",
@@ -434,7 +544,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Clean CallGrind",
@@ -453,7 +568,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "Valgrind: Clean Cachegrind",
@@ -470,14 +590,24 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Service tasks: LiveProcMon
         {
             "label": "LiveProcMon: Terminate Generator",
             "hide": true,
             "command": "${input:terminateLiveProcMonGeneratorTask}",
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "LiveProcMon: Terminate Server",
@@ -488,7 +618,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "LiveProcMon: Open WebPage",
@@ -508,7 +643,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "LiveProcMon: Run Generator",
@@ -537,7 +677,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "LiveProcMon: Run Server",
@@ -556,7 +701,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         // Service tasks: Utilities
         {
@@ -574,7 +724,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: Wait for Report File",
@@ -590,7 +745,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: Split Editor",
@@ -601,7 +761,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: Focus on First Group",
@@ -612,7 +777,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: If build Folder Exists",
@@ -625,7 +795,12 @@
                     "if [ -d \"${workspaceFolder}/build\" ] ; then exit 0 ; fi ; exit 1"
                 ]
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: If build Folder is NOT Exists",
@@ -638,7 +813,12 @@
                     "if [ -d \"${workspaceFolder}/build\" ] ; then exit 1 ; fi ; exit 0"
                 ]
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: Scroll at the First Line",
@@ -649,7 +829,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         },
         {
             "label": "VSCode Utility: Scroll at the Last Line",
@@ -660,7 +845,12 @@
                 "revealProblems": "onProblem",
                 "close": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
         }
     ],
     "inputs": [
