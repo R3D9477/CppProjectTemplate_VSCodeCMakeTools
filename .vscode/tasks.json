@@ -552,7 +552,7 @@
             }
         },
         {
-            "label": "Valgrind: Clean CallGrind",
+            "label": "Valgrind: Clean Callgrind",
             "hide": true,
             "linux": {
                 "command": "rm",
