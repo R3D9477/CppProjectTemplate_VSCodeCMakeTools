@@ -18,7 +18,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * uses Conan, automatically downloads packages from `conanfile.txt` before building the project
 * easy to make and show `Valgrind` reports
 * `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
-![LiveProcMon](liveprocmon.png)
+![LiveProcMon](.vscode/liveprocmon/liveprocmon.png)
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
 * enabled auto linting (with `clang-tidy`)
 * enabled auto formatting (with `clang-format`)
