@@ -7,7 +7,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `CMake: Configure and Build` - configure and run `cmake.build` command
 * `CMake: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
 * `CMake: Configure with Conan Install` - install `conanfile.txt` and run `cmake.configure` command
-* `CppRunCurrentFile: Run` - build and run current signle `.cpp` file
+* `CppRunCurrentFile: Run` - build and run current signle `.cpp` file (e.g. located in folder `test_cpp_snippets`)
 * `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
 * `LiveProcMon: Stop Monitoring` - stop monitoring
 * `Valgrind: Show Memcheck Report` - show profiler's report (check for memory leaks)
@@ -34,6 +34,8 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 ㅤㅤㅤㅤ<sub>**[ PROJECT_FOLDER = PROJECT_NAME ]**</sub>
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- *[CMakeLists.txt](CMakeLists.txt)*
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- src
+<br/>ㅤㅤㅤㅤㅤㅤㅤㅤ      |- main.cpp
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- test
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ|- lib
 <br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ|- <sub>**[ somelib ]**</sub>

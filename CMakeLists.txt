@@ -11,7 +11,7 @@ project(${OUTPUT_NAME} VERSION 0.1 LANGUAGES CXX)
 
 # - DEFINE THE LIST OF THE SOURCES (CURRENT TARGET) BELOW IN VARIABLE SCAN_SOURCES_FOLDER
 # - ATTACH EXTERNAL LIBRARIES AT THE BOTTOM OF THAT FILE
-list(APPEND SCAN_SOURCES_FOLDER ".")
+list(APPEND SCAN_SOURCES_FOLDER "src")
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
