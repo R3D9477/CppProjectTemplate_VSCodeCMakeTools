@@ -103,6 +103,29 @@
                 ]
             }
         },
+        // Main tasks: CppRunCurrentFile
+        {
+            "label": "CppRunCurrentFile: Run",
+            "type": "shell",
+            "command": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
+            "args": [],
+            "options": {
+                "cwd": "${config:CppRunCurrentFile.build_directory}"
+            },
+            "dependsOn": [
+                "CppRunCurrentFile: Build"
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "clear": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
         // Main tasks: Valgrind
         {
             "label": "Valgrind: Show Memcheck Report",
@@ -260,6 +283,57 @@
             "command": "${command:multiCommand.cmake_buildKit}",
             "presentation": {
                 "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        // Servicce tasks: CppRunCurrentFile
+        {
+            "label": "CppRunCurrentFile: Build",
+            "hide": true,
+            "type": "process",
+            "command": "${config:CppRunCurrentFile.cpp_compiler_path}",
+            "args": [
+                "${file}",
+                "-o",
+                "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
+                "${config:CppRunCurrentFile.cpp_compiler_arg_cpp_standard}",
+                "${config:CppRunCurrentFile.cpp_compiler_arg_optimization_level}",
+            ],
+            "dependsOn": [
+                "CppRunCurrentFile: Create Build Directory"
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        {
+            "label": "CppRunCurrentFile: Create Build Directory",
+            "hide": true,
+            "linux": {
+                "command": "mkdir",
+                "args": [
+                    "-p",
+                    "${config:CppRunCurrentFile.build_directory}"
+                ]
+            },
+            "presentation": {
+                "reveal": "silent",
                 "revealProblems": "onProblem",
                 "close": true
             },
@@ -630,7 +704,7 @@
             "hide": true,
             "command": "${input:openLiveProcMonInSimpleBrowser}",
             "args": [
-                "${config:liveprocmon.port}"
+                "${config:LiveProcMon.port}"
             ],
             "dependsOn": [
                 "VSCode Utility: Wait for Report File",
@@ -660,16 +734,16 @@
             "linux": {
                 "args": [
                     "${workspaceFolder}/.vscode/liveprocmon/liveprocmon_generator.py",
-                    "${config:liveprocmon.liveProcMonTemplatePath}",
+                    "${config:LiveProcMon.liveProcMonTemplatePath}",
                     "${command:cmake.launchTargetPath}",
-                    "${config:liveprocmon.buildFolder}",
-                    "${config:liveprocmon.port}",
-                    "${config:liveprocmon.maxPoints}",
-                    "${config:liveprocmon.collectDelayMs}",
-                    "${config:liveprocmon.generatePlotDelayMs}",
-                    "${config:liveprocmon.updateFrequencyMs}",
-                    "${config:liveprocmon.plotWidthInch}",
-                    "${config:liveprocmon.plotHeightInch}"
+                    "${config:LiveProcMon.buildFolder}",
+                    "${config:LiveProcMon.port}",
+                    "${config:LiveProcMon.maxPoints}",
+                    "${config:LiveProcMon.collectDelayMs}",
+                    "${config:LiveProcMon.generatePlotDelayMs}",
+                    "${config:LiveProcMon.updateFrequencyMs}",
+                    "${config:LiveProcMon.plotWidthInch}",
+                    "${config:LiveProcMon.plotHeightInch}"
                 ],
             },
             "presentation": {
@@ -694,7 +768,7 @@
             "args": [
                 "-m",
                 "http.server",
-                "${config:liveprocmon.port}"
+                "${config:LiveProcMon.port}"
             ],
             "presentation": {
                 "reveal": "silent",
@@ -873,6 +947,6 @@
             "type": "command",
             "command": "workbench.action.tasks.terminate",
             "args": "LiveProcMon: Run Server"
-        }
+        },
     ]
 }

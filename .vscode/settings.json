@@ -14,6 +14,9 @@
         "editor.defaultFormatter": "xaver.clang-format",
         "editor.defaultFoldingRangeProvider": "xaver.clang-format"
     },
+    "files.associations": {
+        "iostream": "cpp"
+    },
     "task.saveBeforeRun": "always",
     "files.autoSave": "off",
     "editor.formatOnType": true,
@@ -115,7 +118,7 @@
             "command_vscode": "multiCommand.do_nothing",
         },
     ],
-    "liveprocmon": {
+    "LiveProcMon": {
         "liveProcMonTemplatePath": "${workspaceFolder}/.vscode/liveprocmon/liveprocmon_cpumem.py_template",
         "executablePath": "${command:cmake.launchTargetPath}",
         "buildFolder": "${workspaceFolder}/build_debug",
@@ -127,7 +130,11 @@
         "plotWidthInch": 7.5,
         "plotHeightInch": 8.5,
     },
-    "files.associations": {
-        "iostream": "cpp"
-    },
+    "CppRunCurrentFile": {
+        "cpp_compiler_path": "clang++",
+        "cpp_compiler_arg_cpp_standard": "-std=c++17",
+        "cpp_compiler_arg_optimization_level": "-O0",
+        "cpp_debugger_patth": "lldb",
+        "build_directory": "${workspaceFolder}/build/CppRunCurrentFile"
+    }
 }
