@@ -1,9 +1,9 @@
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
-# LIBRARY
+# THIS LIBRARY
 
-get_filename_component(LIB_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+get_filename_component(LIB_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME) # use current folder name as name of this one library
 
 get_sources_from_dir(${LIB_NAME}_SOURCES ${LIB_NAME}_INCLUDES "include")
 get_sources_from_dir(${LIB_NAME}_SOURCES ${LIB_NAME}_INCLUDES "src")
