@@ -18,7 +18,8 @@
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
-                "close": true
+                "close": false,
+                "clear": true
             },
             "group": {
                 "kind": "build",
@@ -41,7 +42,8 @@
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
-                "close": true
+                "close": false,
+                "clear": true
             },
             "problemMatcher": {
                 "base": "$gcc",
@@ -65,7 +67,8 @@
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
-                "close": true
+                "close": false,
+                "clear": true
             },
             "problemMatcher": {
                 "base": "$gcc",
@@ -94,7 +97,8 @@
             "presentation": {
                 "reveal": "always",
                 "revealProblems": "onProblem",
-                "close": true
+                "close": true,
+                "clear": true
             },
             "problemMatcher": {
                 "base": "$gcc",
