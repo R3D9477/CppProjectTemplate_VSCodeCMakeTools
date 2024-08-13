@@ -1,9 +1,158 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // Main tasks: CMake
+        // User tasks: All (autoclose terminal if no failures)
+        {
+            "label": "CMake: Build",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Build (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "CMake: Rebuild",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Rebuild (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
         {
             "label": "CMake: Configure with Conan Install",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Configure with Conan Install (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "CMake: Clean",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Clean (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "Valgrind: Show Memcheck Report",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Valgrind: Show Memcheck Report (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "Valgrind: Show Cachegrind Report",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Valgrind: Show Cachegrind Report (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "Valgrind: Show Callgrind Report",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Valgrind: Show Callgrind Report (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "LiveProcMon: Start Monitoring",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "LiveProcMon: Start Monitoring (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        {
+            "label": "LiveProcMon: Stop Monitoring",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "LiveProcMon: Stop Monitoring (opened terminal for failure case)",
+                "VSCode Utility: Toggle Terminal Twice",
+            ]
+        },
+        // User tasks: CppRunCurrentFile
+        {
+            "label": "CppRunCurrentFile: Run",
+            "type": "shell",
+            "command": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
+            "args": [],
+            "options": {
+                "cwd": "${config:CppRunCurrentFile.build_directory}"
+            },
+            "dependsOn": "CppRunCurrentFile: Build",
+            "dependsOrder": "sequence",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        // User tasks: CMake
+        {
+            "label": "CMake: Configure with Conan Install (opened terminal for failure case)",
+            "hide": true,
             "type": "cmake",
             "command": "configure",
             "targets": [
@@ -15,12 +164,6 @@
                     "absolute"
                 ]
             },
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": false,
-                "clear": true
-            },
             "group": {
                 "kind": "build",
             },
@@ -28,7 +171,8 @@
             "dependsOn": "Conan: Install"
         },
         {
-            "label": "CMake: Configure and Rebuild",
+            "label": "CMake: Rebuild (opened terminal for failure case)",
+            "hide": true,
             "type": "cmake",
             "command": "cleanRebuild",
             "targets": [
@@ -36,15 +180,9 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Clean",
-                "CMake: Configure with Conan Install"
+                "CMake: Clean (opened terminal for failure case)",
+                "CMake: Configure with Conan Install (opened terminal for failure case)"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": false,
-                "clear": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -56,20 +194,15 @@
             }
         },
         {
-            "label": "CMake: Configure and Build",
+            "label": "CMake: Build (opened terminal for failure case)",
+            "hide": true,
             "type": "cmake",
             "command": "build",
             "targets": [
                 "all"
             ],
             "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure with Conan Install",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": false,
-                "clear": true
-            },
+            "dependsOn": "CMake: Configure with Conan Install (opened terminal for failure case)",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -82,7 +215,8 @@
             }
         },
         {
-            "label": "CMake: Clean",
+            "label": "CMake: Clean (opened terminal for failure case)",
+            "hide": true,
             "type": "cmake",
             "command": "clean",
             "targets": [
@@ -94,12 +228,6 @@
                 "Valgrind: Clean Callgrind",
                 "Valgrind: Clean Cachegrind"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true,
-                "clear": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -107,32 +235,10 @@
                 ]
             }
         },
-        // Main tasks: CppRunCurrentFile
+        // User tasks: Valgrind
         {
-            "label": "CppRunCurrentFile: Run",
-            "type": "shell",
-            "command": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
-            "args": [],
-            "options": {
-                "cwd": "${config:CppRunCurrentFile.build_directory}"
-            },
-            "dependsOn": [
-                "CppRunCurrentFile: Build"
-            ],
-            "dependsOrder": "sequence",
-            "presentation": {
-                "clear": true
-            },
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            }
-        },
-        // Main tasks: Valgrind
-        {
-            "label": "Valgrind: Show Memcheck Report",
+            "label": "Valgrind: Show Memcheck Report (opened terminal for failure case)",
+            "hide": true,
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: Focus on First Group",
@@ -141,11 +247,6 @@
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Scroll at the Last Line",
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -154,7 +255,8 @@
             }
         },
         {
-            "label": "Valgrind: Show Cachegrind Report",
+            "label": "Valgrind: Show Cachegrind Report (opened terminal for failure case)",
+            "hide": true,
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: Focus on First Group",
@@ -163,11 +265,6 @@
                 "VSCode Utility: Wait for Report File",
                 "VSCode Utility: Scroll at the First Line"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -176,7 +273,8 @@
             }
         },
         {
-            "label": "Valgrind: Show Callgrind Report",
+            "label": "Valgrind: Show Callgrind Report (opened terminal for failure case)",
+            "hide": true,
             "command": "${command:multiCommand.close_current_editor_tab}",
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -184,11 +282,6 @@
                 "Valgrind: Open Callgrind Report File",
                 "VSCode Utility: Wait for Report File"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -196,20 +289,16 @@
                 ]
             }
         },
-        // Main tasks: LiveProcMon
+        // User tasks: LiveProcMon
         {
-            "label": "LiveProcMon: Start Monitoring",
+            "label": "LiveProcMon: Start Monitoring (opened terminal for failure case)",
+            "hide": true,
             "dependsOn": [
                 "LiveProcMon: Run Generator",
                 "LiveProcMon: Run Server",
                 "LiveProcMon: Open WebPage",
             ],
             "dependsOrder": "parallel",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -218,17 +307,13 @@
             }
         },
         {
-            "label": "LiveProcMon: Stop Monitoring",
+            "label": "LiveProcMon: Stop Monitoring (opened terminal for failure case)",
+            "hide": true,
             "dependsOn": [
                 "LiveProcMon: Terminate Generator",
                 "LiveProcMon: Terminate Server",
             ],
             "dependsOrder": "parallel",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -236,9 +321,9 @@
                 ]
             }
         },
-        // Serviece tasks: autorun
+        // Service tasks: autorun
         {
-            "label": "CMake: Configure Silently on Open",
+            "label": "CMake: Configure Existing Project",
             "hide": true,
             "runOptions": {
                 "runOn": "folderOpen"
@@ -248,9 +333,6 @@
                 "VSCode Utility: If build Folder Exists",
                 "CMake: Configure with Conan Install"
             ],
-            "presentation": {
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -259,7 +341,7 @@
             }
         },
         {
-            "label": "CMake: Select a Kit and Configure Silently on Open",
+            "label": "CMake: Configure Fresh Project",
             "hide": true,
             "runOptions": {
                 "runOn": "folderOpen"
@@ -270,9 +352,6 @@
                 "CMake: Select a Kit",
                 "CMake: Configure with Conan Install"
             ],
-            "presentation": {
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -285,11 +364,6 @@
             "label": "CMake: Select a Kit",
             "hide": true,
             "command": "${command:multiCommand.cmake_buildKit}",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -314,11 +388,6 @@
                 "CppRunCurrentFile: Create Build Directory"
             ],
             "dependsOrder": "sequence",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -335,11 +404,6 @@
                     "-p",
                     "${config:CppRunCurrentFile.build_directory}"
                 ]
-            },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
             },
             "problemMatcher": {
                 "base": "$gcc",
@@ -362,11 +426,6 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Conan: Setup",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -386,11 +445,6 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": "VSCode Utility: Create Build Directory",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -409,11 +463,6 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Memcheck Report",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -431,11 +480,6 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Convert Callgrind Report To Chart",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -455,11 +499,6 @@
             "dependsOn": [
                 "Valgrind: Annotate Cachegrind Report"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -479,11 +518,6 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Cachegrind Report",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -502,11 +536,6 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Callgrind Report",
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -533,13 +562,8 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
-                "CMake: Configure and Build"
+                "CMake: Build (opened terminal for failure case)"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -564,13 +588,8 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Callgrind",
-                "CMake: Configure and Build"
+                "CMake: Build (opened terminal for failure case)"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -593,13 +612,8 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Cachegrind",
-                "CMake: Configure and Build"
+                "CMake: Build (opened terminal for failure case)"
             ],
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -616,11 +630,6 @@
                     "-f",
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
                 ]
-            },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
             },
             "problemMatcher": {
                 "base": "$gcc",
@@ -641,11 +650,6 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.svg"
                 ]
             },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -662,11 +666,6 @@
                     "-f",
                     "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
                 ]
-            },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
             },
             "problemMatcher": {
                 "base": "$gcc",
@@ -691,11 +690,6 @@
             "label": "LiveProcMon: Terminate Server",
             "hide": true,
             "command": "${input:terminateLiveProcMonServerTask}",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -716,11 +710,6 @@
                 "VSCode Utility: Split Editor"
             ],
             "dependsOrder": "sequence",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -750,11 +739,6 @@
                     "${config:LiveProcMon.plotHeightInch}"
                 ],
             },
-            "presentation": {
-                "reveal": "always",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -774,11 +758,6 @@
                 "http.server",
                 "${config:LiveProcMon.port}"
             ],
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -797,11 +776,6 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}"
                 ]
             },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -818,11 +792,6 @@
                     "0.15s"
                 ]
             },
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -834,11 +803,6 @@
             "label": "VSCode Utility: Split Editor",
             "hide": true,
             "command": "${command:workbench.action.splitEditor}",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -850,11 +814,6 @@
             "label": "VSCode Utility: Focus on First Group",
             "hide": true,
             "command": "${command:workbench.action.focusFirstEditorGroup}",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -902,11 +861,6 @@
             "label": "VSCode Utility: Scroll at the First Line",
             "hide": true,
             "command": "${command:cursorTop}",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -918,17 +872,25 @@
             "label": "VSCode Utility: Scroll at the Last Line",
             "hide": true,
             "command": "${command:cursorBottom}",
-            "presentation": {
-                "reveal": "silent",
-                "revealProblems": "onProblem",
-                "close": true
-            },
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
                     "absolute"
                 ]
             }
+        },
+        {
+            "label": "VSCode Utility: Toggle Terminal Twice",
+            "hide": true,
+            "command": "${command:workbench.action.terminal.toggleTerminal}",
+            "dependsOn": "VSCode Utility: Toggle Terminal",
+            "problemMatcher": []
+        },
+        {
+            "label": "VSCode Utility: Toggle Terminal",
+            "hide": true,
+            "command": "${command:workbench.action.terminal.toggleTerminal}",
+            "problemMatcher": []
         }
     ],
     "inputs": [
