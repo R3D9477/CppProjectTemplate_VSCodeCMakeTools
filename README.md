@@ -104,7 +104,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command) - support of custom commands
   * [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable) - advanced variables substitution
 * additional
-  * [fredericbonnet.cmake-test-adapter](https://marketplace.visualstudio.com/items?itemName=fredericbonnet.cmake-test-adapter) - support of Unit Tests
+  * [matepek.vscode-catch2-test-adapter](https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter) - a better unit tests explorer for GTests (but has no support of Boost.UnitTest)
   * [Guyutongxue.cpp-reference](https://marketplace.visualstudio.com/items?itemName=Guyutongxue.cpp-reference) - easy access to cppreference
   * [krosf.vscode-valgrind](https://marketplace.visualstudio.com/items?itemName=krosf.vscode-valgrind) - colorization of Valgrind reports
   * [CFXS.BuildOutputColorizerIAR](https://marketplace.visualstudio.com/items?itemName=CFXS.BuildOutputColorizerIAR) - colorization of output
