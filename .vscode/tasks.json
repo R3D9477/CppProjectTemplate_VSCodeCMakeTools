@@ -14,7 +14,11 @@
             "dependsOn": [
                 "CMake: Build (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
-            ]
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
         },
         {
             "label": "CMake: Rebuild",
@@ -28,7 +32,11 @@
             "dependsOn": [
                 "CMake: Rebuild (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
-            ]
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
         },
         {
             "label": "CMake: Configure with Conan Install",
@@ -42,7 +50,11 @@
             "dependsOn": [
                 "CMake: Configure with Conan Install (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
-            ]
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
         },
         {
             "label": "CMake: Clean",
@@ -164,11 +176,12 @@
                     "absolute"
                 ]
             },
+            "dependsOrder": "sequence",
+            "dependsOn": "Conan: Install",
             "group": {
                 "kind": "build",
+                "isDefault": false
             },
-            "dependsOrder": "sequence",
-            "dependsOn": "Conan: Install"
         },
         {
             "label": "CMake: Rebuild (opened terminal for failure case)",
@@ -191,7 +204,8 @@
             },
             "group": {
                 "kind": "build",
-            }
+                "isDefault": false
+            },
         },
         {
             "label": "CMake: Build (opened terminal for failure case)",
@@ -211,8 +225,8 @@
             },
             "group": {
                 "kind": "build",
-                "isDefault": true
-            }
+                "isDefault": false
+            },
         },
         {
             "label": "CMake: Clean (opened terminal for failure case)",

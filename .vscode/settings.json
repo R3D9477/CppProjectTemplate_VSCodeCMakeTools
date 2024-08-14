@@ -10,6 +10,9 @@
     "cmake.configureArgs": [
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
     ],
+    "cmake.environment": {
+        "CLICOLOR_FORCE": "1"
+    },
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format",
         "editor.defaultFoldingRangeProvider": "xaver.clang-format"
