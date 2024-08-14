@@ -2,6 +2,10 @@
 Universal template of C++ project, was made to rapid start the new C++ project, easy debug and profile it.<br/>
 Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) extension.
 
+<p align="center"><img src=".vscode/img/editor.png" alt="LiveProcMon" width="400" height="200"></p>
+
+<p align="center"><img src=".vscode/img/liveprocmon.png" alt="LiveProcMon" width="400" height="200"></p>
+
 ---
 
 ### Main tasks
@@ -16,14 +20,20 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `Valgrind: Show Cachegrind Report` - show profiler's report (check for chache missings)
 * `Valgrind: Show Callgrind Report` - show profiler's report (check for tree of calls and theirs performing times)
 
+### Shortcuts (in status bar)
+* `Debug`
+* `LiveProcMon: Start Monitoring`
+* `LiveProcMon: Stop Monitoring`
+* `Valgrind: Show Memcheck Report`
+* `Valgrind: Show Cachegrind Report`
+* `Valgrind: Show Callgrind Report`
+* `CppRunCurrentFile: Run`
+
 ### Features
 * uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 * uses Conan, automatically downloads packages from `conanfile.txt` before building the project
 * easy to make and show `Valgrind` reports
 * `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
-
-<p align="center"><img src=".vscode/liveprocmon/liveprocmon.png" alt="LiveProcMon" width="300" height="150"></p>
-
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
 * enabled auto linting (with `clang-tidy`)
 * enabled auto formatting (with `clang-format`)
@@ -104,6 +114,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command) - support of custom commands
   * [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable) - advanced variables substitution
 * additional
+  * [Gruntfuggly.activitusbar](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.activitusbar) - debugging and profiling shortcuts in status bar
   * [matepek.vscode-catch2-test-adapter](https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter) - a better unit tests explorer for GTests (but has no support of Boost.UnitTest)
   * [Guyutongxue.cpp-reference](https://marketplace.visualstudio.com/items?itemName=Guyutongxue.cpp-reference) - easy access to cppreference
   * [krosf.vscode-valgrind](https://marketplace.visualstudio.com/items?itemName=krosf.vscode-valgrind) - colorization of Valgrind reports

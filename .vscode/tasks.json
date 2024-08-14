@@ -3,7 +3,7 @@
     "tasks": [
         // User tasks: All (autoclose terminal if no failures)
         {
-            "label": "CMake: Build",
+            "label": "$(package) CMake: Build",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -21,7 +21,7 @@
             },
         },
         {
-            "label": "CMake: Rebuild",
+            "label": "$(package) CMake: Rebuild",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -39,7 +39,7 @@
             },
         },
         {
-            "label": "CMake: Configure with Conan Install",
+            "label": "$(package) CMake: Configure with Conan Install",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -57,7 +57,7 @@
             },
         },
         {
-            "label": "CMake: Clean",
+            "label": "$(clear-all) CMake: Clean",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -71,7 +71,7 @@
             ]
         },
         {
-            "label": "Valgrind: Show Memcheck Report",
+            "label": "$(report) Valgrind: Show Memcheck Report",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -85,7 +85,7 @@
             ]
         },
         {
-            "label": "Valgrind: Show Cachegrind Report",
+            "label": "$(report) Valgrind: Show Cachegrind Report",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -99,7 +99,7 @@
             ]
         },
         {
-            "label": "Valgrind: Show Callgrind Report",
+            "label": "$(report) Valgrind: Show Callgrind Report",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -113,7 +113,7 @@
             ]
         },
         {
-            "label": "LiveProcMon: Start Monitoring",
+            "label": "$(telescope) LiveProcMon: Start Monitoring",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "label": "LiveProcMon: Stop Monitoring",
+            "label": "$(stop) LiveProcMon: Stop Monitoring",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -142,7 +142,7 @@
         },
         // User tasks: CppRunCurrentFile
         {
-            "label": "CppRunCurrentFile: Run",
+            "label": "$(rocket) CppRunCurrentFile: Run",
             "type": "shell",
             "command": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
             "args": [],
@@ -345,7 +345,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: If build Folder Exists",
-                "CMake: Configure with Conan Install"
+                "$(package) CMake: Configure with Conan Install"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -364,7 +364,7 @@
             "dependsOn": [
                 "VSCode Utility: If build Folder is NOT Exists",
                 "CMake: Select a Kit",
-                "CMake: Configure with Conan Install"
+                "$(package) CMake: Configure with Conan Install"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -407,6 +407,9 @@
                 "fileLocation": [
                     "absolute"
                 ]
+            },
+            "presentation": {
+                "clear": true
             }
         },
         {

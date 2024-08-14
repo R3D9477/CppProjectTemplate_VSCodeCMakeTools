@@ -23,7 +23,7 @@
     "task.saveBeforeRun": "always",
     "files.autoSave": "off",
     "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "editor.renderWhitespace": "trailing",
@@ -31,6 +31,10 @@
     "files.trimFinalNewlines": true,
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#505050",
+        "statusBar.foreground": "#ffffff"
+    },
     "multiCommand.commands": [
         {
             "command": "multiCommand.do_nothing",
@@ -84,6 +88,60 @@
                 "editor.foldLevel4"
             ],
         },
+        {
+            "command": "multiCommand.run_task_CMake_StartLiveProcMon",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(telescope) LiveProcMon: Start Monitoring"
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.run_task_CMake_StopLiveProcMon",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(stop) LiveProcMon: Stop Monitoring"
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.run_task_CMake_ShowValgrindMemcheckReport",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(report) Valgrind: Show Memcheck Report"
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.run_task_CMake_ShowValgrindCachegrindReport",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(report) Valgrind: Show Cachegrind Report"
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.run_task_CMake_ShowValgrindCallgrindReport",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(report) Valgrind: Show Callgrind Report"
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.run_task_CMake_CurrentFileRun",
+            "sequence": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "$(rocket) CppRunCurrentFile: Run"
+                }
+            ]
+        },
     ],
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
@@ -119,6 +177,51 @@
             "name": "Separator",
             "icon": "kebab-vertical",
             "command_vscode": "multiCommand.do_nothing",
+        },
+    ],
+    "activitusbar.activeColour": "#ffffff",
+    "activitusbar.inactiveColour": "#ffffff",
+    "activitusbar.views": [
+        {
+            "codicon": "kebab-vertical"
+        },
+        {
+            "name": "command.workbench.action.debug.start",
+            "codicon": "bug",
+            "tooltip": "CMake: Debug"
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_StartLiveProcMon",
+            "codicon": "telescope",
+            "tooltip": "LiveProcMon: Start Monitoring",
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_StopLiveProcMon",
+            "codicon": "stop",
+            "tooltip": "LiveProcMon: Stop Monitoring"
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_ShowValgrindMemcheckReport",
+            "codicon": "report",
+            "tooltip": "Valgrind: Show Memcheck Report"
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_ShowValgrindCachegrindReport",
+            "codicon": "report",
+            "tooltip": "Valgrind: Show Cachegrind Report"
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_ShowValgrindCallgrindReport",
+            "codicon": "report",
+            "tooltip": "Valgrind: Show Callgrind Report"
+        },
+        {
+            "name": "command.multiCommand.run_task_CMake_CurrentFileRun",
+            "codicon": "rocket",
+            "tooltip": "CppRunCurrentFile: Run"
+        },
+        {
+            "codicon": "kebab-vertical"
         },
     ],
     "LiveProcMon": {
