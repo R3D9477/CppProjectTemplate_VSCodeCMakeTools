@@ -1,4 +1,6 @@
 # Safety flags for Clang.
+# Some of the safety flags may request certain optimization level.
+
 # Based on:
 #  https://interrupt.memfault.com/blog/best-and-worst-gcc-clang-compiler-flags#-weverything-clang-only
 
@@ -6,7 +8,6 @@ list(APPEND SAFETY_FLAGS
   -Wall
   -Wextra
   -Wshadow
-  -Winit-self
   -Wuninitialized
   -Wundef
   -Wswitch-enum
@@ -23,6 +24,9 @@ list(APPEND SAFETY_FLAGS
   -Wno-unused-result
   -Wno-unused-function
   -Wno-unused-parameter
+  -Winfinite-recursion
+  -Wnonnull # works with -Og
+  -Wnull-dereference # works with -O1
 )
 
 if(QT_FOUND)
