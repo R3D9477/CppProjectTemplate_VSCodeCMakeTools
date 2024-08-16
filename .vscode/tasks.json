@@ -142,24 +142,14 @@
         },
         // User tasks: CppRunCurrentFile
         {
-            "label": "$(rocket) CppRunCurrentFile: Run",
-            "type": "shell",
-            "command": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
-            "args": [],
-            "options": {
-                "cwd": "${config:CppRunCurrentFile.build_directory}"
-            },
-            "dependsOn": "CppRunCurrentFile: Build",
-            "dependsOrder": "sequence",
+            "label": "$(rocket) CppRunCurrentFile: Run/Debug",
+            "command": "${command:launches.CppRunCurrentFile_Debug}",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
                     "absolute"
                 ]
             },
-            "presentation": {
-                "clear": true
-            }
         },
         // User tasks: CMake
         {

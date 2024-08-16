@@ -7,11 +7,20 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Launch",
+            "name": "C++ Debug CMake Project",
             "program": "${command:cmake.launchTargetPath}",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "$(package) CMake: Build",
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "C++ Debug Current File",
+            "program": "${config:CppRunCurrentFile.build_directory}/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${config:CppRunCurrentFile.build_directory}",
+            "preLaunchTask": "CppRunCurrentFile: Build",
         },
     ]
 }

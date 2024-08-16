@@ -18,7 +18,69 @@
         "editor.defaultFoldingRangeProvider": "xaver.clang-format"
     },
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "atomic": "cpp",
+        "cwchar": "cpp",
+        "string": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cwctype": "cpp",
+        "any": "cpp",
+        "array": "cpp",
+        "strstream": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "condition_variable": "cpp",
+        "cstdint": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "source_location": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "utility": "cpp",
+        "iomanip": "cpp",
+        "limits": "cpp",
+        "mutex": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "cinttypes": "cpp",
+        "typeinfo": "cpp",
+        "variant": "cpp"
     },
     "task.saveBeforeRun": "always",
     "files.autoSave": "off",
@@ -34,6 +96,9 @@
     "workbench.colorCustomizations": {
         "statusBar.background": "#505050",
         "statusBar.foreground": "#ffffff"
+    },
+    "launches": {
+        "CppRunCurrentFile_Debug": "C++ Debug Current File",
     },
     "multiCommand.commands": [
         {
@@ -133,15 +198,6 @@
                 }
             ]
         },
-        {
-            "command": "multiCommand.run_task_CMake_CurrentFileRun",
-            "sequence": [
-                {
-                    "command": "workbench.action.tasks.runTask",
-                    "args": "$(rocket) CppRunCurrentFile: Run"
-                }
-            ]
-        },
     ],
     "graphviz-interactive-preview.openAutomatically": true,
     "graphviz-interactive-preview.preserveFocus": true,
@@ -216,9 +272,9 @@
             "tooltip": "Valgrind: Show Callgrind Report"
         },
         {
-            "name": "command.multiCommand.run_task_CMake_CurrentFileRun",
+            "name": "command.launches.CppRunCurrentFile_Debug",
             "codicon": "rocket",
-            "tooltip": "CppRunCurrentFile: Run"
+            "tooltip": "CppRunCurrentFile: Run/Debug"
         },
         {
             "codicon": "kebab-vertical"
@@ -237,10 +293,9 @@
         "plotHeightInch": 8.5,
     },
     "CppRunCurrentFile": {
-        "cpp_compiler_path": "clang++",
+        "cpp_compiler_path": "g++",
         "cpp_compiler_arg_cpp_standard": "-std=c++17",
-        "cpp_compiler_arg_optimization_level": "-O0",
-        "cpp_debugger_patth": "lldb",
+        "cpp_compiler_arg_optimization_level": "-g",
         "build_directory": "${workspaceFolder}/build/CppRunCurrentFile"
     }
 }

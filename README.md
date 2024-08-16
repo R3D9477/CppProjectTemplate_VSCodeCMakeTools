@@ -13,7 +13,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `CMake: Configure and Build` - configure and run `cmake.build` command
 * `CMake: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
 * `CMake: Configure with Conan Install` - install `conanfile.txt` and run `cmake.configure` command
-* `CppRunCurrentFile: Run` - build and run currently opened `.cpp` source file
+* `CppRunCurrentFile: Run/Debu` - build, run & debug currently opened `.cpp` source file
 * `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
 * `LiveProcMon: Stop Monitoring` - stop monitoring
 * `Valgrind: Show Memcheck Report` - show profiler's report (check for memory leaks)
@@ -27,7 +27,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `Valgrind: Show Memcheck Report`
 * `Valgrind: Show Cachegrind Report`
 * `Valgrind: Show Callgrind Report`
-* `CppRunCurrentFile: Run`
+* `CppRunCurrentFile: Run/Debug`
 
 ### Features
 * uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
@@ -94,7 +94,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * 3.3. use additinal tasks for profiling:
     * `LiveProcMon: Start Monitoring` to check resources consumption at real-time
     * `Valgrind: Show Memcheck Report`, `Valgrind: Show Callgrind Report` and `Valgrind: Show Cachegrind Report` to get profiler's reports
-    * `CppRunCurrentFile: Run` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main/test_cpp_snippets))
+    * `CppRunCurrentFile: Run/Debug` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main/test_cpp_snippets))
 
 ---
 
@@ -113,6 +113,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [tintinweb.graphviz-interactive-preview](https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview) - visualize charts, required for Callgrind reports
   * [ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command) - support of custom commands
   * [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable) - advanced variables substitution
+  * [ArturoDent.launch-config](https://marketplace.visualstudio.com/items?itemName=ArturoDent.launch-config) - allows to launch debugging with specific configuration
 * additional
   * [Gruntfuggly.activitusbar](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.activitusbar) - debugging and profiling shortcuts in status bar
   * [matepek.vscode-catch2-test-adapter](https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter) - a better unit tests explorer for GTests (but has no support of Boost.UnitTest)

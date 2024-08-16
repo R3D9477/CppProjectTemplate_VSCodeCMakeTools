@@ -17,6 +17,7 @@
     "liangruliu.customize-toolbar",
     "hediet.vscode-drawio",
     "rioj7.command-variable",
-    "Gruntfuggly.activitusbar"
+    "Gruntfuggly.activitusbar",
+    "ArturoDent.launch-config",
   ]
 }
