@@ -12,7 +12,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(IGNORE_Qt TRUE)
 
 get_filename_component(OUTPUT_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-project(${OUTPUT_NAME} VERSION 0.1 LANGUAGES CXX)
+
+project(${OUTPUT_NAME} VERSION 0.1.0 LANGUAGES CXX)
 
 #------------------------------------------------------------------------------------------------------
 

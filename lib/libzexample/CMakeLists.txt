@@ -14,7 +14,7 @@ target_include_directories(${LIB_NAME} PUBLIC ${${LIB_NAME}_INCLUDES})
 
 target_compile_options(${LIB_NAME} PRIVATE ${SAFETY_FLAGS})
 
-target_link_libraries(${OUTPUT_NAME} PUBLIC "somelib") # attach this library to the project
+target_link_libraries(${OUTPUT_NAME} PUBLIC ${LIB_NAME}) # attach this library to the project
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------

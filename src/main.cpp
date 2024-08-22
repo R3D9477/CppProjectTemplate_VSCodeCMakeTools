@@ -1,5 +1,6 @@
 #include "cppinfo.hpp"
-#include "somelib.hpp"
+#include "libexample.hpp"
+#include "project_version.hpp"
 
 #include <cstdint>
 #include <iostream>
@@ -7,6 +8,8 @@
 int main()
 {
     std::cout << "Hi." << std::endl;
+
+    std::cout << "Project version: " << project_version() << std::endl;
 
     CppInfo cppInfo;
     std::cout << "C++ language version: " << cppInfo.GetLanguageVersion() << std::endl;
