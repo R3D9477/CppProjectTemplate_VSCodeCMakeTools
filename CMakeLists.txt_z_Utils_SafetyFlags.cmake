@@ -9,3 +9,5 @@ endif()
 
 message("SAFETY_FLAGS_FILE: ${SAFETY_FLAGS_FILE}")
 message("SAFETY_FLAGS: ${SAFETY_FLAGS}")
+
+target_compile_options(${MAIN_TARGET} PRIVATE ${SAFETY_FLAGS})

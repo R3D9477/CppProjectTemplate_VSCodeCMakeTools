@@ -19,29 +19,29 @@ if(NOT IGNORE_Qt)
         set(CMAKE_AUTORCC ON)
 
         if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-            set(OUTPUT_NAME "app${OUTPUT_NAME}")
-            qt_add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
+            set(MAIN_TARGET "app${MAIN_TARGET}")
+            qt_add_executable(${MAIN_TARGET} ${${PROJECT_NAME}_SOURCES})
             file(GLOB_RECURSE MODULE_QMLs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.qml)
             if(NOT "${MODULE_QMLs}" STREQUAL "")
-            qt_add_qml_module(${OUTPUT_NAME} URI ${PROJECT_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
+            qt_add_qml_module(${MAIN_TARGET} URI ${PROJECT_NAME} VERSION 1.0 QML_FILES ${MODULE_QMLs})
             endif()
             # Define target properties for Android with Qt 6 as:
-            #  set_property(TARGET ${OUTPUT_NAME} APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+            #  set_property(TARGET ${MAIN_TARGET} APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
             #         ${CMAKE_CURRENT_SOURCE_DIR}/android)
             # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
         else()
             if(ANDROID)
-            add_library(${OUTPUT_NAME} SHARED ${${PROJECT_NAME}_SOURCES})
+            add_library(${MAIN_TARGET} SHARED ${${PROJECT_NAME}_SOURCES})
             # Define properties for Android with Qt 5 after find_package() calls as:
             #  set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
             else()
-            add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES})
+            add_executable(${MAIN_TARGET} ${${PROJECT_NAME}_SOURCES})
             endif()
 
         endif()
 
-        set_target_properties(${OUTPUT_NAME} PROPERTIES
-            MACOSX_BUNDLE_GUI_IDENTIFIER "com.${OUTPUT_NAME}"
+        set_target_properties(${MAIN_TARGET} PROPERTIES
+            MACOSX_BUNDLE_GUI_IDENTIFIER "com.${MAIN_TARGET}"
             MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
             MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
         )
@@ -51,7 +51,7 @@ if(NOT IGNORE_Qt)
             target_link_libraries(${TARGET_NAME} PUBLIC Qt::Core Qt::Quick Qt::Widgets)
         endfunction()
 
-        target_add_Qt(${OUTPUT_NAME})
+        target_add_Qt(${MAIN_TARGET})
         set(QT_APP_ADDED TRUE)
 
     endif()

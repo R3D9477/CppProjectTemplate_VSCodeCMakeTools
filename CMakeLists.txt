@@ -11,9 +11,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 set(IGNORE_Qt TRUE)
 
-get_filename_component(OUTPUT_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
-project(${OUTPUT_NAME} VERSION 0.1.0 LANGUAGES CXX)
+project(${MAIN_TARGET} VERSION 0.1.0 LANGUAGES CXX)
 
 #------------------------------------------------------------------------------------------------------
 
@@ -28,26 +28,23 @@ include(CMakeLists.txt_z_Utils.cmake)
 
 #------------------------------------------------------------------------------------------------------
 
-include(CMakeLists.txt_z_Utils_Qt.cmake) # Add Qt application
+include(CMakeLists.txt_z_Utils_SetupQtApp.cmake) # Setup Qt application
 
 if(NOT QT_APP_ADDED)
-  add_executable(${OUTPUT_NAME} ${${PROJECT_NAME}_SOURCES}) # Add application
+  add_executable(${MAIN_TARGET} ${${PROJECT_NAME}_SOURCES}) # Setup regular application
 endif()
 
-include(CMakeLists.txt_z_Utils_SafetyFlags.cmake)
-target_compile_options(${OUTPUT_NAME} PRIVATE ${SAFETY_FLAGS}) # Compiler's safety flags
+include(CMakeLists.txt_z_Utils_SafetyFlags.cmake) # Set compiler's safety flags
 
 include(CMakeLists.txt_z_Utils_VCRuntime.cmake) # Add VCRuntime libs if needed
 
-include(CMakeLists.txt_z_Utils_Boost.cmake) # Add Boost if it possible
-
 #------------------------------------------------------------------------------------------------------
 
-target_include_directories(${OUTPUT_NAME} PUBLIC ${${PROJECT_NAME}_INCLUDES})
+target_include_directories(${MAIN_TARGET} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
-# ATTACH EXTERNAL LIBRARIES
+# ATTACH LIBRARIES
 
 set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_a_Project_Libs.cmake")
 if(EXISTS "${EXT_LIBS_FILE}")
