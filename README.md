@@ -137,3 +137,8 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 ### Links
 * used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
 * used in demo ["Simple Custom Qml Item Qt6 Cmake"](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake)
+
+---
+
+### If you like that repo, you can support me, I'm really appreciate it :heart:
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R3D9477)
