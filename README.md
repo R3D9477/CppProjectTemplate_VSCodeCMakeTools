@@ -30,6 +30,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `CppRunCurrentFile: Run/Debug`
 
 ### Features
+* easy to run inside Docker with [already prepared configuration](./.devcontainer_disabled)
 * uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 * uses Conan, automatically downloads packages from `conanfile.txt` before building the project
 * easy to make and show `Valgrind` reports
@@ -71,13 +72,21 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 
 ### HOW TO
 
-#### 1. Install
-  * 1.1. install gcc (e.g. `apt install gcc gdb`)
-  * 1.2. install clang (e.g. `apt install clang clang-tidy clang-format lldb`)
-  * 1.3. install python (e.g. `apt install python3 python3-venv`, do `python3 -m venv ~/.local --system-site-packages` and add `~/.local/bin` to global `PATH` variable)
-  * 1.4. install cmake (e.g. `pip install cmake`)
-  * 1.5. install conan (e.g. `pip install conan` and do `conan profile detect`)
-  * 1.6. install ploting tools (e.g. `pip install gprof2dot matplotlib pillow`)
+#### 1. Install and Open
+
+###### Variant #1: Inside Docker
+  * 1.1.1. install docker on your host machine ([Install Docker Engine](https://docs.docker.com/engine/install/))
+  * 1.1.2. install docker-compose on your host machine ([Overview of installing Docker Compose](https://docs.docker.com/compose/install/))
+  * 1.1.3. rename directory `.devcontainer_disabled` to `.devcontainer` to enable config
+  * 1.1.4. [Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
+
+###### Variant #2: On your host machine
+  * 1.2.1. install gcc (e.g. `apt install gcc gdb`)
+  * 1.2.2. install clang (e.g. `apt install clang clang-tidy clang-format lldb`)
+  * 1.2.3. install python (e.g. `apt install python3 python3-venv`, do `python3 -m venv ~/.local --system-site-packages` and add `~/.local/bin` to global `PATH` variable)
+  * 1.2.4. install cmake (e.g. `pip install cmake`)
+  * 1.2.5. install conan (e.g. `pip install conan` and do `conan profile detect`)
+  * 1.2.6. install ploting tools (e.g. `pip install gprof2dot matplotlib pillow`)
 
 #### 2. Configure
   * 2.1. clone that repositoy to your local machine
@@ -89,7 +98,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * 2.7. if neeeded, add [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
 
 #### 3. Use
-  * 3.1. for the first time it will be proposed to choose sertain development kit via standard menu of CMake Tools (the same as `>CMake: Select a Kit`)
+  * 3.1. run task `Terminal`>`Run Task`>`CMake: Configure with Conan Install`
   * 3.2. press `F5` to build `Debug` version (variant selected by default in CMake Tools) and run debugging process (by default using LLDB, can be changed in `launch.json`)
   * 3.3. use additinal tasks for profiling:
     * `LiveProcMon: Start Monitoring` to check resources consumption at real-time
@@ -137,8 +146,3 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 ### Links
 * used in template of ["Qml Multilingual Application"](https://github.com/R3D9477/EmptyQmlMuiApp)
 * used in demo ["Simple Custom Qml Item Qt6 Cmake"](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake)
-
----
-
-### If you like that repo, you can support me, I really appreciate it :heart:
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R3D9477)

@@ -1,0 +1,39 @@
+FROM debian:latest
+
+USER root
+
+RUN passwd --delete root
+
+RUN apt update -y
+RUN apt install lsb-release ninja-build wget make build-essential software-properties-common gnupg git sudo nano valgrind -y
+
+RUN wget https://apt.llvm.org/llvm.sh -O /tmp/llvm.sh
+RUN chmod +x /tmp/llvm.sh
+RUN /tmp/llvm.sh 19 all
+RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 100
+RUN update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-19 100
+RUN update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-19 100
+
+RUN apt install python3 python3-venv -y
+
+RUN useradd -rm -d /home/build -s /bin/bash -g root -G sudo -u 1001 build
+RUN echo "export USER=build" > /etc/profile.d/set_user.sh
+RUN mkdir -p "/home/build/cppproject"
+RUN passwd --delete build
+RUN usermod -a -G sudo build
+
+USER build
+WORKDIR /home/build
+
+RUN python3 -m venv /home/build/.local --system-site-packages
+RUN echo 'PATH="${PATH}:/home/build/.local/bin"' >> /home/build/.bashrc
+RUN export PATH="${PATH}:/home/build/.local/bin"
+
+RUN /home/build/.local/bin/pip install cmake
+
+RUN /home/build/.local/bin/pip install conan
+RUN /home/build/.local/bin/conan profile detect
+RUN /home/build/.local/bin/conan remote update conancenter --url="https://center2.conan.io"
+
+RUN /home/build/.local/bin/pip install gprof2dot matplotlib pillow

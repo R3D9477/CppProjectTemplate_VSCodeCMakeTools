@@ -48,6 +48,7 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
+                "CMake: Select a Kit",
                 "CMake: Configure with Conan Install (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ],
@@ -335,6 +336,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "VSCode Utility: If build Folder Exists",
+                "VSCode Utility: If devcontainer Folder does NOT Exist",
                 "$(package) CMake: Configure with Conan Install"
             ],
             "problemMatcher": {
@@ -352,9 +354,28 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "VSCode Utility: If build Folder is NOT Exists",
+                "VSCode Utility: If build Folder does NOT Exist",
+                "VSCode Utility: If devcontainer Folder does NOT Exist",
                 "CMake: Select a Kit",
                 "$(package) CMake: Configure with Conan Install"
+            ],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        {
+            "label": "CMake: Configure Project with Docker",
+            "hide": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "VSCode Utility: If devcontainer Exists",
+                "VSCode Utility: Toggle Terminal Twice"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -829,6 +850,42 @@
             }
         },
         {
+            "label": "VSCode Utility: If devcontainer Folder Exists",
+            "hide": true,
+            "type": "shell",
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "if [ -d \"${workspaceFolder}/.devcontainer\" ] ; then exit 0 ; fi ; exit 1"
+                ]
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        {
+            "label": "VSCode Utility: If devcontainer Folder does NOT Exist",
+            "hide": true,
+            "type": "shell",
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "if [ -d \"${workspaceFolder}/.devcontainer\" ] ; then exit 1 ; fi ; exit 0"
+                ]
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        {
             "label": "VSCode Utility: If build Folder Exists",
             "hide": true,
             "type": "shell",
@@ -847,7 +904,7 @@
             }
         },
         {
-            "label": "VSCode Utility: If build Folder is NOT Exists",
+            "label": "VSCode Utility: If build Folder does NOT Exist",
             "hide": true,
             "type": "shell",
             "linux": {

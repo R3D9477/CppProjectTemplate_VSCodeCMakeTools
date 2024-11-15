@@ -1,6 +1,12 @@
-// Suggested extensions
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/ubuntu
 {
-    "recommendations": [
+    "name": "${localWorkspaceFolderBasename}",
+    "service": "cppproject",
+    "dockerComposeFile": "./docker-compose.user_clang-19.yaml",
+    "workspaceFolder": "/home/build/cppproject",
+    "remoteUser": "build",
+    "extensions": [
         "ms-vscode-remote.remote-containers",
         "ms-vscode.cpptools-extension-pack",
         "xaver.clang-format",
@@ -20,5 +26,14 @@
         "rioj7.command-variable",
         "Gruntfuggly.activitusbar",
         "ArturoDent.launch-config",
-    ]
+    ],
+    "settings": {
+        // shell
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "/bin/bash"
+            }
+        },
+    }
 }

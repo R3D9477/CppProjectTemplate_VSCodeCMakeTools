@@ -1,0 +1,66 @@
+version: "3.9"
+
+x-setup: &setup
+  image: cpp-dev
+  build:
+    context: ..
+    dockerfile: ./.devcontainer/Dockerfile_clang-19
+  stdin_open: true
+  tty: true
+  network_mode: host
+  environment:
+    SSH_AUTH_SOCK: /ssh-agent
+    no_proxy:
+    ftp_proxy:
+    http_proxy:
+    https_proxy:
+    NO_PROXY:
+    FTP_PROXY:
+    HTTP_PROXY:
+    HTTPS_PROXY:
+
+x-volume-cppproject: &volume-cppproject
+  type: bind
+  source: ../
+  target: /home/build/cppproject
+
+x-volume-hosthome: &volume-hosthome
+  type: bind
+  source: ${HOME}
+  target: ${HOME}
+
+x-volume-conan2: &volume-conan2
+  type: bind
+  source: ${HOME}/.conan2
+  target: /home/build/.conan2
+
+x-volume-docker_history: &volume-docker_history
+  type: bind
+  source: ${HOME}/.docker_history
+  target: /home/build/.bash_history
+x-volume-netrc: &volume-netrc
+  type: bind
+  source: ${HOME}/.netrc
+  target: /home/build/.netrc
+  read_only: true
+
+services:
+  cppproject:
+    <<: *setup
+    volumes:
+      - <<: *volume-cppproject
+#      - <<: *volume-hosthome
+#      - <<: *volume-conan2
+      - <<: *volume-docker_history
+      - <<: *volume-netrc
+      - type: bind
+        source: ${SSH_AUTH_SOCK:-/dev/null}
+        target: /ssh-agent
+      - type: bind
+        source: ${HOME}/.ssh
+        target: /home/build/.ssh
+        read_only: true
+      - type: bind
+        source: ${HOME}/.certificates
+        target: /home/build/.certificates
+        read_only: true
