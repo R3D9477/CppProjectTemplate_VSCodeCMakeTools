@@ -24,20 +24,11 @@ x-volume-cppproject: &volume-cppproject
   source: ../
   target: /home/build/cppproject
 
-x-volume-hosthome: &volume-hosthome
-  type: bind
-  source: ${HOME}
-  target: ${HOME}
-
 x-volume-conan2: &volume-conan2
   type: bind
   source: ${HOME}/.conan2
   target: /home/build/.conan2
 
-x-volume-docker_history: &volume-docker_history
-  type: bind
-  source: ${HOME}/.docker_history
-  target: /home/build/.bash_history
 x-volume-netrc: &volume-netrc
   type: bind
   source: ${HOME}/.netrc
@@ -49,18 +40,12 @@ services:
     <<: *setup
     volumes:
       - <<: *volume-cppproject
-#      - <<: *volume-hosthome
 #      - <<: *volume-conan2
-      - <<: *volume-docker_history
-      - <<: *volume-netrc
+#      - <<: *volume-netrc
       - type: bind
         source: ${SSH_AUTH_SOCK:-/dev/null}
         target: /ssh-agent
       - type: bind
         source: ${HOME}/.ssh
         target: /home/build/.ssh
-        read_only: true
-      - type: bind
-        source: ${HOME}/.certificates
-        target: /home/build/.certificates
         read_only: true
