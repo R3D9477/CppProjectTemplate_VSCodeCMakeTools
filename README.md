@@ -1,5 +1,5 @@
-### CppProjectTemplate_VSCodeCMakeTools
-Universal template of C++ project, was made to rapid start the new C++ project, easy debug and profile it.<br/>
+### VSCodeCppIDE_Template
+Template of C++ project with config to make a VSCode be IDE-like with set of useful features for simplier development life.<br/>
 Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) extension.
 
 <p align="center"><img src=".vscode/img/editor.png" alt="LiveProcMon" width="400" height="200"></p>
