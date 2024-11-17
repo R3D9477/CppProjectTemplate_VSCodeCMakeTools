@@ -75,10 +75,9 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 #### 1. Install and Open
 
 ###### Variant #1: Inside Docker
-  * 1.1.1. install docker on your host machine ([Install Docker Engine](https://docs.docker.com/engine/install/))
-  * 1.1.2. install docker-compose on your host machine ([Overview of installing Docker Compose](https://docs.docker.com/compose/install/))
-  * 1.1.3. rename directory `.devcontainer_disabled` to `.devcontainer` to enable config
-  * 1.1.4. [Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
+  * 1.1.1. ([install docker](https://docs.docker.com/engine/install/)) and ([docker compose](https://docs.docker.com/compose/install/)) on your host machine ([solution](https://discussion.fedoraproject.org/t/installing-docker-on-silverblue/119610/5) for Fedora Silverblue)
+  * 1.1.2. rename directory `.devcontainer_disabled` to `.devcontainer` to enable config
+  * 1.1.3. [Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
 
 ###### Variant #2: On your host machine
   * 1.2.1. install gcc (e.g. `apt install gcc gdb`)
