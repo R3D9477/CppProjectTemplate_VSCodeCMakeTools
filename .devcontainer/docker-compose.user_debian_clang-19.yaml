@@ -10,6 +10,10 @@ x-setup: &setup
   network_mode: host
   environment:
     SSH_AUTH_SOCK: /ssh-agent
+  ulimits:
+    nofile:
+      soft: 1024
+      hard: 1024
 
 x-volume-cppproject: &volume-cppproject
   type: bind
