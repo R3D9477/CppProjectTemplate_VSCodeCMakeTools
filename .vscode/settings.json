@@ -126,30 +126,37 @@
             ],
         },
         {
+            "command": "multiCommand.editor_unfoldAll",
+            "sequence": [
+                "workbench.action.focusActiveEditorGroup",
+                "editor.unfoldAll",
+            ],
+        },
+        {
             "command": "multiCommand.editor_foldLevel1",
             "sequence": [
-                "editor.unfoldAll",
+                "multiCommand.editor_unfoldAll",
                 "editor.foldLevel1"
             ],
         },
         {
             "command": "multiCommand.editor_foldLevel2",
             "sequence": [
-                "editor.unfoldAll",
+                "multiCommand.editor_unfoldAll",
                 "editor.foldLevel2"
             ],
         },
         {
             "command": "multiCommand.editor_foldLevel3",
             "sequence": [
-                "editor.unfoldAll",
+                "multiCommand.editor_unfoldAll",
                 "editor.foldLevel3"
             ],
         },
         {
             "command": "multiCommand.editor_foldLevel4",
             "sequence": [
-                "editor.unfoldAll",
+                "multiCommand.editor_unfoldAll",
                 "editor.foldLevel4"
             ],
         },
@@ -279,7 +286,6 @@
             "alignment": "left",
             "priority": 99999,
         },
-
         {
             "group": "_cppprojecttoolbar",
             "text": "$(folding-collapsed)",
@@ -321,7 +327,7 @@
             "text": "$(folding-expanded)",
             "name": "Unfold All",
             "tooltip": "Unfold All",
-            "command": "editor.unfoldAll",
+            "command": "multiCommand.editor_unfoldAll",
             "alignment": "left",
             "priority": 99999,
         },
