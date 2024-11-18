@@ -326,64 +326,6 @@
                 ]
             }
         },
-        // Service tasks: autorun
-        {
-            "label": "CMake: Configure Existing Project",
-            "hide": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: If build Folder Exists",
-                "VSCode Utility: If devcontainer Folder does NOT Exist",
-                "$(package) CMake: Configure with Conan Install"
-            ],
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            }
-        },
-        {
-            "label": "CMake: Configure Fresh Project",
-            "hide": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: If build Folder does NOT Exist",
-                "VSCode Utility: If devcontainer Folder does NOT Exist",
-                "CMake: Select a Kit",
-                "$(package) CMake: Configure with Conan Install"
-            ],
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            }
-        },
-        {
-            "label": "CMake: Configure Project with Docker",
-            "hide": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "VSCode Utility: If devcontainer Exists",
-                "VSCode Utility: Toggle Terminal Twice"
-            ],
-            "problemMatcher": {
-                "base": "$gcc",
-                "fileLocation": [
-                    "absolute"
-                ]
-            }
-        },
         // Service tasks: CMake
         {
             "label": "CMake: Select a Kit",

@@ -1,9 +1,0 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/ubuntu
-{
-    "name": "${localWorkspaceFolderBasename}",
-    "service": "cppproject",
-    "dockerComposeFile": "./docker-compose.user_clang-19.yaml",
-    "workspaceFolder": "/home/build/cppproject",
-    "remoteUser": "build"
-}

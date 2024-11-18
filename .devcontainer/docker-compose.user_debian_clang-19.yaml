@@ -4,7 +4,7 @@ x-setup: &setup
   image: cpp-dev
   build:
     context: ..
-    dockerfile: ./.devcontainer/Dockerfile_clang-19
+    dockerfile: ./.devcontainer/Dockerfile_debian_clang-19
   stdin_open: true
   tty: true
   network_mode: host

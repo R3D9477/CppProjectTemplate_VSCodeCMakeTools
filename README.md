@@ -76,8 +76,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 
 ###### Variant #1: Inside Docker
   * 1.1.1. ([install docker](https://docs.docker.com/engine/install/)) and ([docker compose](https://docs.docker.com/compose/install/)) on your host machine ([solution](https://discussion.fedoraproject.org/t/installing-docker-on-silverblue/119610/5) for Fedora Silverblue)
-  * 1.1.2. rename directory `.devcontainer_disabled` to `.devcontainer` to enable config
-  * 1.1.3. [Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
+  * 1.1.2. [Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
 
 ###### Variant #2: On your host machine
   * 1.2.1. install gcc (e.g. `apt install gcc gdb`)
@@ -115,6 +114,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 
 ### Used extensions
 * required
+  * [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - run development environment in a container
   * [ms-vscode.cpptools-extension-pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) - support of C++ intellisense, refactoring, sources colorization, etc.
   * [xaver.clang-format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) - code formatter
   * [vadimcn.vscode-lldb](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) - support of LLDB debugger
@@ -123,7 +123,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable) - advanced variables substitution
   * [ArturoDent.launch-config](https://marketplace.visualstudio.com/items?itemName=ArturoDent.launch-config) - allows to launch debugging with specific configuration
 * additional
-  * [Gruntfuggly.activitusbar](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.activitusbar) - debugging and profiling shortcuts in status bar
+  * [dacapoday.status-bar-button](https://marketplace.visualstudio.com/items?itemName=dacapoday.status-bar-button) - debugging/profiling and code folding buttons in status bar
   * [matepek.vscode-catch2-test-adapter](https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter) - a better unit tests explorer for GTests (but has no support of Boost.UnitTest)
   * [Guyutongxue.cpp-reference](https://marketplace.visualstudio.com/items?itemName=Guyutongxue.cpp-reference) - easy access to cppreference
   * [krosf.vscode-valgrind](https://marketplace.visualstudio.com/items?itemName=krosf.vscode-valgrind) - colorization of Valgrind reports
@@ -131,7 +131,6 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [SR-team.vscode-autohide-fork](https://marketplace.visualstudio.com/items?itemName=SR-team.vscode-autohide-fork) - autohide bottom panel with terminal
   * [jiapeiyao.tab-group](https://marketplace.visualstudio.com/items?itemName=jiapeiyao.tab-group) - grouped tabs
   * [Blackboxapp.blackbox](https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox) - AI helper
-  * [liangruliu.customize-toolbar](https://marketplace.visualstudio.com/items?itemName=liangruliu.customize-toolbar) - code folding/unfolding buttons in editor's toolbar
   * [hediet.vscode-drawio](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - draw.io diagrams right in VSCode
 
 ### Tested on

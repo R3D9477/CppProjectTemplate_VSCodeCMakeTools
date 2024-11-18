@@ -203,82 +203,134 @@
     "graphviz-interactive-preview.preserveFocus": true,
     "autoHide.autoHideLeftSideBar": false,
     "workbench.editor.showTabs": "single",
-    "CustomizeToolbar.buttonConfig": [
+    "status-bar-button.buttons": [
         {
-            "name": "Fold Level 4",
-            "icon": "folding-collapsed",
-            "command_vscode": "multiCommand.editor_foldLevel4"
+            "group": "_cppprojecttoolbar",
+            "text": "$(kebab-vertical)",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "Fold Level 3",
-            "icon": "folding-collapsed",
-            "command_vscode": "multiCommand.editor_foldLevel3"
+            "group": "_cppprojecttoolbar",
+            "text": "$(bug)",
+            "name": "CMake: Debug",
+            "tooltip": "CMake: Debug",
+            "command": "workbench.action.debug.start",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "Fold Level 2",
-            "icon": "folding-collapsed",
-            "command_vscode": "multiCommand.editor_foldLevel2"
-        },
-        {
-            "name": "Fold Level 1",
-            "icon": "folding-collapsed",
-            "command_vscode": "multiCommand.editor_foldLevel1"
-        },
-        {
-            "name": "Unfold All",
-            "icon": "folding-expanded",
-            "command_vscode": "editor.unfoldAll"
-        },
-        {
-            "name": "Separator",
-            "icon": "kebab-vertical",
-            "command_vscode": "multiCommand.do_nothing",
-        },
-    ],
-    "activitusbar.activeColour": "#ffffff",
-    "activitusbar.inactiveColour": "#ffffff",
-    "activitusbar.views": [
-        {
-            "codicon": "kebab-vertical"
-        },
-        {
-            "name": "command.workbench.action.debug.start",
-            "codicon": "bug",
-            "tooltip": "CMake: Debug"
-        },
-        {
-            "name": "command.multiCommand.run_task_CMake_StartLiveProcMon",
-            "codicon": "telescope",
+            "group": "_cppprojecttoolbar",
+            "text": "$(telescope)",
+            "name": "LiveProcMon: Start Monitoring",
             "tooltip": "LiveProcMon: Start Monitoring",
+            "command": "multiCommand.run_task_CMake_StartLiveProcMon",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "command.multiCommand.run_task_CMake_StopLiveProcMon",
-            "codicon": "stop",
-            "tooltip": "LiveProcMon: Stop Monitoring"
+            "group": "_cppprojecttoolbar",
+            "text": "$(stop)",
+            "name": "LiveProcMon: Stop Monitoring",
+            "tooltip": "LiveProcMon: Stop Monitoring",
+            "command": "multiCommand.run_task_CMake_StopLiveProcMon",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "command.multiCommand.run_task_CMake_ShowValgrindMemcheckReport",
-            "codicon": "report",
-            "tooltip": "Valgrind: Show Memcheck Report"
+            "group": "_cppprojecttoolbar",
+            "text": "$(report)",
+            "name": "Valgrind: Show Memcheck Report",
+            "tooltip": "Valgrind: Show Memcheck Report",
+            "command": "multiCommand.run_task_CMake_ShowValgrindMemcheckReport",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "command.multiCommand.run_task_CMake_ShowValgrindCachegrindReport",
-            "codicon": "report",
-            "tooltip": "Valgrind: Show Cachegrind Report"
+            "group": "_cppprojecttoolbar",
+            "text": "$(report)",
+            "name": "Valgrind: Show Cachegrind Report",
+            "tooltip": "Valgrind: Show Cachegrind Report",
+            "command": "multiCommand.run_task_CMake_ShowValgrindCachegrindReport",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "command.multiCommand.run_task_CMake_ShowValgrindCallgrindReport",
-            "codicon": "report",
-            "tooltip": "Valgrind: Show Callgrind Report"
+            "group": "_cppprojecttoolbar",
+            "text": "$(report)",
+            "name": "Valgrind: Show Callgrind Report",
+            "tooltip": "Valgrind: Show Callgrind Report",
+            "command": "multiCommand.run_task_CMake_ShowValgrindCallgrindReport",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "name": "command.launches.CppRunCurrentFile_Debug",
-            "codicon": "rocket",
-            "tooltip": "CppRunCurrentFile: Run/Debug"
+            "group": "_cppprojecttoolbar",
+            "text": "$(rocket)",
+            "name": "CppRunCurrentFile: Run/Debug",
+            "tooltip": "CppRunCurrentFile: Run/Debug",
+            "command": "launches.CppRunCurrentFile_Debug",
+            "alignment": "left",
+            "priority": 99999,
         },
         {
-            "codicon": "kebab-vertical"
+            "group": "_cppprojecttoolbar",
+            "text": "$(kebab-vertical)",
+            "alignment": "left",
+            "priority": 99999,
         },
+
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(folding-collapsed)",
+            "name": "Fold Level 4",
+            "tooltip": "Fold Level 4",
+            "command": "multiCommand.editor_foldLevel4",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(folding-collapsed)",
+            "name": "Fold Level 3",
+            "tooltip": "Fold Level 3",
+            "command": "multiCommand.editor_foldLevel3",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(folding-collapsed)",
+            "name": "Fold Level 2",
+            "tooltip": "Fold Level 2",
+            "command": "multiCommand.editor_foldLevel2",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(folding-collapsed)",
+            "name": "Fold Level 1",
+            "tooltip": "Fold Level 1",
+            "command": "multiCommand.editor_foldLevel1",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(folding-expanded)",
+            "name": "Unfold All",
+            "tooltip": "Unfold All",
+            "command": "editor.unfoldAll",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
+            "text": "$(kebab-vertical)",
+            "alignment": "left",
+            "priority": 99999,
+        }
     ],
     "LiveProcMon": {
         "liveProcMonTemplatePath": "${workspaceFolder}/.vscode/liveprocmon/liveprocmon_cpumem.py_template",
