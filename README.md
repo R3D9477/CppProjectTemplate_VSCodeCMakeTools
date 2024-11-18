@@ -122,6 +122,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * [ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command) - support of custom commands
   * [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable) - advanced variables substitution
   * [ArturoDent.launch-config](https://marketplace.visualstudio.com/items?itemName=ArturoDent.launch-config) - allows to launch debugging with specific configuration
+  * [fredericbonnet.cmake-test-adapter](https://marketplace.visualstudio.com/items?itemName=fredericbonnet.cmake-test-adapter) - unit tests explorer
 * additional
   * [dacapoday.status-bar-button](https://marketplace.visualstudio.com/items?itemName=dacapoday.status-bar-button) - debugging/profiling and code folding buttons in status bar
   * [matepek.vscode-catch2-test-adapter](https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter) - a better unit tests explorer for GTests (but has no support of Boost.UnitTest)

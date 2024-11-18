@@ -4,6 +4,8 @@
     "C_Cpp.codeAnalysis.runAutomatically": true,
     "C_Cpp.debugShortcut": false,
     "C_Cpp.codeFolding": "enabled",
+    "cmakeExplorer.buildDir": "${workspaceFolder}/build/Debug",
+    "cmakeExplorer.buildConfig": "Debug",
     "cmake.configureOnOpen": false,
     "cmake.buildBeforeRun": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
