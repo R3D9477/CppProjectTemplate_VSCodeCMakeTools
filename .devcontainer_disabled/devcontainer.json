@@ -5,35 +5,5 @@
     "service": "cppproject",
     "dockerComposeFile": "./docker-compose.user_clang-19.yaml",
     "workspaceFolder": "/home/build/cppproject",
-    "remoteUser": "build",
-    "extensions": [
-        "ms-vscode-remote.remote-containers",
-        "ms-vscode.cpptools-extension-pack",
-        "xaver.clang-format",
-        "ryuta46.multi-command",
-        "vadimcn.vscode-lldb",
-        "fredericbonnet.cmake-test-adapter",
-        "matepek.vscode-catch2-test-adapter",
-        "krosf.vscode-valgrind",
-        "tintinweb.graphviz-interactive-preview",
-        "Guyutongxue.cpp-reference",
-        "CFXS.BuildOutputColorizerIAR",
-        "SR-team.vscode-autohide-fork",
-        "Blackboxapp.blackbox",
-        "jiapeiyao.tab-group",
-        "liangruliu.customize-toolbar",
-        "hediet.vscode-drawio",
-        "rioj7.command-variable",
-        "Gruntfuggly.activitusbar",
-        "ArturoDent.launch-config",
-    ],
-    "settings": {
-        // shell
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "terminal.integrated.profiles.linux": {
-            "bash": {
-                "path": "/bin/bash"
-            }
-        },
-    }
+    "remoteUser": "build"
 }
