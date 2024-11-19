@@ -2,11 +2,11 @@
 #------------------------------------------------------------------------------------------------------
 # Add Qt application (if possible).
 
-if(IS_Qt_APP)
+if(TRY_TO_FIND_Qt6)
 
     find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick QuickWidgets)
 
-    #if(QT_FOUND)
+    if(QT_FOUND)
 
         qt_standard_project_setup()
 
@@ -45,9 +45,8 @@ if(IS_Qt_APP)
             Qt6::Quick
         )
 
-        set(Qt_APP_ADDED TRUE)
-        message(">>> Qt6 application added.")
+        set(IS_Qt6_APP TRUE)
 
-    #endif()
+    endif()
 
 endif()
