@@ -9,7 +9,7 @@ set(CMAKE_COLOR_DIAGNOSTICS ON)
 set(CMAKE_CXX_FLAGS_DEBUG "-gdwarf-4")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-set(IGNORE_Qt TRUE)
+set(IS_Qt_APP TRUE)
 
 get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
@@ -28,9 +28,8 @@ include(CMakeLists.txt_z_Utils.cmake)
 
 #------------------------------------------------------------------------------------------------------
 
-include(CMakeLists.txt_z_Utils_SetupQtApp.cmake) # Setup Qt application
-
-if(NOT QT_APP_ADDED)
+include(CMakeLists.txt_z_Utils_SetupQt6App.cmake) # Setup Qt application
+if(NOT Qt_APP_ADDED)
   add_executable(${MAIN_TARGET} ${${PROJECT_NAME}_SOURCES}) # Setup regular application
 endif()
 
