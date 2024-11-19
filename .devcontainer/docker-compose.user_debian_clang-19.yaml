@@ -1,5 +1,3 @@
-version: "3.9"
-
 x-setup: &setup
   image: cpp-dev
   build:
@@ -20,11 +18,22 @@ x-volume-cppproject: &volume-cppproject
   source: ../
   target: /home/build/cppproject
 
+x-volume-conan2-cache: &volume-conan2-cache
+  type: bind
+  source: ./conan2_cache
+  target: /home/build/.conan2
+
 services:
   cppproject:
     <<: *setup
     volumes:
       - <<: *volume-cppproject
+      - <<: *volume-conan2-cache
       - type: bind
         source: ${SSH_AUTH_SOCK:-/dev/null}
         target: /ssh-agent
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
+    devices:
+      - /dev/dri:/dev/dri

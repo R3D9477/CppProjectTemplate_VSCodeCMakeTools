@@ -4,3 +4,5 @@ _*
 build
 __pycache__
 .vscode/liveprocmon/generated/*
+.devcontainer/conan2_cache/*
+!.devcontainer/conan2_cache/.keep

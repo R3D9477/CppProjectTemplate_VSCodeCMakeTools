@@ -29,5 +29,8 @@
                 "ArturoDent.launch-config"
             ]
         }
+    },
+    "containerEnv": {
+        "DISPLAY": ":0"
     }
 }
