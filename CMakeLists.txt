@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.25)
 
+#------------------------------------------------------------------------------------------------------
+
+get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+
+project(${MAIN_TARGET} VERSION 0.1.0 LANGUAGES CXX)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -8,10 +14,6 @@ set(CMAKE_COLOR_DIAGNOSTICS ON)
 
 set(CMAKE_CXX_FLAGS_DEBUG "-gdwarf-4")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-
-get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-
-project(${MAIN_TARGET} VERSION 0.1.0 LANGUAGES CXX)
 
 #------------------------------------------------------------------------------------------------------
 
