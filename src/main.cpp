@@ -1,14 +1,27 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include "cppinfo.hpp"
+#include "libexample.hpp"
+#include "project_version.hpp"
 
-int main(int argc, char *argv[])
+#include <cstdint>
+#include <iostream>
+
+int main()
 {
-    QGuiApplication app(argc, argv);
+    std::cout << "Hi." << std::endl;
 
-    QQmlApplicationEngine engine;
-    QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QGuiApplication::quit);
+    std::cout << "Project version: " << project_version() << std::endl;
 
-    engine.loadFromModule("QtQuick", "Rectangle");
+    CppInfo cppInfo;
+    std::cout << "C++ language version: " << cppInfo.GetLanguageVersion() << std::endl;
+    std::cout << "C++ compiler version: " << cppInfo.GetCompilerVersion() << std::endl;
 
-    return app.exec();
+    /*std::cout << "Problematic code for testing:" << std::endl;
+    for (std::size_t s = 0U; s < 5000000; ++s)
+    {
+        std::uint8_t *p = new std::uint8_t[1];
+        *p = 0xFF;
+        std::cout << "    Allocated: " << s << " byte(s)" << std::endl;
+    }*/
+
+    return 0;
 }
