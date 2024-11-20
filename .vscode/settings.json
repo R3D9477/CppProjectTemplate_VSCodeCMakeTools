@@ -284,6 +284,15 @@
         },
         {
             "group": "_cppprojecttoolbar",
+            "text": "$(terminal)",
+            "name": "Toggle terminal",
+            "tooltip": "Toggle terminal",
+            "command": "workbench.action.terminal.toggleTerminal",
+            "alignment": "left",
+            "priority": 99999,
+        },
+        {
+            "group": "_cppprojecttoolbar",
             "text": "$(kebab-vertical)",
             "alignment": "left",
             "priority": 99999,

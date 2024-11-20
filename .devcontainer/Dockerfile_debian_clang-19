@@ -48,7 +48,6 @@ RUN export PATH="${PATH}:/home/build/.local/bin"
 RUN /home/build/.local/bin/pip install cmake
 
 RUN /home/build/.local/bin/pip install conan
-RUN /home/build/.local/bin/conan profile detect
 RUN /home/build/.local/bin/conan remote update conancenter --url="https://center2.conan.io"
 
 RUN /home/build/.local/bin/pip install gprof2dot matplotlib pillow

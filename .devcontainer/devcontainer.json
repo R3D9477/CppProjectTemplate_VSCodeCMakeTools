@@ -32,5 +32,6 @@
     },
     "containerEnv": {
         "DISPLAY": ":0"
-    }
+    },
+    "postStartCommand": "/home/build/.local/bin/conan profile detect --exist-ok"
 }
