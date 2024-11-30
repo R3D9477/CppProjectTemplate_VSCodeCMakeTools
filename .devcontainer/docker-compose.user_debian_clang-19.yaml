@@ -19,24 +19,23 @@ x-volume-cppproject: &volume-cppproject
   source: ../
   target: /home/build/cppproject
 
-x-volume-conan2-cache: &volume-conan2-cache
+x-volume-ssh-agent: &volume-ssh-agent
   type: bind
-  source: ./conan2_cache
-  target: /home/build/.conan2
-  bind:
-    create_host_path: true
+  source: ${SSH_AUTH_SOCK:-/dev/null}
+  target: /ssh-agent
+
+x-volume-X11: &volume-X11
+  type: bind
+  source: /tmp/.X11-unix
+  target: /tmp/.X11-unix
 
 services:
   cppproject:
     <<: *setup
     volumes:
       - <<: *volume-cppproject
-      - <<: *volume-conan2-cache
-      - type: bind
-        source: ${SSH_AUTH_SOCK:-/dev/null}
-        target: /ssh-agent
-      - type: bind
-        source: /tmp/.X11-unix
-        target: /tmp/.X11-unix
+      - <<: *volume-ssh-agent
+      - <<: *volume-X11
+      - $HOME/.conan2:/home/build/.conan2
     devices:
       - /dev/dri:/dev/dri
