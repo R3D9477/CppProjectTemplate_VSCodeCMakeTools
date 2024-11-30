@@ -27,6 +27,14 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 # - ATTACH EXTERNAL LIBRARIES AT THE BOTTOM OF THAT FILE
 list(APPEND SCAN_SOURCES_FOLDER "src")
 
+list(APPEND ${PROJECT_NAME}_SOURCES "bindings/imgui_impl_glfw.cpp")
+list(APPEND ${PROJECT_NAME}_SOURCES "bindings/imgui_impl_opengl3.cpp")
+list(APPEND ${PROJECT_NAME}_SOURCES "bindings/imgui_impl_glfw.h")
+list(APPEND ${PROJECT_NAME}_SOURCES "bindings/imgui_impl_opengl3.h")
+
+list(APPEND ${PROJECT_NAME}_INCLUDES "bindings/imgui_impl_glfw.h")
+list(APPEND ${PROJECT_NAME}_INCLUDES "bindings/imgui_impl_opengl3.h")
+
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
 

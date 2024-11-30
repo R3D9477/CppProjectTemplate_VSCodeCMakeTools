@@ -1,6 +1,10 @@
 [requires]
 boost/1.85.0
 gtest/1.14.0
+imgui/1.85
+glfw/3.3.6
+glew/2.2.0
+opengl/system
 
 [generators]
 CMakeDeps
@@ -8,3 +12,12 @@ CMakeToolchain
 
 [layout]
 cmake_layout
+
+[options]
+glew/*:shared=False
+
+[imports]
+./res/bindings, imgui_impl_glfw.cpp -> ../bindings
+./res/bindings, imgui_impl_opengl3.cpp -> ../bindings
+./res/bindings, imgui_impl_glfw.h -> ../bindings
+./res/bindings, imgui_impl_opengl3.h -> ../bindings

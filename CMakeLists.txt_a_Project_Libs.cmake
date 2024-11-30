@@ -18,3 +18,16 @@ if(${IS_IN_CONANFILE})
         endif()
     endif()
 endif()
+
+find_package(imgui REQUIRED)
+target_link_libraries(${MAIN_TARGET} PUBLIC imgui::imgui)
+target_compile_definitions(${MAIN_TARGET} PUBLIC IMGUI_IMPL_OPENGL_LOADER_GLEW)
+
+find_package(glfw3 REQUIRED)
+target_link_libraries(${MAIN_TARGET} PUBLIC glfw)
+
+find_package(glew REQUIRED)
+target_link_libraries(${MAIN_TARGET} PUBLIC GLEW::glew_s)
+
+find_package(OpenGL REQUIRED COMPONENTS OpenGL)
+target_link_libraries(${MAIN_TARGET} PUBLIC OpenGL::GL)
