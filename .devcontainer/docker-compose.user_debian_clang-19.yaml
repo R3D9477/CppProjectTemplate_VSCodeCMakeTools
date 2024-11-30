@@ -7,7 +7,8 @@ x-setup: &setup
   tty: true
   network_mode: host
   environment:
-    SSH_AUTH_SOCK: /ssh-agent
+    - CONTAINER_CONTEXT_FOLDER=$PWD
+    - SSH_AUTH_SOCK=/ssh-agent
   ulimits:
     nofile:
       soft: 1024
@@ -22,6 +23,8 @@ x-volume-conan2-cache: &volume-conan2-cache
   type: bind
   source: ./conan2_cache
   target: /home/build/.conan2
+  bind:
+    create_host_path: true
 
 services:
   cppproject:
