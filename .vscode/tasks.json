@@ -39,7 +39,7 @@
             },
         },
         {
-            "label": "$(package) CMake: Configure with Conan Install",
+            "label": "$(package) CMake: Configure and Install Packages",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -49,7 +49,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "CMake: Select a Kit",
-                "CMake: Configure with Conan Install (opened terminal for failure case)",
+                "CMake: Configure and Install Packages (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ],
             "group": {
@@ -154,7 +154,7 @@
         },
         // User tasks: CMake
         {
-            "label": "CMake: Configure with Conan Install (opened terminal for failure case)",
+            "label": "CMake: Configure and Install Packages (opened terminal for failure case)",
             "hide": true,
             "type": "cmake",
             "command": "configure",
@@ -168,7 +168,7 @@
                 ]
             },
             "dependsOrder": "sequence",
-            "dependsOn": "Conan: Install",
+            "dependsOn": "Package Manager: Install",
             "group": {
                 "kind": "build",
                 "isDefault": false
@@ -185,7 +185,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "CMake: Clean (opened terminal for failure case)",
-                "CMake: Configure with Conan Install (opened terminal for failure case)"
+                "CMake: Configure and Install Packages (opened terminal for failure case)"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -207,7 +207,7 @@
                 "all"
             ],
             "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure with Conan Install (opened terminal for failure case)",
+            "dependsOn": "CMake: Configure and Install Packages (opened terminal for failure case)",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -382,6 +382,22 @@
                 ]
             }
         },
+        // Service tasks: Package manager
+        {
+            "label": "Package Manager: Install",
+            "hide": true,
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "vcpkg: Install",
+                "Conan: Install"
+            ],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
         // Service tasks: Conan
         {
             "label": "Conan: Install",
@@ -413,6 +429,25 @@
                     "${workspaceFolder}/build/${command:cmake.buildType}/"
                 ]
             },
+            "dependsOrder": "sequence",
+            "dependsOn": "VSCode Utility: Create Build Directory",
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "absolute"
+                ]
+            }
+        },
+        // Service tasks: vcpkg
+        {
+            "label": "vcpkg: Install",
+            "hide": true,
+            "command": "vcpkg",
+            "args": [
+                "--feature-flags=manifests",
+                "--x-install-root=${userHome}/vcpkg_install",
+                "install"
+            ],
             "dependsOrder": "sequence",
             "dependsOn": "VSCode Utility: Create Build Directory",
             "problemMatcher": {

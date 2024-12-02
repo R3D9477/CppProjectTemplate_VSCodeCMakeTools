@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/ubuntu
 {
     "name": "${localWorkspaceFolderBasename}",
-    "service": "cppproject",
+    "service": "build",
     "dockerComposeFile": "./docker-compose.user_debian_clang-19.yaml",
     "workspaceFolder": "/home/build/cppproject",
     "remoteUser": "build",
@@ -33,5 +33,5 @@
     "containerEnv": {
         "DISPLAY": ":0"
     },
-    "postStartCommand": "/home/build/.local/bin/conan profile detect --exist-ok"
+    "postStartCommand": "sudo chown -R build:build /home/build ; /home/build/.local/bin/conan profile detect --exist-ok"
 }

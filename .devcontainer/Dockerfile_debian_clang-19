@@ -19,6 +19,9 @@ RUN update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-
 
 # INSTALL ADDITIONAL PKGS
 
+# for vcpkg
+RUN apt install curl zip unzip tar libtool autoconf automake autoconf-archive -y
+
 # for Qt6
 RUN apt install pkg-config libgl-dev libgl1-mesa-dev xkb-data libxcb-util-dev libxcb-util0-dev \
     libx11-xcb-dev libfontenc-dev libice-dev libsm-dev libxaw7-dev libxcomposite-dev libxcursor-dev \
@@ -36,18 +39,33 @@ RUN apt install libva-dev libvdpau-dev -y
 
 RUN apt install python3 python3-venv -y
 
+# CREATE USER
+
+RUN groupadd build
 RUN useradd -rm -d /home/build -s /bin/bash -g root -G sudo -u 1001 build
 RUN echo "export USER=build" > /etc/profile.d/set_user.sh
-RUN mkdir -p "/home/build/cppproject"
 RUN passwd --delete build
-RUN usermod -a -G sudo build
 
-USER build
+RUN usermod -a -G sudo build
+RUN usermod -a -G build build
+
+RUN mkdir -p "/home/build/cppproject"
+RUN chown build:build "/home/build/cppproject"
+
+RUN mkdir -p "/home/build/.conan2"
+RUN chown build:build "/home/build/.conan2"
+RUN ln -s "/home/build/.conan2" "/home/build/conan2"
+
+RUN mkdir -p "/home/build/vcpkg_install"
+RUN chown build:build "/home/build/vcpkg_install"
+
+USER build:build
 WORKDIR /home/build
 
+# INSTALL BUILD SYSTEM
+
 RUN python3 -m venv /home/build/.local --system-site-packages
-RUN echo 'PATH="${PATH}:/home/build/.local/bin"' >> /home/build/.bashrc
-RUN export PATH="${PATH}:/home/build/.local/bin"
+ENV PATH="${PATH}:/home/build/.local/bin"
 
 RUN /home/build/.local/bin/pip install cmake
 
@@ -55,3 +73,12 @@ RUN /home/build/.local/bin/pip install conan
 RUN /home/build/.local/bin/conan remote update conancenter --url="https://center2.conan.io"
 
 RUN /home/build/.local/bin/pip install gprof2dot matplotlib pillow
+
+ENV VCPKG_VERSION="2024.11.16"
+RUN wget "https://github.com/microsoft/vcpkg/archive/refs/tags/${VCPKG_VERSION}.zip" -O "/tmp/vcpkg-${VCPKG_VERSION}.zip"
+RUN unzip "/tmp/vcpkg-${VCPKG_VERSION}.zip" -d "/home/build"
+RUN ln -s "/home/build/vcpkg-${VCPKG_VERSION}" "/home/build/vcpkg"
+RUN "/home/build/vcpkg/bootstrap-vcpkg.sh"
+
+RUN echo 'export VCPKG_ROOT="/home/build/vcpkg"' >> "/home/build/.bashrc"
+RUN echo 'export PATH="${PATH}:/home/build/.local/bin:${VCPKG_ROOT}"' >> "/home/build/.bashrc"

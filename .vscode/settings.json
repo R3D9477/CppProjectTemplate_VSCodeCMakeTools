@@ -10,7 +10,8 @@
     "cmake.buildBeforeRun": false,
     "cmake.buildDirectory": "${workspaceFolder}/build/${command:cmake.buildType}",
     "cmake.configureArgs": [
-        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
+        "-DCMAKE_TOOLCHAIN_FILE_CONAN=${workspaceFolder}/build/${command:cmake.buildType}/build/${command:cmake.buildType}/generators/conan_toolchain.cmake",
+        "-DCMAKE_TOOLCHAIN_FILE_VCPKG=${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
     ],
     "cmake.environment": {
         "CLICOLOR_FORCE": "1"
@@ -366,5 +367,6 @@
         "cpp_compiler_arg_cpp_standard": "-std=c++17",
         "cpp_compiler_arg_optimization_level": "-g",
         "build_directory": "${workspaceFolder}/build/CppRunCurrentFile"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

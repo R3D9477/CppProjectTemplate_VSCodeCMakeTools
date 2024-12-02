@@ -1,0 +1,11 @@
+{
+    "name": "cppproject",
+    "version-string": "0.0.1",
+    "license": "MIT",
+    "dependencies": [
+        "boost-asio",
+        "boost-test",
+        "boost-thread",
+        "gtest"
+    ]
+}

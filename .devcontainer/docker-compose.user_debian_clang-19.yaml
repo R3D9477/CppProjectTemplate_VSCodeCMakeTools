@@ -14,7 +14,7 @@ x-setup: &setup
       soft: 1024
       hard: 1024
 
-x-volume-cppproject: &volume-cppproject
+x-volume-build: &volume-build
   type: bind
   source: ../
   target: /home/build/cppproject
@@ -30,12 +30,13 @@ x-volume-X11: &volume-X11
   target: /tmp/.X11-unix
 
 services:
-  cppproject:
+  build:
     <<: *setup
     volumes:
-      - <<: *volume-cppproject
+      - <<: *volume-build
       - <<: *volume-ssh-agent
       - <<: *volume-X11
       - $HOME/.conan2:/home/build/.conan2
+      - $HOME/.vcpkg_install:/home/build/vcpkg_install
     devices:
       - /dev/dri:/dev/dri

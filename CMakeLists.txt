@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 3.25)
 
 #------------------------------------------------------------------------------------------------------
 
+if(DEFINED ENV{VCPKG_ROOT})
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_TOOLCHAIN_FILE_VCPKG}" CACHE STRING "Vcpkg toolchain file")
+else()
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_TOOLCHAIN_FILE_CONAN}")
+endif()
+
+#------------------------------------------------------------------------------------------------------
+
 if(DEFINED ENV{CONTAINER_CONTEXT_FOLDER})
     get_filename_component(MAIN_TARGET $ENV{CONTAINER_CONTEXT_FOLDER} NAME)
 else()
