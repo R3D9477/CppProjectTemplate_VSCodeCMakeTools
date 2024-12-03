@@ -37,6 +37,6 @@ services:
       - <<: *volume-ssh-agent
       - <<: *volume-X11
       - $HOME/.conan2:/home/build/.conan2
-      - $HOME/.vcpkg_install:/home/build/vcpkg_install
+      - $HOME/.vcpkg:/home/build/.vcpkg
     devices:
       - /dev/dri:/dev/dri

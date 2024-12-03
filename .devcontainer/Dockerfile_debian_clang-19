@@ -20,7 +20,7 @@ RUN update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-
 # INSTALL ADDITIONAL PKGS
 
 # for vcpkg
-RUN apt install curl zip unzip tar libtool autoconf automake autoconf-archive -y
+RUN apt install curl zip unzip tar libtool autoconf automake autoconf-archive bison flex nasm -y
 
 # for Qt6
 RUN apt install pkg-config libgl-dev libgl1-mesa-dev xkb-data libxcb-util-dev libxcb-util0-dev \
@@ -34,6 +34,9 @@ RUN apt install pkg-config libgl-dev libgl1-mesa-dev xkb-data libxcb-util-dev li
 
 # for OpenCV
 RUN apt install libva-dev libvdpau-dev -y
+
+# for gstreamer
+RUN apt install libdrm-dev -y
 
 # INSTALL CPPTOOLS
 
@@ -56,8 +59,9 @@ RUN mkdir -p "/home/build/.conan2"
 RUN chown build:build "/home/build/.conan2"
 RUN ln -s "/home/build/.conan2" "/home/build/conan2"
 
-RUN mkdir -p "/home/build/vcpkg_install"
-RUN chown build:build "/home/build/vcpkg_install"
+RUN mkdir -p "/home/build/.vcpkg"
+RUN chown build:build "/home/build/.vcpkg"
+RUN ln -s "/home/build/.vcpkg" "/home/build/vcpkg"
 
 USER build:build
 WORKDIR /home/build
@@ -75,10 +79,13 @@ RUN /home/build/.local/bin/conan remote update conancenter --url="https://center
 RUN /home/build/.local/bin/pip install gprof2dot matplotlib pillow
 
 ENV VCPKG_VERSION="2024.11.16"
-RUN wget "https://github.com/microsoft/vcpkg/archive/refs/tags/${VCPKG_VERSION}.zip" -O "/tmp/vcpkg-${VCPKG_VERSION}.zip"
-RUN unzip "/tmp/vcpkg-${VCPKG_VERSION}.zip" -d "/home/build"
-RUN ln -s "/home/build/vcpkg-${VCPKG_VERSION}" "/home/build/vcpkg"
-RUN "/home/build/vcpkg/bootstrap-vcpkg.sh"
+RUN echo '#!/bin/bash' > "/home/build/.install_vcpkg.sh"
+RUN echo 'if [ -d "/home/build/vcpkg/vcpkg" ]; then exit 0; fi' >> "/home/build/.install_vcpkg.sh"
+RUN echo 'wget "https://github.com/microsoft/vcpkg/archive/refs/tags/${VCPKG_VERSION}.zip" -O "/tmp/vcpkg-${VCPKG_VERSION}.zip"' >> "/home/build/.install_vcpkg.sh"
+RUN echo 'unzip "/tmp/vcpkg-${VCPKG_VERSION}.zip" -d "/home/build/.vcpkg"' >> "/home/build/.install_vcpkg.sh"
+RUN echo 'mv "/home/build/.vcpkg/vcpkg-${VCPKG_VERSION}" "/home/build/.vcpkg/vcpkg"' >> "/home/build/.install_vcpkg.sh"
+RUN echo '"/home/build/.vcpkg/vcpkg/bootstrap-vcpkg.sh"' >> "/home/build/.install_vcpkg.sh"
+RUN chmod +x "/home/build/.install_vcpkg.sh"
 
-RUN echo 'export VCPKG_ROOT="/home/build/vcpkg"' >> "/home/build/.bashrc"
+RUN echo 'export VCPKG_ROOT="/home/build/.vcpkg/vcpkg"' >> "/home/build/.bashrc"
 RUN echo 'export PATH="${PATH}:/home/build/.local/bin:${VCPKG_ROOT}"' >> "/home/build/.bashrc"

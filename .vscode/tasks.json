@@ -445,7 +445,7 @@
             "command": "vcpkg",
             "args": [
                 "--feature-flags=manifests",
-                "--x-install-root=${userHome}/vcpkg_install",
+                "--x-install-root=${userHome}/.vcpkg/vcpkg_install",
                 "install"
             ],
             "dependsOrder": "sequence",
