@@ -31,6 +31,9 @@ RUN apt install pkg-config libgl-dev libgl1-mesa-dev xkb-data libxcb-util-dev li
     libxcb-keysyms1-dev libxcb-randr0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-xfixes0-dev libxcb-xinerama0-dev \
     libxcb-dri3-dev uuid-dev libxcb-cursor-dev libxcb-dri2-0-dev libxcb-dri3-dev libxcb-present-dev libxcb-composite0-dev \
     libxcb-ewmh-dev libxcb-res0-dev -y
+# ugly workaround because of https://github.com/microsoft/vcpkg/issues/32377
+RUN apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libegl1-mesa-dev -y # didn't help
+RUN apt install *xkb* -y # works
 
 # for OpenCV
 RUN apt install libva-dev libvdpau-dev -y
