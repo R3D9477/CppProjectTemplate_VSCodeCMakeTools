@@ -1,5 +1,4 @@
 #------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------
 # Scan project's sources folders.
 
 set(SOURCE_MASK *.c *.cc *.cpp *.cxx *.c++ *.h *.hh *.hpp *.hxx *.h++ *.tcc *.tpp *.ipp *.qrc)
@@ -33,7 +32,7 @@ endforeach()
 #------------------------------------------------------------------------------------------------------
 
 set(IS_IN_CONANFILE FALSE)
-file(READ "conanfile.txt" CONAN_PACKAGES)
+file(READ "${CMAKE_SOURCE_DIR}/conanfile.txt" CONAN_PACKAGES)
 function(IS_CONANFILE_CONTAINS EXT_PKG_NAME IS_IN_CONANFILE)
     set(IS_IN_CONANFILE FALSE)
     if("${CONAN_PACKAGES}" MATCHES "${EXT_PKG_NAME}")
@@ -43,7 +42,7 @@ function(IS_CONANFILE_CONTAINS EXT_PKG_NAME IS_IN_CONANFILE)
 endfunction()
 
 set(IS_IN_VCPKGFILE FALSE)
-file(READ "vcpkg.json" VCPKG_PACKAGES)
+file(READ "${CMAKE_SOURCE_DIR}/vcpkg.json" VCPKG_PACKAGES)
 function(IS_VCPKG_CONTAINS EXT_PKG_NAME IS_IN_VCPKGFILE)
     set(IS_IN_VCPKGFILE FALSE)
     if("${VCPKG_PACKAGES}" MATCHES "${EXT_PKG_NAME}")

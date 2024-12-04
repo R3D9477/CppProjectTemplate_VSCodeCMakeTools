@@ -2,19 +2,8 @@ cmake_minimum_required(VERSION 3.25)
 
 #------------------------------------------------------------------------------------------------------
 
-if(DEFINED ENV{VCPKG_ROOT})
-    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_TOOLCHAIN_FILE_VCPKG}" CACHE STRING "Vcpkg toolchain file")
-else()
-    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_TOOLCHAIN_FILE_CONAN}")
-endif()
-
-#------------------------------------------------------------------------------------------------------
-
-if(DEFINED ENV{CONTAINER_CONTEXT_FOLDER})
-    get_filename_component(MAIN_TARGET $ENV{CONTAINER_CONTEXT_FOLDER} NAME)
-else()
-    get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-endif()
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/SetupToolchain.cmake")
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/SetupMainTargetName.cmake")
 
 #------------------------------------------------------------------------------------------------------
 
@@ -38,11 +27,11 @@ list(APPEND SCAN_SOURCES_FOLDER "src")
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
 
-include("${PROJECT_SOURCE_DIR}/.vscode/cmakeutils/CMakeLists.txt_z_Utils.cmake")
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/Utils.cmake")
 
 #------------------------------------------------------------------------------------------------------
 
-include("${PROJECT_SOURCE_DIR}/.vscode/cmakeutils/CMakeLists.txt_z_Utils_SetupQt6App.cmake") # Setup Qt6 application
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/SetupQt6App.cmake") # Setup Qt6 application
 
 if(NOT TARGET ${MAIN_TARGET})
     add_executable(${MAIN_TARGET} ${${PROJECT_NAME}_SOURCES}) # Setup regular application
@@ -52,18 +41,18 @@ target_include_directories(${MAIN_TARGET} PUBLIC ${${PROJECT_NAME}_INCLUDES})
 
 #------------------------------------------------------------------------------------------------------
 
-include("${PROJECT_SOURCE_DIR}/.vscode/cmakeutils/CMakeLists.txt_z_Utils_SafetyFlags.cmake") # Set compiler's safety flags
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/SafetyFlags.cmake") # Set compiler's safety flags
 
-include("${PROJECT_SOURCE_DIR}/.vscode/cmakeutils/CMakeLists.txt_z_Utils_VCRuntime.cmake") # Add VCRuntime libs if needed
+include("${CMAKE_SOURCE_DIR}/.vscode/cmakeutils/VCRuntime.cmake") # Add VCRuntime libs if needed
 
 #------------------------------------------------------------------------------------------------------
 
-set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_a_Project_Libs.cmake")
+set(EXT_LIBS_FILE "${CMAKE_SOURCE_DIR}/CMakeLists.txt_a_Project_Libs.cmake")
 if(EXISTS "${EXT_LIBS_FILE}")
     include("${EXT_LIBS_FILE}") # ATTACH LIBRARIES
 endif()
 
-set(EXT_LIBS_FILE "${PROJECT_SOURCE_DIR}/CMakeLists.txt_b_Project_Tests.cmake")
+set(EXT_LIBS_FILE "${CMAKE_SOURCE_DIR}/CMakeLists.txt_b_Project_Tests.cmake")
 if(EXISTS "${EXT_LIBS_FILE}")
     include("${EXT_LIBS_FILE}") # ADD TESTS
 endif()
