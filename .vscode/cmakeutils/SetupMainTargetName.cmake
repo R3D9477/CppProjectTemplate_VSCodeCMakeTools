@@ -3,3 +3,7 @@ if(DEFINED ENV{CONTAINER_CONTEXT_FOLDER})
 else()
     get_filename_component(MAIN_TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 endif()
+
+message("")
+message("--> MAIN_TARGET is " ${MAIN_TARGET})
+message("")

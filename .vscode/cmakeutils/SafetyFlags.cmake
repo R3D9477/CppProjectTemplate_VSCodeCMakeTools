@@ -8,3 +8,8 @@ if(EXISTS "${SAFETY_FLAGS_FILE}")
 endif()
 
 target_compile_options(${MAIN_TARGET} PRIVATE ${SAFETY_FLAGS})
+
+message("")
+message("--> Safety flags file is " ${SAFETY_FLAGS_FILE})
+message("--> Safety flags: " ${SAFETY_FLAGS})
+message("")
