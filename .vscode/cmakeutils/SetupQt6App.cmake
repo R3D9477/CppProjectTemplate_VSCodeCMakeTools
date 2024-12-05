@@ -1,5 +1,6 @@
 IS_CONANFILE_CONTAINS("qt/6" IS_IN_CONANFILE)
-if(IS_IN_CONANFILE)
+IS_VCPKGJSON_CONTAINS("\"qt\"" IS_IN_VCPKGJSON)
+if(${IS_IN_CONANFILE} OR ${IS_IN_VCPKGJSON})
 
     find_package(Qt6 COMPONENTS Core Gui Quick REQUIRED)
 
@@ -25,6 +26,8 @@ if(IS_IN_CONANFILE)
 
     target_link_libraries(${MAIN_TARGET} PUBLIC Qt6::Core Qt6::Gui Qt6::Quick)
 
-    message("Qt6 APP HAS BEEN ADDED")
+    message("")
+    message("--> Qt6 application has been added")
+    message("")
 
 endif()
