@@ -16,7 +16,7 @@ int main()
     std::cout << "C++ compiler version: " << cppInfo.GetCompilerVersion() << std::endl;
 
     std::cout << "Problematic code for testing:" << std::endl;
-    for (std::size_t s = 0U; s < 5000000; ++s)
+    for (std::size_t s = 0U; s < 5; ++s)
     {
         std::uint8_t *p = new std::uint8_t[1];
         *p = 0xFF;

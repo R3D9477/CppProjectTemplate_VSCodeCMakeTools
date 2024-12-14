@@ -464,7 +464,7 @@
             "command": "code",
             "args": [
                 "-r",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
+                "${command:cmake.launchTargetPath}.valgrind"
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Memcheck Report",
@@ -481,7 +481,7 @@
             "command": "code",
             "args": [
                 "-r",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot"
+                "${command:cmake.launchTargetPath}.callgrind.dot"
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Convert Callgrind Report To Chart",
@@ -498,7 +498,7 @@
             "command": "code",
             "args": [
                 "-r",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
+                "${workspaceFolder}/build/${command:cmake.buildType}/$${command:cmake.launchTargetPath}.cachegrind.valgrind"
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -518,7 +518,7 @@
                 "command": "bash",
                 "args": [
                     "-c",
-                    "cg_annotate ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
+                    "cg_annotate ${command:cmake.launchTargetPath}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${command:cmake.launchTargetPath}.cachegrind.valgrind"
                 ]
             },
             "dependsOrder": "sequence",
@@ -536,8 +536,8 @@
             "command": "gprof2dot",
             "args": [
                 "--format=callgrind",
-                "--output=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind"
+                "--output=${command:cmake.launchTargetPath}.callgrind.dot",
+                "${command:cmake.launchTargetPath}.callgrind"
             ],
             "dependsOrder": "sequence",
             "dependsOn": "Valgrind: Make Callgrind Report",
@@ -561,8 +561,8 @@
                 "--show-leak-kinds=all",
                 "--track-origins=yes",
                 "--verbose",
-                "--log-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
+                "--log-file=${command:cmake.launchTargetPath}.valgrind",
+                "${command:cmake.launchTargetPath}"
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -587,8 +587,8 @@
                 "--tool=callgrind",
                 "--dump-instr=yes",
                 "--collect-jumps=yes",
-                "--callgrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
+                "--callgrind-out-file=${command:cmake.launchTargetPath}.callgrind",
+                "${command:cmake.launchTargetPath}"
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -611,8 +611,8 @@
             },
             "args": [
                 "--tool=cachegrind",
-                "--cachegrind-out-file=${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind",
-                "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}"
+                "--cachegrind-out-file=${command:cmake.launchTargetPath}.cachegrind",
+                "${command:cmake.launchTargetPath}"
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -633,7 +633,7 @@
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.valgrind"
+                    "${command:cmake.launchTargetPath}.valgrind"
                 ]
             },
             "problemMatcher": {
@@ -650,9 +650,9 @@
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.dot",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.callgrind.svg"
+                    "${command:cmake.launchTargetPath}.callgrind",
+                    "${command:cmake.launchTargetPath}.callgrind.dot",
+                    "${command:cmake.launchTargetPath}.callgrind.svg"
                 ]
             },
             "problemMatcher": {
@@ -669,7 +669,7 @@
                 "command": "rm",
                 "args": [
                     "-f",
-                    "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.cachegrind.valgrind"
+                    "${command:cmake.launchTargetPath}.cachegrind.valgrind"
                 ]
             },
             "problemMatcher": {
