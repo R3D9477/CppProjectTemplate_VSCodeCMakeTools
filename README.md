@@ -101,10 +101,10 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 
 #### 2. Configure
   * 2.1. clone that repositoy to your local machine
-  * 2.2. current source directory is `./src`. if needed, change main sources directory [HERE](./CMakeLists.txt#L16)
+  * 2.2. current source directory is `./src`. if needed, change main sources directory [HERE](./CMakeLists.txt#L25)
   * 2.3. add some external libraries in [CMakeLists.txt_a_Project_Libs.cmake](./CMakeLists.txt_a_Project_Libs.cmake)
   * 2.4. add source of uint tests to folder `test` or add/change you testing configuration in [CMakeLists.txt_b_Project_Tests.cmake](./CMakeLists.txt_b_Project_Tests.cmake)
-  * 2.5. change required libraries in [conanfile.txt](./conanfile.txt), the package manager will handle it automatically during first build
+  * 2.5. change required libraries in [vcpkg.json](./vcpkg.json) or in [conanfile.txt](./conanfile.txt), the package manager will handle it automatically during the first build
   * 2.6. if needed, you can customize safety flags for your current compiler: [GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1)
   * 2.7. if neeeded, add [HERE](./CMakeLists.txt#L11) specific sources and includes of your current project
 
