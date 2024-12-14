@@ -2,30 +2,33 @@
 Template of C++ project with config to make a VSCode be IDE-like with set of useful features for simplier development life.<br/>
 
 ### Features
-* configured to run inside Docker with [already prepared configuration](./.devcontainer_disabled)
-* uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
-* configured to work with package managers
-  * uses vcpkg, automatically downloads packages from `vcpkg.json` (to enable it need to define environment variable `VCPKG_ROOT`)
-  * uses Conan, automatically downloads packages from `conanfile.txt` (to enable it need to undef environment variable `VCPKG_ROOT`)
+* configured to run inside Docker
+* uses `CMake` to manage the project
+* configured to work with package managers (automatically downloads and sets packages during project configuration)
+  * by default uses vcpkg and `vcpkg.json` (should be defined environment variable `VCPKG_ROOT`)
+  * can use Conan and `conanfile.txt` (should NOT be defined environment variable `VCPKG_ROOT`)
 * easy to make and show `Valgrind` reports
-* `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop
-* easy run & debug currently opened C++ snippet
+  * Memcheck
+  * Cachegrind
+  * Callgrind
+* `LiveProcMon` feature shows resources consumption of the launched application on the charts
+* `CppRunCurrentFile` feature to run & debug currently opened C++ snippet
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
 * enabled auto linting (with `clang-tidy`) and auto formatting (with `clang-format`)
-* automatically [applies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L9) name of directory as name of a project/library
-* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
-* automatically adds (if possible) `Boost` and `Qt6` libraries, installed via package manager
-* applies set of compiler's flags for extra safety: [GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
+* automatically [applies](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt#L9) name of directory as name of a project/library
+* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
+* automatically adds (if possible) `Boost` and `Qt6` libraries (installed via package manager)
+* applies set of compiler's flags for extra safety: [GCC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
 * automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
-* for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
+* for MSVC automatically [copies](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
+
+---
 
 <p align="center"><img src=".vscode/img/editor.png" alt="CppEditor" width="400" height="200"></p>
 
 <p align="center"><img src=".vscode/img/liveprocmon.png" alt="LiveProcMon" width="400" height="200"></p>
 
 <p align="center"><img src=".vscode/img/callgrind.png" alt="Callgrind" width="400" height="200"></p>
-
----
 
 ### Main tasks
 * `C++ Project: Clean` - runs `cmake.clean` command + remove all Valgrind reports
@@ -52,6 +55,8 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 * `Fold level 2`
 * `Fold level 1`
 * `Unfold all`
+
+---
 
 ### Basic project's stucture
 ㅤㅤㅤㅤ<sub>**[ PROJECT_FOLDER = PROJECT_NAME ]**</sub>
@@ -96,12 +101,12 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 
 #### 2. Configure
   * 2.1. clone that repositoy to your local machine
-  * 2.2. current source directory is `./src`. if needed, change main sources directory [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L16)
-  * 2.3. add some external libraries in [CMakeLists.txt_a_Project_Libs.cmake](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_a_Project_Libs.cmake)
-  * 2.4. add source of uint tests to folder `test` or add/change you testing configuration in [CMakeLists.txt_b_Project_Tests.cmake](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_b_Project_Tests.cmake)
-  * 2.5. change required libraries in [conanfile.txt](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/conanfile.txt), the package manager will handle it automatically during first build
-  * 2.6. if needed, you can customize safety flags for your current compiler: [GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1)
-  * 2.7. if neeeded, add [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
+  * 2.2. current source directory is `./src`. if needed, change main sources directory [HERE](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt#L16)
+  * 2.3. add some external libraries in [CMakeLists.txt_a_Project_Libs.cmake](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_a_Project_Libs.cmake)
+  * 2.4. add source of uint tests to folder `test` or add/change you testing configuration in [CMakeLists.txt_b_Project_Tests.cmake](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_b_Project_Tests.cmake)
+  * 2.5. change required libraries in [conanfile.txt](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/conanfile.txt), the package manager will handle it automatically during first build
+  * 2.6. if needed, you can customize safety flags for your current compiler: [GCC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1)
+  * 2.7. if neeeded, add [HERE](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
 
 #### 3. Use
   * 3.1. run task `Terminal`>`Run Task`>`Project: Configure with Conan Install`
@@ -109,14 +114,14 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
   * 3.3. use additinal tasks for profiling:
     * `LiveProcMon: Start Monitoring` to check resources consumption at real-time
     * `Valgrind: Show Memcheck Report`, `Valgrind: Show Callgrind Report` and `Valgrind: Show Cachegrind Report` to get profiler's reports
-    * `CppRunCurrentFile: Run/Debug` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main/test_cpp_snippets))
+    * `CppRunCurrentFile: Run/Debug` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main/test_cpp_snippets))
 
 ---
 
 ### Internal functions and variables description
-* **function** `get_sources_from_dir( SOURCES_DEST_VAR INCLUDES_DEST_VAR TARGET_FOLDER_PATH )` - scans `TARGET_FOLDER_PATH` **(non-recursive globbing)** and adds C++ files by the [mask](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L17) into variables: `SOURCES_DEST_VAR` (list of source files) and `INCLUDES_DEST_VAR` (list of include paths). examples of usage you can find [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/lib/somelib/CMakeLists.txt#L8) and [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/lib/somelib/thirdparty/thirdlib/CMakeLists.txt#L8)
-* **variable** `OUTPUT_NAME` - the name of the current target name (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`. example of usage you can find in [CMakeLists.txt_z_Utils_Qt.cmake](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_Qt.cmake)
-* **variable** `SAFETY_FLAGS` - contains the list of the compiler's flags ([GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1))
+* **function** `get_sources_from_dir( SOURCES_DEST_VAR INCLUDES_DEST_VAR TARGET_FOLDER_PATH )` - scans `TARGET_FOLDER_PATH` **(non-recursive globbing)** and adds C++ files by the [mask](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt#L17) into variables: `SOURCES_DEST_VAR` (list of source files) and `INCLUDES_DEST_VAR` (list of include paths). examples of usage you can find [HERE](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/lib/somelib/CMakeLists.txt#L8) and [HERE](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/lib/somelib/thirdparty/thirdlib/CMakeLists.txt#L8)
+* **variable** `OUTPUT_NAME` - the name of the current target name (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`. example of usage you can find in [CMakeLists.txt_z_Utils_Qt.cmake](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_Qt.cmake)
+* **variable** `SAFETY_FLAGS` - contains the list of the compiler's flags ([GCC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1))
 
 ---
 
