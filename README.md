@@ -16,7 +16,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
 * enabled auto linting (with `clang-tidy`) and auto formatting (with `clang-format`)
 * automatically [applies](./CMakeLists.txt#L9) name of directory as name of a project/library
-* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
+* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/VSCodeCppIDE_Template?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/VSCodeCppIDE_Template?tab=readme-ov-file#internal-functions-and-variables-description))
 * automatically adds (if possible) `Boost` and `Qt6` libraries (installed via package manager)
 * applies set of compiler's flags for extra safety: [GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
 * automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
@@ -106,7 +106,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
   * 2.4. add source of uint tests to folder `test` or add/change you testing configuration in [CMakeLists.txt_b_Project_Tests.cmake](./CMakeLists.txt_b_Project_Tests.cmake)
   * 2.5. change required libraries in [conanfile.txt](./conanfile.txt), the package manager will handle it automatically during first build
   * 2.6. if needed, you can customize safety flags for your current compiler: [GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1)
-  * 2.7. if neeeded, add [HERE](./CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
+  * 2.7. if neeeded, add [HERE](./CMakeLists.txt#L11) specific sources and includes of your current project
 
 #### 3. Use
   * 3.1. run task `Terminal`>`Run Task`>`Project: Configure with Conan Install`
@@ -114,7 +114,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
   * 3.3. use additinal tasks for profiling:
     * `LiveProcMon: Start Monitoring` to check resources consumption at real-time
     * `Valgrind: Show Memcheck Report`, `Valgrind: Show Callgrind Report` and `Valgrind: Show Cachegrind Report` to get profiler's reports
-    * `CppRunCurrentFile: Run/Debug` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](https://github.com/R3D9477/VSCodeCppIDE_Template_VSCodeCMakeTools/tree/main/test_cpp_snippets))
+    * `CppRunCurrentFile: Run/Debug` to compile and run currently snippet (e.g. single `.cpp` file located in folder [test_cpp_snippets](./test_cpp_snippets/))
 
 ---
 
