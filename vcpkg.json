@@ -6,6 +6,15 @@
         "boost-asio",
         "boost-test",
         "boost-thread",
-        "gtest"
+        "gtest",
+        "qt",
+        "qtdeclarative",
+        {
+            "name": "qtmultimedia",
+            "features": [
+                "gstreamer",
+                "qml"
+            ]
+        }
     ]
 }
