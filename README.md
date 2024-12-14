@@ -8,13 +8,13 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
   * uses vcpkg, automatically downloads packages from `vcpkg.json` (to enable it need to define environment variable `VCPKG_ROOT`)
   * uses Conan, automatically downloads packages from `conanfile.txt` (to enable it need to undef environment variable `VCPKG_ROOT`)
 * easy to make and show `Valgrind` reports
-* `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
+* `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop
+* easy run & debug currently opened C++ snippet
 * easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
-* enabled auto linting (with `clang-tidy`)
-* enabled auto formatting (with `clang-format`)
+* enabled auto linting (with `clang-tidy`) and auto formatting (with `clang-format`)
 * automatically [applies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L9) name of directory as name of a project/library
 * automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
-* automatically adds (if possible) `Boost` and `Qt6` libraries
+* automatically adds (if possible) `Boost` and `Qt6` libraries, installed via package manager
 * applies set of compiler's flags for extra safety: [GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
 * automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
 * for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
@@ -45,6 +45,11 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 * `Valgrind: Show Cachegrind Report`
 * `Valgrind: Show Callgrind Report`
 * `CppRunCurrentFile: Run/Debug`
+* `Fold level 4`
+* `Fold level 3`
+* `Fold level 2`
+* `Fold level 1`
+* `Unfold all`
 
 ### Basic project's stucture
 ㅤㅤㅤㅤ<sub>**[ PROJECT_FOLDER = PROJECT_NAME ]**</sub>
