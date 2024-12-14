@@ -223,8 +223,8 @@
         {
             "group": "_cppprojecttoolbar",
             "text": "$(bug)",
-            "name": "CMake: Debug",
-            "tooltip": "CMake: Debug",
+            "name": "C++ Project: Debug",
+            "tooltip": "C++ Project: Debug",
             "command": "workbench.action.debug.start",
             "alignment": "left",
             "priority": 99999,

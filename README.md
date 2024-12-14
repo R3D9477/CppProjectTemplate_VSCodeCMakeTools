@@ -26,10 +26,10 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 ---
 
 ### Main tasks
-* `Project: Clean` - runs `cmake.clean` command + remove all Valgrind reports
-* `Project: Configure and Build` - configure and run `cmake.build` command
-* `Project: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
-* `Project: Configure and Install Packages` - install `conanfile.txt` and run `cmake.configure` command
+* `C++ Project: Clean` - runs `cmake.clean` command + remove all Valgrind reports
+* `C++ Project: Configure and Build` - configure and run `cmake.build` command
+* `C++ Project: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
+* `C++ Project: Configure and Install Packages` - install `conanfile.txt` and run `cmake.configure` command
 * `CppRunCurrentFile: Run/Debug` - build, run & debug currently opened `.cpp` source file
 * `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
 * `LiveProcMon: Stop Monitoring` - stop monitoring

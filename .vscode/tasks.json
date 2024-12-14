@@ -3,7 +3,7 @@
     "tasks": [
         // User tasks: All (autoclose terminal if no failures)
         {
-            "label": "$(package) Project: Build",
+            "label": "$(package) C++ Project: Build",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -21,7 +21,7 @@
             },
         },
         {
-            "label": "$(package) Project: Rebuild",
+            "label": "$(package) C++ Project: Rebuild",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -39,7 +39,7 @@
             },
         },
         {
-            "label": "$(package) Project: Configure and Install Packages",
+            "label": "$(package) C++ Project: Configure and Install Packages",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -58,7 +58,7 @@
             },
         },
         {
-            "label": "$(clear-all) Project: Clean",
+            "label": "$(clear-all) C++ Project: Clean",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
