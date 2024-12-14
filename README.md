@@ -1,6 +1,23 @@
 ### VSCodeCppIDE_Template
 Template of C++ project with config to make a VSCode be IDE-like with set of useful features for simplier development life.<br/>
-Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) extension.
+
+### Features
+* configured to run inside Docker with [already prepared configuration](./.devcontainer_disabled)
+* uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+* configured to work with package managers
+  * uses vcpkg, automatically downloads packages from `vcpkg.json` (to enable it need to define environment variable `VCPKG_ROOT`)
+  * uses Conan, automatically downloads packages from `conanfile.txt` (to enable it need to undef environment variable `VCPKG_ROOT`)
+* easy to make and show `Valgrind` reports
+* `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
+* easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
+* enabled auto linting (with `clang-tidy`)
+* enabled auto formatting (with `clang-format`)
+* automatically [applies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L9) name of directory as name of a project/library
+* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
+* automatically adds (if possible) `Boost` and `Qt6` libraries
+* applies set of compiler's flags for extra safety: [GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
+* automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
+* for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
 
 <p align="center"><img src=".vscode/img/editor.png" alt="LiveProcMon" width="400" height="200"></p>
 
@@ -9,11 +26,11 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 ---
 
 ### Main tasks
-* `CMake: Clean` - run `cmake.clean` command + remove all Valgrind reports
-* `CMake: Configure and Build` - configure and run `cmake.build` command
-* `CMake: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
-* `CMake: Configure with Conan Install` - install `conanfile.txt` and run `cmake.configure` command
-* `CppRunCurrentFile: Run/Debu` - build, run & debug currently opened `.cpp` source file
+* `Project: Clean` - runs `cmake.clean` command + remove all Valgrind reports
+* `Project: Configure and Build` - configure and run `cmake.build` command
+* `Project: Configure and Rebuild` - configure and run `cmake.cleanRebuild` command
+* `Project: Configure and Install Packages` - install `conanfile.txt` and run `cmake.configure` command
+* `CppRunCurrentFile: Run/Debug` - build, run & debug currently opened `.cpp` source file
 * `LiveProcMon: Start Monitoring` - start real-time monitoring of the target process (by default taken from `cmake.launchTargetPath`)
 * `LiveProcMon: Stop Monitoring` - stop monitoring
 * `Valgrind: Show Memcheck Report` - show profiler's report (check for memory leaks)
@@ -28,22 +45,6 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
 * `Valgrind: Show Cachegrind Report`
 * `Valgrind: Show Callgrind Report`
 * `CppRunCurrentFile: Run/Debug`
-
-### Features
-* easy to run inside Docker with [already prepared configuration](./.devcontainer_disabled)
-* uses `CMake` to manage the project, configured to use extension [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
-* uses Conan, automatically downloads packages from `conanfile.txt` before building the project
-* easy to make and show `Valgrind` reports
-* `LiveProcMon` feature checks resources consumption of the launched application, easy to configure, strart and stop:
-* easy access to cppreference (via hotkey `Ctrl+Shift+A`) to get description of specified data type, method, etc
-* enabled auto linting (with `clang-tidy`)
-* enabled auto formatting (with `clang-format`)
-* automatically [applies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L9) name of directory as name of a project/library
-* automatically finds and adds needed sources from certain folders, and includes them into the project's tree (described in [Configure](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#2-configure) and [Internal functions and variables description](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/tree/main?tab=readme-ov-file#internal-functions-and-variables-description))
-* automatically adds (if possible) `Boost`, `Qt5`/`Qt6` libraries
-* applies set of compiler's flags for extra safety: [GCC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake)
-* automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
-* for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
 
 ### Basic project's stucture
 ㅤㅤㅤㅤ<sub>**[ PROJECT_FOLDER = PROJECT_NAME ]**</sub>
@@ -96,7 +97,7 @@ Configured over [MS C/C++ Extension Pack](https://marketplace.visualstudio.com/i
   * 2.7. if neeeded, add [HERE](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt#L11) specific sources and includes of your current project (example you can see [HERE](https://github.com/R3D9477/SimpleCustomQmlItemQt6Cmake/blob/master/CMakeLists.txt#L12))
 
 #### 3. Use
-  * 3.1. run task `Terminal`>`Run Task`>`CMake: Configure with Conan Install`
+  * 3.1. run task `Terminal`>`Run Task`>`Project: Configure with Conan Install`
   * 3.2. press `F5` to build `Debug` version (variant selected by default in CMake Tools) and run debugging process (by default using LLDB, can be changed in `launch.json`)
   * 3.3. use additinal tasks for profiling:
     * `LiveProcMon: Start Monitoring` to check resources consumption at real-time

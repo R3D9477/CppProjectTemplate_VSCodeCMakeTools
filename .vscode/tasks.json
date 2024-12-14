@@ -3,7 +3,7 @@
     "tasks": [
         // User tasks: All (autoclose terminal if no failures)
         {
-            "label": "$(package) CMake: Build",
+            "label": "$(package) Project: Build",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -12,7 +12,7 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Build (opened terminal for failure case)",
+                "Project: Build (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ],
             "group": {
@@ -21,7 +21,7 @@
             },
         },
         {
-            "label": "$(package) CMake: Rebuild",
+            "label": "$(package) Project: Rebuild",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -30,7 +30,7 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Rebuild (opened terminal for failure case)",
+                "Project: Rebuild (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ],
             "group": {
@@ -39,7 +39,7 @@
             },
         },
         {
-            "label": "$(package) CMake: Configure and Install Packages",
+            "label": "$(package) Project: Configure and Install Packages",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -48,8 +48,8 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Select a Kit",
-                "CMake: Configure and Install Packages (opened terminal for failure case)",
+                "Project: Select a Kit",
+                "Project: Configure and Install Packages (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ],
             "group": {
@@ -58,7 +58,7 @@
             },
         },
         {
-            "label": "$(clear-all) CMake: Clean",
+            "label": "$(clear-all) Project: Clean",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -67,7 +67,7 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Clean (opened terminal for failure case)",
+                "Project: Clean (opened terminal for failure case)",
                 "VSCode Utility: Toggle Terminal Twice",
             ]
         },
@@ -154,7 +154,7 @@
         },
         // User tasks: CMake
         {
-            "label": "CMake: Configure and Install Packages (opened terminal for failure case)",
+            "label": "Project: Configure and Install Packages (opened terminal for failure case)",
             "hide": true,
             "type": "cmake",
             "command": "configure",
@@ -175,7 +175,7 @@
             },
         },
         {
-            "label": "CMake: Rebuild (opened terminal for failure case)",
+            "label": "Project: Rebuild (opened terminal for failure case)",
             "hide": true,
             "type": "cmake",
             "command": "cleanRebuild",
@@ -184,8 +184,8 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
-                "CMake: Clean (opened terminal for failure case)",
-                "CMake: Configure and Install Packages (opened terminal for failure case)"
+                "Project: Clean (opened terminal for failure case)",
+                "Project: Configure and Install Packages (opened terminal for failure case)"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -199,7 +199,7 @@
             },
         },
         {
-            "label": "CMake: Build (opened terminal for failure case)",
+            "label": "Project: Build (opened terminal for failure case)",
             "hide": true,
             "type": "cmake",
             "command": "build",
@@ -207,7 +207,7 @@
                 "all"
             ],
             "dependsOrder": "sequence",
-            "dependsOn": "CMake: Configure and Install Packages (opened terminal for failure case)",
+            "dependsOn": "Project: Configure and Install Packages (opened terminal for failure case)",
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -220,7 +220,7 @@
             },
         },
         {
-            "label": "CMake: Clean (opened terminal for failure case)",
+            "label": "Project: Clean (opened terminal for failure case)",
             "hide": true,
             "type": "cmake",
             "command": "clean",
@@ -328,7 +328,7 @@
         },
         // Service tasks: CMake
         {
-            "label": "CMake: Select a Kit",
+            "label": "Project: Select a Kit",
             "hide": true,
             "command": "${command:multiCommand.cmake_buildKit}",
             "problemMatcher": {
@@ -567,7 +567,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Memcheck",
-                "CMake: Build (opened terminal for failure case)"
+                "Project: Build (opened terminal for failure case)"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -593,7 +593,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Callgrind",
-                "CMake: Build (opened terminal for failure case)"
+                "Project: Build (opened terminal for failure case)"
             ],
             "problemMatcher": {
                 "base": "$gcc",
@@ -617,7 +617,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "Valgrind: Clean Cachegrind",
-                "CMake: Build (opened terminal for failure case)"
+                "Project: Build (opened terminal for failure case)"
             ],
             "problemMatcher": {
                 "base": "$gcc",
