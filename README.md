@@ -106,7 +106,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
   * 2.4. add source of uint tests to folder `test` or add/change you testing configuration in [CMakeLists.txt_b_Project_Tests.cmake](./CMakeLists.txt_b_Project_Tests.cmake)
   * 2.5. change required libraries in [vcpkg.json](./vcpkg.json) or in [conanfile.txt](./conanfile.txt), the package manager will handle it automatically during the first build
   * 2.6. if needed, you can customize safety flags for your current compiler: [GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1)
-  * 2.7. if neeeded, add [HERE](./CMakeLists.txt#L11) specific sources and includes of your current project
+  * 2.7. if neeeded, add [HERE](./CMakeLists.txt#L25) specific sources and includes of your current project
 
 #### 3. Use
   * 3.1. run task `Terminal`>`Run Task`>`Project: Configure with Conan Install`
@@ -119,7 +119,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 ---
 
 ### Internal functions and variables description
-* **function** `get_sources_from_dir( SOURCES_DEST_VAR INCLUDES_DEST_VAR TARGET_FOLDER_PATH )` - scans `TARGET_FOLDER_PATH` **(non-recursive globbing)** and adds C++ files by the [mask](./CMakeLists.txt#L17) into variables: `SOURCES_DEST_VAR` (list of source files) and `INCLUDES_DEST_VAR` (list of include paths). examples of usage you can find [HERE](./lib/somelib/CMakeLists.txt#L8) and [HERE](./lib/somelib/thirdparty/thirdlib/CMakeLists.txt#L8)
+* **function** `get_sources_from_dir( SOURCES_DEST_VAR INCLUDES_DEST_VAR TARGET_FOLDER_PATH )` - scans `TARGET_FOLDER_PATH` **(non-recursive globbing)** and adds C++ files by the [mask](./CMakeLists.txt#L17) into variables: `SOURCES_DEST_VAR` (list of source files) and `INCLUDES_DEST_VAR` (list of include paths).
 * **variable** `OUTPUT_NAME` - the name of the current target name (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`.
 * **variable** `SAFETY_FLAGS` - contains the list of the compiler's flags ([GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake))
 
