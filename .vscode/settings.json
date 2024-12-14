@@ -101,7 +101,7 @@
         "statusBar.foreground": "#ffffff"
     },
     "launches": {
-        "CppRunCurrentFile_Debug": "C++ Debug Current File",
+        "CppRunCurrentFile_Debug": "Debug Current C++ File",
     },
     "multiCommand.commands": [
         {
