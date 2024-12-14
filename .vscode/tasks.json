@@ -498,7 +498,7 @@
             "command": "code",
             "args": [
                 "-r",
-                "${workspaceFolder}/build/${command:cmake.buildType}/$${command:cmake.launchTargetPath}.cachegrind.valgrind"
+                "${command:cmake.launchTargetPath}.cachegrind.valgrind"
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
@@ -518,7 +518,7 @@
                 "command": "bash",
                 "args": [
                     "-c",
-                    "cg_annotate ${command:cmake.launchTargetPath}.cachegrind $(echo $(find ${workspaceFolder} -name '*.cpp' -o -name '*.c' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp')) > ${command:cmake.launchTargetPath}.cachegrind.valgrind"
+                    "cg_annotate ${command:cmake.launchTargetPath}.cachegrind $(echo $( find ${workspaceFolder} -name '*.cpp' -not -path '${workspaceFolder}/build/*' -o -name '*.c' -not -path '${workspaceFolder}/build/*' -o -name '*.cc' -not -path '${workspaceFolder}/build/*' -o -name '*.h' -not -path '${workspaceFolder}/build/*' -o -name '*.hpp' -not -path '${workspaceFolder}/build/*' )) > ${command:cmake.launchTargetPath}.cachegrind.valgrind"
                 ]
             },
             "dependsOrder": "sequence",
@@ -606,9 +606,6 @@
             "label": "Valgrind: Make Cachegrind Report",
             "hide": true,
             "command": "valgrind",
-            "options": {
-                "cwd": "${workspaceFolder}/build/${command:cmake.buildType}"
-            },
             "args": [
                 "--tool=cachegrind",
                 "--cachegrind-out-file=${command:cmake.launchTargetPath}.cachegrind",
