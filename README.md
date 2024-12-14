@@ -120,7 +120,7 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 
 ### Internal functions and variables description
 * **function** `get_sources_from_dir( SOURCES_DEST_VAR INCLUDES_DEST_VAR TARGET_FOLDER_PATH )` - scans `TARGET_FOLDER_PATH` **(non-recursive globbing)** and adds C++ files by the [mask](./CMakeLists.txt#L17) into variables: `SOURCES_DEST_VAR` (list of source files) and `INCLUDES_DEST_VAR` (list of include paths). examples of usage you can find [HERE](./lib/somelib/CMakeLists.txt#L8) and [HERE](./lib/somelib/thirdparty/thirdlib/CMakeLists.txt#L8)
-* **variable** `OUTPUT_NAME` - the name of the current target name (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`. example of usage you can find in [CMakeLists.txt_z_Utils_Qt.cmake](./CMakeLists.txt_z_Utils_Qt.cmake)
+* **variable** `OUTPUT_NAME` - the name of the current target name (target executable file name). usually it the same as varibale `PROJECT_NAME`, but for Qt6 application it different: `app${PROJECT_NAME}`.
 * **variable** `SAFETY_FLAGS` - contains the list of the compiler's flags ([GCC](./CMakeLists.txt_c_Project_SafetyFlags_GNU.cmake.cmake#L1), [Clang](./CMakeLists.txt_c_Project_SafetyFlags_CLANG.cmake#L1) or [MSVC](./CMakeLists.txt_c_Project_SafetyFlags_MSVC.cmake#L1))
 
 ---
