@@ -19,9 +19,11 @@ Template of C++ project with config to make a VSCode be IDE-like with set of use
 * automatically finds and adds unit tests *(**don't use** the dot symbol '`.`' in the name of test's source file!)*
 * for MSVC automatically [copies](https://github.com/R3D9477/CppProjectTemplate_VSCodeCMakeTools/blob/main/CMakeLists.txt_z_Utils_VCRuntime.cmake) MS Visual C++ runtime libs to target building directory
 
-<p align="center"><img src=".vscode/img/editor.png" alt="LiveProcMon" width="400" height="200"></p>
+<p align="center"><img src=".vscode/img/editor.png" alt="CppEditor" width="400" height="200"></p>
 
 <p align="center"><img src=".vscode/img/liveprocmon.png" alt="LiveProcMon" width="400" height="200"></p>
+
+<p align="center"><img src=".vscode/img/callgrind.png" alt="Callgrind" width="400" height="200"></p>
 
 ---
 
